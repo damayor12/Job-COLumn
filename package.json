@@ -1,0 +1,22 @@
+{
+  "name": "job-column",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startServer": "cd server && nodemon index.js",
+    "startClient": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarZubaidi/Job-COLumn.git"
+  },
+  "keywords": [],
+  "author": "Omar Zubaidi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmarZubaidi/Job-COLumn/issues"
+  },
+  "homepage": "https://github.com/OmarZubaidi/Job-COLumn#readme"
+}
