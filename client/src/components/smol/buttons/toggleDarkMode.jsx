@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 
 // Local imports
-import Button from './primaryButton';
+import Button from './secondaryButton';
 import { ThemeContext } from '../../../App';
 
 function ToggleDarkMode () {
@@ -11,7 +11,6 @@ function ToggleDarkMode () {
   return (
     <Button
       onClick={toggleTheme}
-      text={darkMode ? 'Light Mode' : 'Dark Mode'}
       icon={darkMode ? 'flash' : 'moon'}
     />
   )

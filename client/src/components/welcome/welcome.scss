@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .welcome {
   padding: 50px;
 
@@ -9,7 +11,7 @@
   }
 
   .welcome-container {
-    display: block !important;
+    flex-direction: column;
 
     .welcome-text {
       margin-bottom: 30px;
@@ -21,20 +23,12 @@
       justify-content: space-between;
       width: 100%;
 
-      .bp4-input-group {
-        input {
-          width: calc(100% - 5px);
-        }
+      #currentSalary {
+        width: 95px;
       }
-    }
 
-    .submitUserDetails {
-      display: flex;
-      justify-content: center;
-
-      button {
-        display: inline-block;
-        margin: 0 auto;
+      @media (max-width: $mobile) {
+        flex-direction: column;
       }
     }
   }

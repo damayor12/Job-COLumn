@@ -1,16 +1,17 @@
 // Package imports
-import { createContext, useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, FormGroup, Icon, IconSize, InputGroup, NumericInput } from '@blueprintjs/core';
+import { FormGroup, NumericInput } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 
 // Local imports
 import Logo from '../../logo';
 import GBP from '../smol/GBP';
 import { UserContext } from '../../App';
-import PrimaryButton from '../smol/buttons/primaryButton'
+import Button from '../smol/buttons/primaryButton'
 import './welcome.scss';
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
+import CitiesSelector from '../smol/select/cities';
 
 function Welcome () {
   const navigate = useNavigate();
@@ -46,53 +47,27 @@ function Welcome () {
         <FormGroup
           inline
         >
-          <InputGroup
-            id='currentLocation'
-            defaultValue={userDetails[0]}
-            fill
-            leftIcon='locate'
-            onChange={(e) => setUserDetails([
-              e.target.value,
-              userDetails[1]
-            ])}
-            placeholder='Current Location'
-          />
-          {/* <Select
-            fill
-            items={cities.map(city => city.name)}
-            placeholder='Current Location'
-          >
-            <Button
-              leftIcon='locate'
-              text={cities[0].name}
-            />
-          </Select> */}
-          {/* <NumericInput
-            leftIcon={<GBP />}
-            placeholder="Placeholder text"
-          /> */}
+          <CitiesSelector />
           <NumericInput
-            fill
             defaultValue={userDetails[1]}
             leftIcon={<GBP />}
+            id='currentSalary'
+            // locale='en-US'
             majorStepSize='10000'
             min={0}
             onValueChange={(value) => setUserDetails([
               userDetails[0],
               value
             ])}
-            placeholder='Current Salary'
             stepSize='1000'
           />
-        </FormGroup>
-        <div className='submitUserDetails'>
           <ToggleDarkMode />
-          <PrimaryButton
+          <Button
             onClick={() => navigate('/jobs')}
-            text='Start Search'
+            text='Start'
             icon='key-enter'
           />
-        </div>
+        </FormGroup>
       </main>
     </div>
   );
