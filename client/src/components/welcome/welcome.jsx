@@ -2,16 +2,15 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FormGroup, NumericInput } from '@blueprintjs/core';
-import { Select } from '@blueprintjs/select';
 
 // Local imports
+import { UserContext } from '../../App';
 import Logo from '../../logo';
 import GBP from '../smol/GBP';
-import { UserContext } from '../../App';
 import Button from '../smol/buttons/primaryButton'
-import './welcome.scss';
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
 import CitiesSelector from '../smol/select/cities';
+import './welcome.scss';
 
 function Welcome () {
   const navigate = useNavigate();
@@ -24,25 +23,35 @@ function Welcome () {
       </header>
       <main className='welcome-container'>
         <div className='welcome-text'>
-          Welcome message.
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid quibusdam voluptate quae voluptatum maiores. Commodi praesentium quam fugit, corrupti aspernatur dolore. Distinctio odio voluptatibus magnam qui provident cum dignissimos placeat.
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid quibusdam voluptate quae voluptatum maiores. Commodi praesentium quam fugit, corrupti aspernatur dolore. Distinctio odio voluptatibus magnam qui provident cum dignissimos placeat.
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid quibusdam voluptate quae voluptatum maiores. Commodi praesentium quam fugit, corrupti aspernatur dolore. Distinctio odio voluptatibus magnam qui provident cum dignissimos placeat.
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid quibusdam voluptate quae voluptatum maiores. Commodi praesentium quam fugit, corrupti aspernatur dolore. Distinctio odio voluptatibus magnam qui provident cum dignissimos placeat.
+          <p>Hello and welcome to Job COLumn!</p>
         </div>
         <div className='welcome-text'>
-          Describe the app.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus distinctio temporibus natus expedita voluptate consectetur porro quisquam nisi odio a voluptatem autem rerum atque aperiam, quod maxime nobis voluptatum dignissimos.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus distinctio temporibus natus expedita voluptate consectetur porro quisquam nisi odio a voluptatem autem rerum atque aperiam, quod maxime nobis voluptatum dignissimos.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus distinctio temporibus natus expedita voluptate consectetur porro quisquam nisi odio a voluptatem autem rerum atque aperiam, quod maxime nobis voluptatum dignissimos.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus distinctio temporibus natus expedita voluptate consectetur porro quisquam nisi odio a voluptatem autem rerum atque aperiam, quod maxime nobis voluptatum dignissimos.
+          <p>Job COLumn is a job board that considers the cost of living.</p>
+          <p>It compares the minimum salary in a listed job with your current salary! Magic!</p>
+          <p>It doesn't display jobs that don't list a salary (because they'll probably try and scam you and I ain't about that life) nor any jobs outside of a set list of the larger cities in the UK.</p>
+          <p>You may be asking yourself, "But, why?" Cause I said so. Deal with it or don't use my app. Bite me. JK ILY please stay &lt;3.</p>
+          <p>Nah but for real, of all the jobs that do have salaries, it will show you which jobs will give you a better quality of life. Please note this is just about making more money for your time, if you're unhappy this site won't change that.</p>
         </div>
         <div className='welcome-text'>
-          Explain why I need some details from the user.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore nostrum in sequi incidunt reiciendis iure eius laborum eos, ratione esse quaerat cumque modi consequatur, exercitationem perspiciatis omnis, ad hic necessitatibus.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore nostrum in sequi incidunt reiciendis iure eius laborum eos, ratione esse quaerat cumque modi consequatur, exercitationem perspiciatis omnis, ad hic necessitatibus.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore nostrum in sequi incidunt reiciendis iure eius laborum eos, ratione esse quaerat cumque modi consequatur, exercitationem perspiciatis omnis, ad hic necessitatibus.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore nostrum in sequi incidunt reiciendis iure eius laborum eos, ratione esse quaerat cumque modi consequatur, exercitationem perspiciatis omnis, ad hic necessitatibus.
+          <p>You'll be able to filter by:</p>
+          <ul>
+            <li>keywords</li>
+            <li>location</li>
+            <li>minimum salary</li>
+          </ul>
+          <p>You can also sort by any of:</p>
+          <ul>
+            <li>location name</li>
+            <li>salary</li>
+            <li>expiration date</li>
+            <li>job title</li>
+          </ul>
+        </div>
+        <div className='welcome-text'>
+          <p>Now obviously I'll need some information from you to make this app work.</p>
+          <p>I'll need your current location to compare the consumer price index - CPI (look it up) with that of the one in each job's location. If you live in the middle of nowhere, pick your closest city.</p>
+          <p>I'll also need your current salary for the same reason. Obviously these 2 details alone aren't enough to personally identify you if some hacker gets into this super insecure website, but if you think that specific combination will out you, just use a close enough value.</p>
+          <p>Also, I'm a dark mode dude. If you're not, click the flashlight to burn your retinas.</p>
         </div>
         <FormGroup
           inline
@@ -52,6 +61,7 @@ function Welcome () {
             defaultValue={userDetails[1]}
             leftIcon={<GBP />}
             id='currentSalary'
+            // TODO figure out how to add commas in display
             // locale='en-US'
             majorStepSize='10000'
             min={0}

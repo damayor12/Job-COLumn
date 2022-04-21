@@ -13,7 +13,7 @@ function CitiesSelector () {
 
   // To display only the queried items
   function filterCities (query, city) {
-    return city.name.toLowerCase().indexOf(query.toLowerCase()) >= 0;
+    return city.name.indexOf(query) >= 0;
   }
 
   // To display each item in the list
@@ -36,7 +36,7 @@ function CitiesSelector () {
       itemRenderer={citiesRenderer}
       items={CITIES}
       leftIcon='locate'
-      onItemSelect={(city) => {
+      onItemSelect={city => {
         setUserDetails([
           city.name,
           userDetails[1]

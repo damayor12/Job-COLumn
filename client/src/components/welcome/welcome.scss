@@ -15,6 +15,12 @@
 
     .welcome-text {
       margin-bottom: 30px;
+
+      // TODO Center this bitch
+      p {
+        width: 50%;
+        text-align: justify;
+      }
     }
 
     .bp4-form-content {
