@@ -1,16 +1,22 @@
 
 // Package imports
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Divider, EditableText, H5 } from '@blueprintjs/core';
 
 // Local imports
 import Logo from '../../logo';
+import { UserContext } from '../../App';
 import Button from '../smol/buttons/primaryButton';
 import BackButton from '../smol/buttons/backButton';
+import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
 import './sidebar.scss';
 
 function Sidebar () {
   const navigate = useNavigate();
+  const [userDetails, setUserDetails] = useContext(UserContext);
+
+  console.log(userDetails);
 
   return (
     <nav>
@@ -18,17 +24,19 @@ function Sidebar () {
         <Logo />
       </Link>
       <Divider />
+      <ToggleDarkMode />
+      <Divider />
       <div>
         <div>
-          Current Location: AAAAAAAAAAA
+          Current Location: {userDetails[0]}
         </div>
         <div>form
-          Current Salary: AAAAAAAAAAA
+          Current Salary: {userDetails[1]}
         </div>
       </div>
       <Divider />
       <div>
-        <H5 class="bp4-heading">
+        <H5 className="bp4-heading">
           Filter
         </H5>
         <div>
@@ -45,6 +53,7 @@ function Sidebar () {
           <form>
             <input
               type='text'
+              // TODO add placeholder text for dropdown
               placeholder='London'
             />
           </form>
@@ -54,6 +63,7 @@ function Sidebar () {
           <form>
             <input
               type='number'
+              // TODO add placeholder text for numeric input
               placeholder='30000'
             />
           </form>
@@ -61,7 +71,7 @@ function Sidebar () {
       </div>
       <Divider />
       <div>
-        <H5 class="bp4-heading">
+        <H5 className="bp4-heading">
           Sort
         </H5>
         <div>

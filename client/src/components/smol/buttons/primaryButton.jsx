@@ -2,6 +2,7 @@
 import { Classes, Button, Colors } from '@blueprintjs/core';
 
 function GenericButton ({ onClick, text, icon }) {
+
   return (
   <Button
     style={{

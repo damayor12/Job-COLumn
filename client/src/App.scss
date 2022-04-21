@@ -1,4 +1,10 @@
 /* Global styling */
+@import './index.scss';
+
 main {
   display: flex !important;
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+  }
 }
