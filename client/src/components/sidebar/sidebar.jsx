@@ -1,10 +1,13 @@
+
 // Package imports
 import { Link, useNavigate } from 'react-router-dom';
+import { Divider, EditableText, H5 } from '@blueprintjs/core';
 
 // Local imports
 import Logo from '../../logo';
 import Button from '../smol/buttons/primaryButton';
 import BackButton from '../smol/buttons/backButton';
+import './sidebar.scss';
 
 function Sidebar () {
   const navigate = useNavigate();
@@ -14,24 +17,28 @@ function Sidebar () {
       <Link to='/jobs'>
         <Logo />
       </Link>
+      <Divider />
       <div>
         <div>
-          Current Location:
+          Current Location: AAAAAAAAAAA
         </div>
-        <div>
-          Current Salary:
+        <div>form
+          Current Salary: AAAAAAAAAAA
         </div>
       </div>
+      <Divider />
       <div>
-        Filters:
+        <H5 class="bp4-heading">
+          Filter
+        </H5>
         <div>
           Keywords:
-          <form>
-            <input
-              type='text'
-              placeholder='Software Engineer'
-            />
-          </form>
+          <EditableText
+            multiline
+            confirmOnEnterKey
+            intent='primary'
+            // onConfirm={() => filter(value)}
+          />
         </div>
         <div>
           Where:
@@ -52,8 +59,11 @@ function Sidebar () {
           </form>
         </div>
       </div>
+      <Divider />
       <div>
-        Sort by:
+        <H5 class="bp4-heading">
+          Sort
+        </H5>
         <div>
           Location (Asc)
         </div>
@@ -67,9 +77,7 @@ function Sidebar () {
           Title (Desc)
         </div>
       </div>
-      <div>
-        <Button onClick={() => navigate('/jobs/1')} text='Search' icon='search' />
-      </div>
+      <Button onClick={() => navigate('/jobs/1')} text='Search' icon='search' />
       {/* {CURRENT URL NOT '/jobs'} */1 && <BackButton />}
     </nav>
   );

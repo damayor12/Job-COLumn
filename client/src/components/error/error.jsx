@@ -1,14 +1,15 @@
 // Package imports
 
 // Local imports
-import Sidebar from '../sidebar';
+import BackButton from '../smol/buttons/backButton';
+import './error.scss';
 
 function Error () {
   return (
     <main>
-      <Sidebar />
-      <div>
+      <div className='error'>
         Error 404: Page not found
+        <BackButton />
       </div>
     </main>
   );

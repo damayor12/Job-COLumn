@@ -1,15 +1,16 @@
 // Package imports
-import { Outlet } from 'react-router-dom';
 
 // Local imports
-import Sidebar from '../sidebar';
+import Sidebar from '../sidebar/sidebar';
 
 function Jobs () {
   return (
-    <div>
+    <main>
       <Sidebar />
-      <Outlet />
-    </div>
+      <p>
+        All Jobs!
+      </p>
+    </main>
   );
 }
 

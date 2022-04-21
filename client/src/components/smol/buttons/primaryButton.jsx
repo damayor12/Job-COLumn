@@ -8,11 +8,12 @@ function GenericButton ({ onClick, text, icon }) {
       backgroundColor: Colors.ROSE1,
       color: 'white'
     }}
-    intent='primary'
     className={Classes.SMALL}
-    outlined
+    fill={false}
     icon={icon}
+    intent='primary'
     onClick={onClick}
+    outlined
   >
     {text}
   </Button>

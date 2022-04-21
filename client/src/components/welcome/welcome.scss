@@ -1,0 +1,41 @@
+.welcome {
+  padding: 50px;
+
+  header {
+    // TODO double-check this after making logo
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+
+  .welcome-container {
+    display: block !important;
+
+    .welcome-text {
+      margin-bottom: 30px;
+    }
+
+    .bp4-form-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      .bp4-input-group {
+        input {
+          width: calc(100% - 5px);
+        }
+      }
+    }
+
+    .submitUserDetails {
+      display: flex;
+      justify-content: center;
+
+      button {
+        display: inline-block;
+        margin: 0 auto;
+      }
+    }
+  }
+}

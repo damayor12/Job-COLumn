@@ -1,5 +1,5 @@
 // Package imports
-import { Colors } from '@blueprintjs/core';
+import { Colors, H1 } from '@blueprintjs/core';
 
 // Local imports
 
@@ -9,14 +9,13 @@ import '../node_modules/normalize.css/normalize.css';
 
 function Logo () {
   return (
-    <h1
-      class="bp4-heading"
+    <H1
       style={{
         color: Colors.ROSE1
       }}
     >
       Job COLumn
-    </h1>
+    </H1>
   );
 }
 
