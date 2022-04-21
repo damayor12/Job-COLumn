@@ -14,7 +14,7 @@ import './sidebar.scss';
 
 function Sidebar () {
   const navigate = useNavigate();
-  const [userDetails, setUserDetails] = useContext(UserContext);
+  const [userDetails,] = useContext(UserContext);
 
   console.log(userDetails);
 

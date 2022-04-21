@@ -2,10 +2,13 @@
 
 function createCitiesTable (connection, DataTypes) {
   const Cities = connection.define('Cities', {
-    name: DataTypes.STRING,
-    index: DataTypes.FLOAT(14),
-    latitude: DataTypes.FLOAT(6),
-    longitude: DataTypes.FLOAT(6)
+    name: {
+      type: DataTypes.STRING,
+      primaryKey: true
+    },
+    index: DataTypes.FLOAT,
+    latitude: DataTypes.FLOAT,
+    longitude: DataTypes.FLOAT
   }, { timestamps: false });
   return Cities;
 }
