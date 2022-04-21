@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 // Local imports
 import Logo from '../../logo';
-import Button from '../smol/primaryButton';
-import BackButton from '../smol/backButton';
+import Button from '../smol/buttons/primaryButton';
+import BackButton from '../smol/buttons/backButton';
 
 function Sidebar () {
   const navigate = useNavigate();

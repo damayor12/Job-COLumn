@@ -1,5 +1,5 @@
 // Package imports
-import { Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 // Local imports
 
@@ -10,8 +10,6 @@ function Details () {
       <p>
         Details! {jobId}
       </p>
-      {/* Do I even need it here? */}
-      <Outlet />
     </div>
   );
 }

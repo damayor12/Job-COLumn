@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 // Local imports
 import Logo from '../../logo';
-import Button from '../smol/primaryButton'
+import Button from '../smol/buttons/primaryButton'
 
 function Welcome () {
   const navigate = useNavigate();
