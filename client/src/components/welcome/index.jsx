@@ -1,9 +1,13 @@
 // Package imports
+import { useNavigate } from 'react-router-dom';
 
 // Local imports
 import Logo from '../../logo';
+import Button from '../smol/primaryButton'
 
 function Welcome () {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Logo />
@@ -27,6 +31,7 @@ function Welcome () {
             type='number'
             placeholder='Current salary'
           />
+          <Button onClick={() => navigate('/jobs')} text='Submit' icon='key-enter' />
         </form>
       </div>
     </div>

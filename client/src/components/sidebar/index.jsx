@@ -1,11 +1,14 @@
 // Package imports
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Local imports
 import Logo from '../../logo';
+import Button from '../smol/primaryButton';
 import BackButton from '../smol/backButton';
 
 function Sidebar () {
+  const navigate = useNavigate();
+
   return (
     <nav>
       <Link to='/jobs'>
@@ -65,9 +68,7 @@ function Sidebar () {
         </div>
       </div>
       <div>
-        <button>
-          Search
-        </button>
+        <Button onClick={() => navigate('/jobs/1')} text='Search' icon='search' />
       </div>
       {/* {CURRENT URL NOT '/jobs'} */1 && <BackButton />}
     </nav>

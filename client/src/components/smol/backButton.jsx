@@ -1,21 +1,18 @@
 // Package imports
-import { Classes, Button, Colors } from '@blueprintjs/core';
 import { useNavigate } from 'react-router-dom';
+
+// Local imports
+import Button from './secondaryButton';
 
 function BackButton () {
   const navigate = useNavigate();
 
   return (
-  <Button
-    style={{
-      backgroundColor: Colors.ROSE1,
-      color: 'white'
-    }}
-    className={Classes.SMALL}
-    onClick={() => navigate(-1)}
-  >
-    Back
-  </Button>
+    <Button
+      onClick={() => navigate(-1)}
+      text='Back'
+      icon='arrow-left'
+    />
   );
 }
 

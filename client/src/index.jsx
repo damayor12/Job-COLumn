@@ -7,6 +7,7 @@ import { FocusStyleManager } from "@blueprintjs/core";
 // Local imports
 import './index.css';
 import App from './App';
+import Redirect from './components/smol/redirect';
 import Welcome from './components/welcome';
 import Jobs from './components/jobs';
 import AllJobs from './components/jobs/allJobs';
@@ -28,7 +29,7 @@ root.render(
     <Router>
       <Routes>
         <Route path='/' element={<App />} >
-        {/* <Route path='/' element={<Navigate to='/welcome' />} > */}
+          <Route index element={<Redirect />} />
           <Route path='welcome' element={<Welcome />} />
           <Route path='jobs' element={<Jobs />} >
             <Route index element={<AllJobs />} />
