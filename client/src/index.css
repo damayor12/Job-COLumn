@@ -46,6 +46,6 @@ img {
 
 a {
   color: inherit;
-  /* Underline is standard in Blueprint. Disable it. */
-  text-decoration: none;
+  /* Underline is standard in Blueprint. Force disable it. */
+  text-decoration: none !important;
 }
