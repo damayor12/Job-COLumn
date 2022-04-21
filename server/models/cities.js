@@ -4,11 +4,11 @@
 const db = require('./index');
 
 async function getAllCities () {
-  return await db.Jobs.findAll();
+  return await db.Cities.findAll();
 }
 
-async function getCity (id) {
-  return await db.Jobs.findOne({where: { id }});
+async function getCity (name) {
+  return await db.Cities.findOne({where: { name }});
 }
 
 module.exports = { getAllCities, getCity };

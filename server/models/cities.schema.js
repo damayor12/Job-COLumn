@@ -6,7 +6,7 @@ function createCitiesTable (connection, DataTypes) {
     index: DataTypes.FLOAT(14),
     latitude: DataTypes.FLOAT(6),
     longitude: DataTypes.FLOAT(6)
-  });
+  }, { timestamps: false });
   return Cities;
 }
 

@@ -16,8 +16,8 @@ async function getAllCities (_, res) {
 
 async function getCity (req, res) {
   try {
-    const { id } = req.params;
-    const city = await Cities.getCity(id);
+    const { name } = req.params;
+    const city = await Cities.getCity(name);
     res.status(200);
     res.send(city);
   } catch (error) {

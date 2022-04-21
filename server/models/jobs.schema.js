@@ -14,10 +14,10 @@ function createJobsTable (connection, DataTypes) {
     currency: DataTypes.STRING,
     expirationDate: DataTypes.STRING,
     date: DataTypes.STRING,
-    jobDescription: DataTypes.STRING,
+    jobDescription: DataTypes.TEXT,
     applications: DataTypes.INTEGER,
     jobUrl: DataTypes.STRING,
-  });
+  }, { timestamps: false });
   return Jobs;
 }
 

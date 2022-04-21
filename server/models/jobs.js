@@ -7,8 +7,8 @@ async function getAllJobs () {
   return await db.Jobs.findAll();
 }
 
-async function getJob (id) {
-  return await db.Jobs.findOne({where: { id }});
+async function getJob (jobId) {
+  return await db.Jobs.findOne({ where: { jobId } });
 }
 
 module.exports = { getAllJobs, getJob };
