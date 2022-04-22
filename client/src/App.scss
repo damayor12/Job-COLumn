@@ -5,6 +5,10 @@ main {
   display: flex !important;
   padding: 25px;
 
+  .bold {
+    font-weight: bold;
+  }
+
   @media (max-width: $mobile) {
     flex-direction: column;
   }

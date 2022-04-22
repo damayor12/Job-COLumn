@@ -1,10 +1,10 @@
 // Package imports
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FormGroup, NumericInput } from '@blueprintjs/core';
+import { Colors, FormGroup, NumericInput } from '@blueprintjs/core';
 
 // Local imports
-import { UserContext } from '../../App';
+import { UserContext, ThemeContext } from '../../App';
 import Logo from '../../logo';
 import GBP from '../smol/GBP';
 import Button from '../smol/buttons/primaryButton'
@@ -15,6 +15,7 @@ import './welcome.scss';
 function Welcome () {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useContext(UserContext);
+  const [darkMode,] = useContext(ThemeContext);
 
   return (
     <div className='welcome'>
@@ -23,10 +24,20 @@ function Welcome () {
       </header>
       <main className='welcome-container'>
         <div className='welcome-text'>
-          <p>Hello and welcome to Job COLumn!</p>
+          <p>Hello and welcome to <span
+            className='bold'
+            style={{
+              color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+            }}
+          >Job COLumn</span>!</p>
         </div>
         <div className='welcome-text'>
-          <p>Job COLumn is a job board that considers the cost of living.</p>
+          <p><span
+            className='bold'
+            style={{
+              color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+            }}
+          >Job COLumn</span> is a job board that considers the cost of living.</p>
           <p>It compares the minimum salary in a listed job with your current salary! Magic!</p>
           <p>It doesn't display jobs that don't list a salary (because they'll probably try and scam you and I ain't about that life) nor any jobs outside of a set list of the larger cities in the UK.</p>
           <p>You may be asking yourself, "But, why?" Cause I said so. Deal with it or don't use my app. Bite me. JK ILY please stay &lt;3.</p>
