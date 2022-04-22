@@ -9,9 +9,24 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
 
-    .user-value {
-      font-weight: bold;
+  .filter-details {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+
+    .bp4-input-group,
+    .bp4-numeric-input {
+      margin-left: 10px;
+      // TODO this isn't working so it extends past the end of the sidebar
+      size: calc(100% - 10px);
+    }
+
+    .bp4-numeric-input {
+      size: 2px;
     }
   }
 

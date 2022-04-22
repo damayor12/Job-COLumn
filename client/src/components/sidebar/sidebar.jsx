@@ -2,20 +2,25 @@
 // Package imports
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Colors, Divider, EditableText, H5 } from '@blueprintjs/core';
+import { Colors, Divider, H5, Icon, InputGroup, NumericInput, Position } from '@blueprintjs/core';
 
 // Local imports
 import Logo from '../../logo';
-import { UserContext, ThemeContext } from '../../App';
-import Button from '../smol/buttons/primaryButton';
+import { FilterContext, UserContext, SortContext, ThemeContext } from '../../App';
+import PrimaryButton from '../smol/buttons/primaryButton';
+import SecondaryButton from '../smol/buttons/secondaryButton';
 import BackButton from '../smol/buttons/backButton';
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
+import SortSelector from '../smol/select/sorts';
+import GBP from '../smol/GBP';
 import './sidebar.scss';
 
 function Sidebar () {
   const navigate = useNavigate();
   const [userDetails,] = useContext(UserContext);
   const [darkMode,] = useContext(ThemeContext);
+  const [filters, setFilters] = useContext(FilterContext);
+  const [sort, setSort] = useContext(SortContext);
 
   return (
     <nav>
@@ -32,7 +37,9 @@ function Sidebar () {
           <div>
             Current Location
           </div>
-          <div className='user-value'>
+          <div style={{
+            color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+          }}>
             {userDetails[0]}
           </div>
         </div>
@@ -40,8 +47,10 @@ function Sidebar () {
           <div>
             Current Salary
           </div>
-          <div className='user-value'>
-            {userDetails[1]}
+          <div style={{
+            color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+          }}>
+            {`£${userDetails[1].toLocaleString('en-US')}`}
           </div>
         </div>
       </div>
@@ -50,59 +59,90 @@ function Sidebar () {
         <H5 className="bp4-heading" style={{
           color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
         }}>
-          Filter
+          <Icon icon='filter'/> Filter
         </H5>
-        <div>
-          Keywords:
-          <EditableText
-            multiline
-            confirmOnEnterKey
-            // onConfirm={() => filter(value)}
-          />
-        </div>
-        <div>
-          Where:
-          <form>
-            <input
-              type='text'
-              // TODO add placeholder text for dropdown
-              placeholder='London'
+        <div className='filter-details'>
+          <div>
+            Keywords
+          </div>
+          <div>
+            <InputGroup
+              fill
+              defaultValue={filters[0]}
+              leftIcon='search'
+              onChange={e => setFilters([
+                e.target.value,
+                ...filters.slice(1)
+              ])}
+              placeholder='Keywords'
             />
-          </form>
+          </div>
         </div>
-        <div>
-          Min Salary:
-          <form>
-            <input
-              type='number'
-              // TODO add placeholder text for numeric input
-              placeholder='30000'
+        <div className='filter-details'>
+          <div>
+            Location
+          </div>
+          <div>
+            <InputGroup
+              fill
+              defaultValue={filters[1]}
+              leftIcon='map-marker'
+              onChange={e => setFilters([
+                filters[0],
+                e.target.value,
+                filters[2]
+              ])}
+              placeholder='Desired City/Cities'
             />
-          </form>
+          </div>
+        </div>
+        <div className='filter-details'>
+          <div>
+            Salary
+          </div>
+          <div>
+            <NumericInput
+              // TODO bring back if the fucking margin BS isn't working
+              // buttonPosition={Position.LEFT}
+              leftIcon={<GBP />}
+              // TODO figure out how to add commas in display
+              // locale='en-US'
+              majorStepSize='10000'
+              min={0}
+              onValueChange={(value) => setFilters([
+                ...filters.slice(0, 2),
+                value
+              ])}
+              placeholder='Desired Salary'
+              stepSize='1000'
+            />
+          </div>
         </div>
       </div>
       <Divider />
-      <div>
+      <div className='filter-details'>
         <H5 className="bp4-heading" style={{
           color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
         }}>
-          Sort
+          Sort by
         </H5>
-        <div>
-          Location (Asc)
-        </div>
-        <div>
-          Salary (Desc)
-        </div>
-        <div>
-          Expiration Date (Asc)
-        </div>
-        <div>
-          Title (Desc)
-        </div>
+        <SortSelector />
+        <SecondaryButton
+          icon={<Icon
+            color={`${darkMode ? Colors.ROSE5 : Colors.ROSE1}`}
+            icon={`sort-${sort[1]}`}
+          />}
+          onClick={() => setSort([
+            sort[0],
+            `${sort[1] === 'asc' ? 'desc' : 'asc'}`
+          ])}
+        />
       </div>
-      <Button onClick={() => navigate('/jobs/1')} text='Search' icon='search' />
-      {/* {CURRENT URL NOT '/jobs'} */1 && <BackButton />}
+      <PrimaryButton
+        icon='search'
+        onClick={() => navigate('/jobs/1')}
+      />
+      <BackButton />
     </nav>
   );
 }

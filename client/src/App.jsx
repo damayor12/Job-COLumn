@@ -24,11 +24,16 @@ FocusStyleManager.onlyShowFocusOnTabs();
 export const ThemeContext = createContext();
 export const UserContext = createContext(['', 0]);
 export const CitiesContext = createContext(CITIES);
-export const JobsContext = createContext(CITIES);
+export const JobsContext = createContext([]);
+export const FilterContext = createContext(['', '', 0]);
+export const SortContext = createContext(['Expiration Date', 'asc']);
 
 function App () {
   const [darkMode, toggleDarkMode] = useState(true);
-  const [userDetails, setUserDetails] = useState(['London', 20_000]);
+  const [userDetails, setUserDetails] = useState(['', 20_000]);
+  const [jobs, setJobs] = useState(JOBS);
+  const [filters, setFilters] = useState(['', '', 0]);
+  const [sort, setSort] = useState(['Expiration Date', 'asc']);
 
   function toggleTheme () {
     toggleDarkMode(mode => !mode);
@@ -38,24 +43,28 @@ function App () {
     <ThemeContext.Provider value={[darkMode, toggleTheme]}>
       <UserContext.Provider value={[userDetails, setUserDetails]}>
         <CitiesContext.Provider value={CITIES}>
-          <JobsContext.Provider value={JOBS}>
-            <div style={{ height: '100vh' }}>
-              <div
-                className={darkMode ? 'bp4-dark background-dark' : 'background-light'}
-                style={{
-                  height: '100%'
-                }}
-              >
-                <Router>
-                  <Routes>
-                    <Route path='/' element={<Welcome />} />
-                    <Route path='/jobs' element={<Jobs />} />
-                    <Route path='/jobs/:jobId' element={<Details />} />
-                    <Route path='/*' element={<Error />} />
-                  </Routes>
-                </Router>
-              </div>
-            </div>
+          <JobsContext.Provider value={[jobs, setJobs]}>
+            <FilterContext.Provider value={[filters, setFilters]}>
+              <SortContext.Provider value={[sort, setSort]}>
+                <div style={{ height: '100vh' }}>
+                  <div
+                    className={darkMode ? 'bp4-dark background-dark' : 'background-light'}
+                    style={{
+                      height: '100%'
+                    }}
+                  >
+                    <Router>
+                      <Routes>
+                        <Route path='/' element={<Welcome />} />
+                        <Route path='/jobs' element={<Jobs />} />
+                        <Route path='/jobs/:jobId' element={<Details />} />
+                        <Route path='/*' element={<Error />} />
+                      </Routes>
+                    </Router>
+                  </div>
+                </div>
+              </SortContext.Provider>
+            </FilterContext.Provider>
           </JobsContext.Provider>
         </CitiesContext.Provider>
       </UserContext.Provider>

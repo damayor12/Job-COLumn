@@ -13,13 +13,16 @@ function Logo () {
   const [darkMode,] = useContext(ThemeContext);
 
   return (
-    <H1
-      style={{
-        color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
-      }}
-    >
-      Job COLumn
-    </H1>
+    <>
+      <H1
+        style={{
+          color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+        }}
+      >
+        Job COLumn
+      </H1>
+      <p>Jobs for every cost of living</p>
+    </>
   );
 }
 
