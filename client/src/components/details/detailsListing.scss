@@ -1,0 +1,35 @@
+@import '../../index.scss';
+
+.details {
+  width: 75%;
+  padding: 20px;
+
+  .details-listing {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 10px;
+
+    .details-listing-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .details-listing-secondary {
+        // TODO why no worky?
+        color: #555;
+      }
+
+      .job-title {
+        font-size: xx-large;
+      }
+
+      .job-salary {
+        font-size: x-large;
+        font-weight: bold;
+      }
+    }
+  }
+}

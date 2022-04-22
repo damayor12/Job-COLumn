@@ -5,6 +5,8 @@ nav {
   flex-direction: column;
   width: 300px;
   margin-right: 25px;
+  // TODO how do I make it not move?
+  // position: fixed;
 
   .user-details {
     display: flex;

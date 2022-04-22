@@ -23,8 +23,7 @@ app
 async function bootstrap () {
   try {
     await db.connection.authenticate();
-    // ! Remove force: true when done fucking with the schema
-    await db.connection.sync(/* { force: true } */);
+    await db.connection.sync();
     app.listen(PORT, () => {
       console.log(`http://${HOST_NAME}:${PORT}/`);
     });

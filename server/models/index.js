@@ -9,8 +9,7 @@ require('dotenv').config();
 const config = {
   host: process.env.HOST_NAME,
   dialect: 'postgres',
-  // TODO: When you've made sure the database is responding, disable logging
-  logging: true
+  logging: false
 };
 
 const connection = new Sequelize(

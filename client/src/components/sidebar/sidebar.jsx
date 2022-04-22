@@ -1,7 +1,7 @@
 
 // Package imports
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Colors, H5, Icon, InputGroup, NumericInput } from '@blueprintjs/core';
 
 // Local imports
@@ -83,6 +83,7 @@ function Sidebar () {
             Location(s)
           </div>
           <div className='filter-value'>
+            {/* TODO ? What happens to my filter state now?  */}
             <MultipleCitiesSelector />
             {/* <InputGroup
               fill
@@ -104,6 +105,7 @@ function Sidebar () {
           <div className='filter-value'>
             <NumericInput
               fill
+              // TODO refactor to its own component
               // TODO bring back if the fucking margin BS isn't working
               // buttonPosition={Position.LEFT}
               leftIcon={<GBP />}
@@ -142,7 +144,8 @@ function Sidebar () {
       </div>
       <PrimaryButton
         icon='search'
-        onClick={() => navigate('/jobs/1')}
+        // TODO should instead filter jobs state using filters state
+        onClick={() => navigate('/jobs/46589185')}
       />
       <BackButton />
       <Divider />

@@ -6,26 +6,24 @@ import { Spinner } from '@blueprintjs/core';
 import Sidebar from '../sidebar/sidebar';
 import { JobsContext } from '../../App';
 import { getAllJobs } from '../../services/api';
+import JobListing from './jobListing';
+import './jobs.scss';
 
 function Jobs () {
   const [jobs, setJobs] = useContext(JobsContext);
 
-
   // Get all jobs once
   useEffect(() => {
     getAllJobs()
-      .then(result => setJobs(result));
+      .then(result => setJobs(result.slice(0, 100)));
   }, []);
 
   return (
     <main>
       <Sidebar />
       <div className='all-jobs'>
-        <p>All jobs.</p>
         {jobs.length
-          ? jobs.map(job => <div key={job.id}>
-              <p>{job.jobId}</p>
-            </div>)
+          ? jobs.map(job => <JobListing key={job.id} job={job} />)
           : <Spinner />
         }
       </div>
