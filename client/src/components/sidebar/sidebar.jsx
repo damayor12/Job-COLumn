@@ -2,16 +2,17 @@
 // Package imports
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Colors, Divider, H5, Icon, InputGroup, NumericInput, Position } from '@blueprintjs/core';
+import { Colors, H5, Icon, InputGroup, NumericInput } from '@blueprintjs/core';
 
 // Local imports
-import Logo from '../../logo';
+import Logo from '../logo/logo';
 import { FilterContext, UserContext, SortContext, ThemeContext } from '../../App';
 import PrimaryButton from '../smol/buttons/primaryButton';
 import SecondaryButton from '../smol/buttons/secondaryButton';
 import BackButton from '../smol/buttons/backButton';
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
 import SortSelector from '../smol/select/sorts';
+import Divider from '../smol/divider';
 import GBP from '../smol/GBP';
 import './sidebar.scss';
 

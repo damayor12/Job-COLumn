@@ -35,6 +35,8 @@ function App () {
   const [filters, setFilters] = useState(['', '', 0]);
   const [sort, setSort] = useState(['Expiration Date', 'asc']);
 
+  document.body.className = `${darkMode ? 'bp4-dark background-dark' : 'bp4-body background-light'}`
+
   function toggleTheme () {
     toggleDarkMode(mode => !mode);
   }
@@ -46,22 +48,14 @@ function App () {
           <JobsContext.Provider value={[jobs, setJobs]}>
             <FilterContext.Provider value={[filters, setFilters]}>
               <SortContext.Provider value={[sort, setSort]}>
-                <div
-                  className={darkMode ? 'bp4-dark background-dark' : 'background-light'}
-                  style={{
-                    minHeight: '100vh',
-                    height: '100%'
-                  }}
-                >
-                  <Router>
-                    <Routes>
-                      <Route path='/' element={<Welcome />} />
-                      <Route path='/jobs' element={<Jobs />} />
-                      <Route path='/jobs/:jobId' element={<Details />} />
-                      <Route path='/*' element={<Error />} />
-                    </Routes>
-                  </Router>
-                </div>
+                <Router>
+                  <Routes>
+                    <Route path='/' element={<Welcome />} />
+                    <Route path='/jobs' element={<Jobs />} />
+                    <Route path='/jobs/:jobId' element={<Details />} />
+                    <Route path='/*' element={<Error />} />
+                  </Routes>
+                </Router>
               </SortContext.Provider>
             </FilterContext.Provider>
           </JobsContext.Provider>
