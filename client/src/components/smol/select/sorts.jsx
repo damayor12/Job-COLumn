@@ -32,7 +32,7 @@ function SortSelector () {
   return (
     <Select
       activeItem={sort[0]}
-      filterable='false'
+      filterable={false}
       itemRenderer={renderer}
       items={options}
       leftIcon='select'

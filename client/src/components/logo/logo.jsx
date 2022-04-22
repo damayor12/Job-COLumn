@@ -10,14 +10,11 @@ function Logo () {
   const [darkMode,] = useContext(ThemeContext);
 
   return (
-    <>
-      <Icon
-        style={{
-          fill: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
-        }}
-      />
-      <p>Jobs for every cost of living</p>
-    </>
+    <Icon
+      style={{
+        fill: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+      }}
+    />
   );
 }
 

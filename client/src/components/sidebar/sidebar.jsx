@@ -15,6 +15,7 @@ import SortSelector from '../smol/select/sorts';
 import Divider from '../smol/divider';
 import GBP from '../smol/GBP/GBP';
 import './sidebar.scss';
+import MultipleCitiesSelector from '../smol/select/multipleCities';
 
 function Sidebar () {
   const navigate = useNavigate();
@@ -25,9 +26,7 @@ function Sidebar () {
 
   return (
     <nav>
-      <Link to='/jobs'>
-        <Logo />
-      </Link>
+      <Logo />
       <Divider />
       <ToggleDarkMode
         text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`}
@@ -81,10 +80,11 @@ function Sidebar () {
         </div>
         <div className='filter-details'>
           <div className='filter-label'>
-            Location
+            Location(s)
           </div>
           <div className='filter-value'>
-            <InputGroup
+            <MultipleCitiesSelector />
+            {/* <InputGroup
               fill
               defaultValue={filters[1]}
               leftIcon='map-marker'
@@ -94,7 +94,7 @@ function Sidebar () {
                 filters[2]
               ])}
               placeholder='Desired City/Cities'
-            />
+            /> */}
           </div>
         </div>
         <div className='filter-details'>
