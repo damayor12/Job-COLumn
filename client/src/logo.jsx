@@ -21,6 +21,7 @@ function Logo () {
       >
         Job COLumn
       </H1>
+      {/* Remove hyperlink coloring */}
       <p>Jobs for every cost of living</p>
     </>
   );

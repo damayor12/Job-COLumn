@@ -46,22 +46,21 @@ function App () {
           <JobsContext.Provider value={[jobs, setJobs]}>
             <FilterContext.Provider value={[filters, setFilters]}>
               <SortContext.Provider value={[sort, setSort]}>
-                <div style={{ height: '100vh' }}>
-                  <div
-                    className={darkMode ? 'bp4-dark background-dark' : 'background-light'}
-                    style={{
-                      height: '100%'
-                    }}
-                  >
-                    <Router>
-                      <Routes>
-                        <Route path='/' element={<Welcome />} />
-                        <Route path='/jobs' element={<Jobs />} />
-                        <Route path='/jobs/:jobId' element={<Details />} />
-                        <Route path='/*' element={<Error />} />
-                      </Routes>
-                    </Router>
-                  </div>
+                <div
+                  className={darkMode ? 'bp4-dark background-dark' : 'background-light'}
+                  style={{
+                    minHeight: '100vh',
+                    height: '100%'
+                  }}
+                >
+                  <Router>
+                    <Routes>
+                      <Route path='/' element={<Welcome />} />
+                      <Route path='/jobs' element={<Jobs />} />
+                      <Route path='/jobs/:jobId' element={<Details />} />
+                      <Route path='/*' element={<Error />} />
+                    </Routes>
+                  </Router>
                 </div>
               </SortContext.Provider>
             </FilterContext.Provider>

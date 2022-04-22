@@ -62,10 +62,10 @@ function Sidebar () {
           <Icon icon='filter'/> Filter
         </H5>
         <div className='filter-details'>
-          <div>
+          <div className='filter-label'>
             Keywords
           </div>
-          <div>
+          <div className='filter-value'>
             <InputGroup
               fill
               defaultValue={filters[0]}
@@ -79,10 +79,10 @@ function Sidebar () {
           </div>
         </div>
         <div className='filter-details'>
-          <div>
+          <div className='filter-label'>
             Location
           </div>
-          <div>
+          <div className='filter-value'>
             <InputGroup
               fill
               defaultValue={filters[1]}
@@ -97,11 +97,12 @@ function Sidebar () {
           </div>
         </div>
         <div className='filter-details'>
-          <div>
+          <div className='filter-label'>
             Salary
           </div>
-          <div>
+          <div className='filter-value'>
             <NumericInput
+              fill
               // TODO bring back if the fucking margin BS isn't working
               // buttonPosition={Position.LEFT}
               leftIcon={<GBP />}
@@ -143,6 +144,7 @@ function Sidebar () {
         onClick={() => navigate('/jobs/1')}
       />
       <BackButton />
+      <Divider />
     </nav>
   );
 }

@@ -4,11 +4,16 @@ nav {
   display: flex;
   flex-direction: column;
   width: 300px;
+  margin-right: 25px;
 
   .user-details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .bp4-divider {
+    margin: 10px 0px;
   }
 
   .filter-details {
@@ -18,19 +23,27 @@ nav {
     justify-content: space-between;
     margin-bottom: 5px;
 
-    .bp4-input-group,
-    .bp4-numeric-input {
-      margin-left: 10px;
-      // TODO this isn't working so it extends past the end of the sidebar
-      size: calc(100% - 10px);
+    .filter-label {
+      width: 80px;
     }
 
     .bp4-numeric-input {
-      size: 2px;
+      padding-left: 7px;
     }
   }
 
   @media (max-width: $mobile) {
     width: 100%;
+    margin-right: 0px;
+    margin-bottom: 25px;
+
+    .filter-details {
+      .bp4-numeric-input {
+        width: calc(100% - 32px);
+        margin-left: auto;
+        // align-self: flex-end;
+        // padding-left: 32px;
+      }
+    }
   }
 }
