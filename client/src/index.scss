@@ -48,7 +48,7 @@ img {
 }
 
 a {
-  color: inherit;
+  color: inherit !important;
   // Underline is standard in Blueprint. Force disable it.
   text-decoration: none !important;
 }

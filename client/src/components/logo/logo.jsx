@@ -1,29 +1,25 @@
 // Package imports
 import { useContext } from 'react';
-import { Colors, H1 } from '@blueprintjs/core';
+import { Colors } from '@blueprintjs/core';
 
 // Local imports
 import { ThemeContext } from '../../App';
-import { ReactComponent as Image } from './logo.svg';
-
-// CSS
-import '@blueprintjs/core/lib/css/blueprint.css';
-import '../../../node_modules/normalize.css/normalize.css';
+import { ReactComponent as Icon } from './logo.svg';
 
 function Logo () {
   const [darkMode,] = useContext(ThemeContext);
 
   return (
     <>
-      <Image
+      <Icon
         style={{
           fill: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
         }}
       />
-      {/* Remove hyperlink coloring */}
       <p>Jobs for every cost of living</p>
     </>
   );
 }
 
 export default Logo;
+
