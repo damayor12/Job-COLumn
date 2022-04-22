@@ -6,7 +6,7 @@ import { Colors, FormGroup, NumericInput } from '@blueprintjs/core';
 // Local imports
 import { UserContext, ThemeContext } from '../../App';
 import Logo from '../logo/logo';
-import GBP from '../smol/GBP';
+import GBP from '../smol/GBP/GBP';
 import Button from '../smol/buttons/primaryButton'
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
 import CitiesSelector from '../smol/select/cities';

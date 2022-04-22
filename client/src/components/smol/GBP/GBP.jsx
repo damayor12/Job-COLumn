@@ -1,4 +1,4 @@
-import { ReactComponent as Icon } from '../../assets/GBP.svg';
+import { ReactComponent as Icon } from './GBP.svg';
 
 function GBP () {
   return (

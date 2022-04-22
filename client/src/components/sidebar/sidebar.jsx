@@ -13,7 +13,7 @@ import BackButton from '../smol/buttons/backButton';
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
 import SortSelector from '../smol/select/sorts';
 import Divider from '../smol/divider';
-import GBP from '../smol/GBP';
+import GBP from '../smol/GBP/GBP';
 import './sidebar.scss';
 
 function Sidebar () {
