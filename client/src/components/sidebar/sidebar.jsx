@@ -2,11 +2,11 @@
 // Package imports
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Divider, EditableText, H5 } from '@blueprintjs/core';
+import { Colors, Divider, EditableText, H5 } from '@blueprintjs/core';
 
 // Local imports
 import Logo from '../../logo';
-import { UserContext } from '../../App';
+import { UserContext, ThemeContext } from '../../App';
 import Button from '../smol/buttons/primaryButton';
 import BackButton from '../smol/buttons/backButton';
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
@@ -15,8 +15,7 @@ import './sidebar.scss';
 function Sidebar () {
   const navigate = useNavigate();
   const [userDetails,] = useContext(UserContext);
-
-  console.log(userDetails);
+  const [darkMode,] = useContext(ThemeContext);
 
   return (
     <nav>
@@ -24,19 +23,33 @@ function Sidebar () {
         <Logo />
       </Link>
       <Divider />
-      <ToggleDarkMode />
+      <ToggleDarkMode
+        text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`}
+      />
       <Divider />
       <div>
-        <div>
-          Current Location: {userDetails[0]}
+        <div className='user-details'>
+          <div>
+            Current Location
+          </div>
+          <div className='user-value'>
+            {userDetails[0]}
+          </div>
         </div>
-        <div>form
-          Current Salary: {userDetails[1]}
+        <div className='user-details'>
+          <div>
+            Current Salary
+          </div>
+          <div className='user-value'>
+            {userDetails[1]}
+          </div>
         </div>
       </div>
       <Divider />
       <div>
-        <H5 className="bp4-heading">
+        <H5 className="bp4-heading" style={{
+          color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+        }}>
           Filter
         </H5>
         <div>
@@ -44,7 +57,6 @@ function Sidebar () {
           <EditableText
             multiline
             confirmOnEnterKey
-            intent='primary'
             // onConfirm={() => filter(value)}
           />
         </div>
@@ -71,7 +83,9 @@ function Sidebar () {
       </div>
       <Divider />
       <div>
-        <H5 className="bp4-heading">
+        <H5 className="bp4-heading" style={{
+          color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+        }}>
           Sort
         </H5>
         <div>

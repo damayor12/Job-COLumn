@@ -39,15 +39,22 @@ function App () {
       <UserContext.Provider value={[userDetails, setUserDetails]}>
         <CitiesContext.Provider value={CITIES}>
           <JobsContext.Provider value={JOBS}>
-            <div className={darkMode ? 'bp4-dark' : ''}>
-              <Router>
-                <Routes>
-                  <Route path='/' element={<Welcome />} />
-                  <Route path='/jobs' element={<Jobs />} />
-                  <Route path='/jobs/:jobId' element={<Details />} />
-                  <Route path='/*' element={<Error />} />
-                </Routes>
-              </Router>
+            <div style={{ height: '100vh' }}>
+              <div
+                className={darkMode ? 'bp4-dark background-dark' : 'background-light'}
+                style={{
+                  height: '100%'
+                }}
+              >
+                <Router>
+                  <Routes>
+                    <Route path='/' element={<Welcome />} />
+                    <Route path='/jobs' element={<Jobs />} />
+                    <Route path='/jobs/:jobId' element={<Details />} />
+                    <Route path='/*' element={<Error />} />
+                  </Routes>
+                </Router>
+              </div>
             </div>
           </JobsContext.Provider>
         </CitiesContext.Provider>

@@ -1,4 +1,9 @@
-/* Reset CSS */
+// Variables
+$mobile: 500px;
+$almost-black: rgb(30, 30, 30);
+$almost-white: rgb(250, 250, 250);
+
+// Reset CSS
 * {
   margin: 0;
   padding: 0;
@@ -33,8 +38,8 @@ h2+.user_review {
   border-top: 1px solid black;
 }
 
-/* This is useful when implementing a grid system so that all images take up
-100% of the width of their containers */
+// This is useful when implementing a grid system so that all images take up
+// 100% of the width of their containers
 img {
   width: 100%;
   height: auto;
@@ -43,8 +48,19 @@ img {
 
 a {
   color: inherit;
-  /* Underline is standard in Blueprint. Force disable it. */
+  // Underline is standard in Blueprint. Force disable it.
   text-decoration: none !important;
 }
 
-$mobile: 500px;
+.background-dark {
+  background-color: $almost-black;
+}
+
+.background-light {
+  background-color: $almost-white;
+}
+
+:export {
+  almostBlack: $almost-black;
+  almostWhite: $almost-white;
+}

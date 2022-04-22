@@ -79,6 +79,13 @@ function Welcome () {
           />
         </FormGroup>
       </main>
+      <footer>
+        Powered by <a href='https://www.reed.co.uk/'>
+          Reed
+        </a> and <a href='https://www.numbeo.com/'>
+          Numbeo
+        </a>.
+      </footer>
     </div>
   );
 }

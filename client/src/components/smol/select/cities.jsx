@@ -13,7 +13,10 @@ function CitiesSelector () {
 
   // To display only the queried items
   function filterCities (query, city) {
-    return city.name.indexOf(query) >= 0;
+    return city
+      .name
+      .toLowerCase()
+      .indexOf(query.toLowerCase()) >= 0;
   }
 
   // To display each item in the list

@@ -1,23 +1,30 @@
 // Package imports
+import { useContext } from 'react';
 import { Classes, Button, Colors } from '@blueprintjs/core';
 
-function GenericButton ({ onClick, text, icon }) {
+// Local imports
+import { ThemeContext } from '../../../App';
+
+function SecondaryButton ({ ariaLabel, icon, onClick, text }) {
+  const [darkMode,] = useContext(ThemeContext);
+
   return (
-  <Button
-    style={{
-      borderColor: Colors.ROSE1,
-      color: Colors.ROSE1
-    }}
-    className={Classes.SMALL}
-    fill={false}
-    icon={icon}
-    intent='secondary'
-    onClick={onClick}
-    outlined
-  >
-    {text}
-  </Button>
-  );
+    <Button
+      style={{
+        borderColor: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`,
+        color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+      }}
+      aria-label={ariaLabel}
+      className={Classes.SMALL}
+      fill={false}
+      icon={icon}
+      intent='secondary'
+      onClick={onClick}
+      outlined
+    >
+      {text}
+    </Button>
+    );
 }
 
-export default GenericButton;
+export default SecondaryButton;

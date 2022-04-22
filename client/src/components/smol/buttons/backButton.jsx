@@ -9,9 +9,10 @@ function BackButton () {
 
   return (
     <Button
+      ariaLabel='Back button'
+      icon='arrow-left'
       onClick={() => navigate(-1)}
       text='Back'
-      icon='arrow-left'
     />
   );
 }

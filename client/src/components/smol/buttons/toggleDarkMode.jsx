@@ -5,13 +5,15 @@ import { useContext } from 'react';
 import Button from './secondaryButton';
 import { ThemeContext } from '../../../App';
 
-function ToggleDarkMode () {
+function ToggleDarkMode ({ text }) {
   const [darkMode, toggleTheme] = useContext(ThemeContext);
 
   return (
     <Button
-      onClick={toggleTheme}
+      ariaLabel={`Toggle ${darkMode ? 'Light' : 'Dark'} Mode`}
       icon={darkMode ? 'flash' : 'moon'}
+      onClick={toggleTheme}
+      text={text}
     />
   )
 }

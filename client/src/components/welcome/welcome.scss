@@ -10,16 +10,29 @@
     margin-bottom: 50px;
   }
 
+  footer {
+    font-size: smaller;
+  }
+
   .welcome-container {
     flex-direction: column;
+    align-content: center;
 
     .welcome-text {
       margin-bottom: 30px;
 
-      // TODO Center this bitch
-      p {
-        width: 50%;
-        text-align: justify;
+      ul {
+        margin-bottom: 15px;
+
+        li {
+          padding-left: 10px;
+
+          &::before {
+            position: absolute;
+            margin-left: -10px;
+            content: '\2013';
+          }
+        }
       }
     }
 

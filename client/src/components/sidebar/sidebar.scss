@@ -5,6 +5,16 @@ nav {
   flex-direction: column;
   width: 300px;
 
+  .user-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .user-value {
+      font-weight: bold;
+    }
+  }
+
   @media (max-width: $mobile) {
     width: 100%;
   }
