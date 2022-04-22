@@ -10,7 +10,6 @@ import Jobs from './components/jobs/jobs';
 import Details from './components/details/details';
 import Error from './components/error/error';
 import CITIES from './data/cities.json';
-import JOBS from './data/jobs.json';
 
 // Styling
 // ? Removing this changes nothing?
@@ -22,16 +21,16 @@ import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 FocusStyleManager.onlyShowFocusOnTabs();
 
 export const ThemeContext = createContext();
-export const UserContext = createContext(['', 0]);
+export const UserContext = createContext();
 export const CitiesContext = createContext(CITIES);
-export const JobsContext = createContext([]);
-export const FilterContext = createContext(['', '', 0]);
-export const SortContext = createContext(['Expiration Date', 'asc']);
+export const JobsContext = createContext();
+export const FilterContext = createContext();
+export const SortContext = createContext();
 
 function App () {
   const [darkMode, toggleDarkMode] = useState(true);
   const [userDetails, setUserDetails] = useState(['', 20_000]);
-  const [jobs, setJobs] = useState(JOBS);
+  const [jobs, setJobs] = useState([]);
   const [filters, setFilters] = useState(['', '', 0]);
   const [sort, setSort] = useState(['Expiration Date', 'asc']);
 
