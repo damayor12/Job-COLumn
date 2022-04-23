@@ -2,13 +2,15 @@
 import { useContext } from 'react';
 import { Colors, Icon } from '@blueprintjs/core';
 
-// Local imports
+// Local component imports
 import { ThemeContext } from '../../App';
 import PrimaryButton from '../smol/buttons/primaryButton';
 import SecondaryButton from '../smol/buttons/secondaryButton';
-import './detailsListing.scss';
 
-function DetailsListing ({ job }) {
+// Styles
+import './details.scss';
+
+function Details ({ job }) {
   const [darkMode,] = useContext(ThemeContext);
   const {
     date,
@@ -34,14 +36,9 @@ function DetailsListing ({ job }) {
 
   return (
     <div
-      className='details-listing'
+      className='details'
     >
-      <div className='details-listing-row'>
-        <div className='job-title'>
-          {jobTitle}
-        </div>
-      </div>
-      <div className="details-listing-row">
+      <div className="details-row">
         <div className='job-salary'>
           £{minimum} - £{maximum}
         </div>
@@ -56,7 +53,7 @@ function DetailsListing ({ job }) {
           />
         </div>
       </div>
-      <div className='details-listing-row details-listing-secondary'>
+      <div className='details-row'>
         <div>
           Posted on {date}
         </div>
@@ -64,7 +61,7 @@ function DetailsListing ({ job }) {
           Expires on {expirationDate}
         </div>
       </div>
-      <div className='details-listing-row details-listing-secondary'>
+      <div className='details-row'>
         <div>
           {employerName}
         </div>
@@ -80,7 +77,7 @@ function DetailsListing ({ job }) {
           />
         </div>
       </div>
-      <div className='details-listing-row map'>
+      <div className='details-row map'>
         <p>Map.</p>
       </div>
       <div className='description'>
@@ -90,4 +87,4 @@ function DetailsListing ({ job }) {
   );
 }
 
-export default DetailsListing;
+export default Details;

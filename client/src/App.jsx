@@ -8,7 +8,7 @@ import { FocusStyleManager } from "@blueprintjs/core";
 // Local component imports
 import Welcome from './components/welcome/welcome';
 import Jobs from './components/jobs/jobs';
-import Details from './components/details/details';
+// import Details from './components/details/details';
 import Error from './components/error/error';
 
 // Other imports
@@ -71,7 +71,7 @@ function App () {
                     <Routes>
                       <Route path='/' element={<Welcome />} />
                       <Route path='/jobs' element={<Jobs />} />
-                      <Route path='/jobs/:jobId' element={<Details />} />
+                      {/* <Route path='/jobs/:jobId' element={<Details />} /> */}
                       <Route path='/*' element={<Error />} />
                     </Routes>
                   </Router>

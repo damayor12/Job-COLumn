@@ -9,6 +9,10 @@
   border-radius: 10px;
   justify-content: space-between;
 
+  .dialog {
+    padding: 10px;
+  }
+
   .job-listing-row {
     display: flex;
     flex-direction: row;
@@ -33,5 +37,4 @@
       font-weight: bold;
     }
   }
-
 }

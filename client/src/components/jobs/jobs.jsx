@@ -10,7 +10,7 @@ import JobListing from './jobListing';
 import './jobs.scss';
 
 function Jobs () {
-  const [jobs, setJobs] = useContext(JobsContext);
+  const [, setJobs] = useContext(JobsContext);
   const [filteredJobs, setFilteredJobs] = useContext(FilteredJobsContext);
 
   // Get all jobs once

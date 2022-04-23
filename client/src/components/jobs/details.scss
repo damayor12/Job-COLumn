@@ -1,0 +1,25 @@
+@import '../../index.scss';
+
+.details {
+  font-size: large;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  .details-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .job-salary {
+      font-size: x-large;
+      font-weight: bold;
+    }
+
+    .map {
+      // eventually
+    }
+  }
+}
