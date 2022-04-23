@@ -145,6 +145,7 @@ function Sidebar () {
             .filter(job => {
               let result = true;
               if (filters.keywords) {
+                // TODO fix split/non-split
                 result = result && filters.keywords.split(' ').every(keyword => (
                   job.jobTitle.includes(keyword)
                 ))
@@ -170,6 +171,9 @@ function Sidebar () {
                 case 'Expiry Date':
                   sortBy = 'expirationDate';
                   break;
+                case 'Posted Date':
+                  sortBy = 'date';
+                  break;
                 case 'Title':
                   sortBy = 'jobTitle';
                   break;
@@ -177,9 +181,18 @@ function Sidebar () {
                   sortBy = 'jobTitle';
               }
 
-              const direction = a[sortBy] - b[sortBy];
+              let direction;
+              if (sortBy === 'expirationDate' || sortBy === 'date') {
+                direction = new Date(a[sortBy].split('/').reverse().join('/'))
+                  - new Date(b[sortBy].split('/').reverse().join('/'));
+              } else if (typeof a[sortBy] === 'string') {
+                if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()) direction = 1;
+                else direction = -1;
+              } else {
+                direction = a[sortBy] - b[sortBy];
+              }
               if (sort.order === 'asc') return direction;
-              else return -direction;
+              return -direction;
             })
           )
         }}

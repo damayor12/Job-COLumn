@@ -17,8 +17,8 @@ function Jobs () {
   useEffect(() => {
     getAllJobs()
       .then(result => {
-        setJobs(result.slice(0, 1000));
-        setFilteredJobs(result.slice(0, 1000));
+        setJobs(result.slice(0, 200));
+        setFilteredJobs(result.slice(0, 200));
       });
   }, []);
 

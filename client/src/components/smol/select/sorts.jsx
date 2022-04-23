@@ -14,6 +14,7 @@ function SortSelector () {
     'Location',
     'Salary',
     'Expiry Date',
+    'Posted Date',
     'Title'
   ];
   // Contexts
