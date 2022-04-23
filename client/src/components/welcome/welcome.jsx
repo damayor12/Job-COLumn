@@ -69,17 +69,17 @@ function Welcome () {
         >
           <CitiesSelector />
           <NumericInput
-            defaultValue={userDetails[1]}
+            defaultValue={userDetails.salary}
             leftIcon={<GBP />}
             id='currentSalary'
             // TODO figure out how to add commas in display
             // locale='en-US'
             majorStepSize='10000'
             min={0}
-            onValueChange={(value) => setUserDetails([
-              userDetails[0],
-              value
-            ])}
+            onValueChange={value => setUserDetails({
+              ...userDetails,
+              salary: value
+            })}
             stepSize='1000'
           />
           <ToggleDarkMode />

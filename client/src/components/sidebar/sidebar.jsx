@@ -26,7 +26,9 @@ function Sidebar () {
 
   return (
     <nav>
-      <Logo />
+      <header>
+        <Logo />
+      </header>
       <Divider />
       <ToggleDarkMode
         text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`}
@@ -40,7 +42,7 @@ function Sidebar () {
           <div style={{
             color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
           }}>
-            {userDetails[0]}
+            {userDetails.location}
           </div>
         </div>
         <div className='user-details'>
@@ -50,7 +52,7 @@ function Sidebar () {
           <div style={{
             color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
           }}>
-            {`£${userDetails[1].toLocaleString('en-US')}`}
+            {`£${userDetails.salary.toLocaleString('en-US')}`}
           </div>
         </div>
       </div>
@@ -68,12 +70,12 @@ function Sidebar () {
           <div className='filter-value'>
             <InputGroup
               fill
-              defaultValue={filters[0]}
+              defaultValue={filters.keywords}
               leftIcon='search'
-              onChange={e => setFilters([
-                e.target.value,
-                ...filters.slice(1)
-              ])}
+              onChange={e => setFilters({
+                ...filters,
+                keywords: e.target.value
+              })}
               placeholder='Keywords'
             />
           </div>
@@ -90,7 +92,7 @@ function Sidebar () {
               defaultValue={filters[1]}
               leftIcon='map-marker'
               onChange={e => setFilters([
-                filters[0],
+                filters.keywords,
                 e.target.value,
                 filters[2]
               ])}
@@ -113,10 +115,10 @@ function Sidebar () {
               // locale='en-US'
               majorStepSize='10000'
               min={0}
-              onValueChange={(value) => setFilters([
-                ...filters.slice(0, 2),
-                value
-              ])}
+              onValueChange={value => setFilters({
+                ...filters,
+                salary: value
+              })}
               placeholder='Desired Salary'
               stepSize='1000'
             />
@@ -134,12 +136,12 @@ function Sidebar () {
         <SecondaryButton
           icon={<Icon
             color={`${darkMode ? Colors.ROSE5 : Colors.ROSE1}`}
-            icon={`sort-${sort[1]}`}
+            icon={`sort-${sort.order}`}
           />}
-          onClick={() => setSort([
-            sort[0],
-            `${sort[1] === 'asc' ? 'desc' : 'asc'}`
-          ])}
+          onClick={() => setSort({
+            ...sort,
+            order: `${sort.order === 'asc' ? 'desc' : 'asc'}`
+          })}
         />
       </div>
       <PrimaryButton

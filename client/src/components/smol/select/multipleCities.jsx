@@ -1,11 +1,11 @@
 // Package imports
 import { useContext, useState } from 'react';
-import { Button, MenuItem, Tag } from '@blueprintjs/core';
+import { MenuItem, Tag } from '@blueprintjs/core';
 import { MultiSelect } from '@blueprintjs/select';
 
 // Local imports
 import { CitiesContext } from '../../../App';
-import SecondaryButton from '../buttons/secondaryButton';
+// import SecondaryButton from '../buttons/secondaryButton';
 
 function MultipleCitiesSelector () {
   const CITIES = useContext(CitiesContext);

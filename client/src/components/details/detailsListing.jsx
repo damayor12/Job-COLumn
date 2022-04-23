@@ -4,9 +4,9 @@ import { Colors, Icon } from '@blueprintjs/core';
 
 // Local imports
 import { ThemeContext } from '../../App';
+import PrimaryButton from '../smol/buttons/primaryButton';
 import SecondaryButton from '../smol/buttons/secondaryButton';
 import './detailsListing.scss';
-import PrimaryButton from '../smol/buttons/primaryButton';
 
 function DetailsListing ({ job }) {
   const [darkMode,] = useContext(ThemeContext);
@@ -33,7 +33,7 @@ function DetailsListing ({ job }) {
       </div>
       <div className="details-listing-row">
         <div className='job-salary'>
-          £{minimumSalary.toLocaleString('en-US')}-{maximumSalary.toLocaleString('en-US')}
+          £{minimumSalary.toLocaleString('en-US')} - £{maximumSalary.toLocaleString('en-US')}
         </div>
         <div>
           <PrimaryButton
@@ -73,9 +73,11 @@ function DetailsListing ({ job }) {
       <div className='details-listing-row map'>
         <p>Map.</p>
       </div>
-      <div className='description'>
-        {jobDescription}
-      </div>
+      <div
+        className='description'
+        // ! Don't use this if you don't trust the data
+        dangerouslySetInnerHTML={{__html: `${jobDescription}`}}
+      />
     </div>
   );
 }

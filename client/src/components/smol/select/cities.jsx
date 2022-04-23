@@ -34,20 +34,18 @@ function CitiesSelector () {
 
   return (
     <Select
-      activeItem={userDetails[0]}
+      activeItem={userDetails.location}
       itemPredicate={filterCities}
       itemRenderer={citiesRenderer}
       items={CITIES}
       leftIcon='locate'
-      onItemSelect={city => {
-        setUserDetails([
-          city.name,
-          userDetails[1]
-        ])
-      }}
+      onItemSelect={city => setUserDetails({
+        ...userDetails,
+        location: city.name
+      })}
     >
       <Button
-        text={userDetails[0]}
+        text={userDetails.location}
         icon='locate'
       />
     </Select>

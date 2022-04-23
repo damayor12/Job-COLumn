@@ -1,6 +1,12 @@
 // Global styling
 @import './index.scss';
 
+header {
+  align-self: flex-start;
+  width: 200px;
+  margin-left: 50px;
+}
+
 main {
   display: flex !important;
   padding: 25px;

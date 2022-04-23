@@ -29,10 +29,20 @@ export const SortContext = createContext();
 
 function App () {
   const [darkMode, toggleDarkMode] = useState(true);
-  const [userDetails, setUserDetails] = useState(['', 20_000]);
+  const [userDetails, setUserDetails] = useState({
+    location: 'London',
+    salary: 20_000
+  });
   const [jobs, setJobs] = useState([]);
-  const [filters, setFilters] = useState(['', '', 0]);
-  const [sort, setSort] = useState(['Expiration Date', 'asc']);
+  const [filters, setFilters] = useState({
+    keywords: '',
+    cities: [],
+    salary: 0
+  });
+  const [sort, setSort] = useState({
+    category: 'Expiration Date',
+    order: 'asc'
+  });
 
   document.body.className = `${darkMode ? 'bp4-dark background-dark' : 'bp4-body background-light'}`
 

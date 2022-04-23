@@ -2,6 +2,12 @@
 
 .all-jobs {
   display: flex;
-  flex-direction: column;
-  width: 75%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // width: 75%;
+  gap: 1rem;
+
+  * {
+    flex: 1 1 2ch;
+  }
 }

@@ -31,20 +31,18 @@ function SortSelector () {
 
   return (
     <Select
-      activeItem={sort[0]}
+      activeItem={sort.category}
       filterable={false}
       itemRenderer={renderer}
       items={options}
       leftIcon='select'
-      onItemSelect={option => {
-        setSort([
-          option,
-          sort[1]
-        ])
-      }}
+      onItemSelect={option => setSort({
+        ...sort,
+        category: option
+      })}
     >
       <Button
-        text={sort[0]}
+        text={sort.category}
         icon='select'
       />
     </Select>

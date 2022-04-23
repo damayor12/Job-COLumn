@@ -15,7 +15,7 @@ function Jobs () {
   // Get all jobs once
   useEffect(() => {
     getAllJobs()
-      .then(result => setJobs(result.slice(0, 100)));
+      .then(result => setJobs(result.slice(0, 1000)));
   }, []);
 
   return (

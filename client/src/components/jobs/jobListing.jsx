@@ -1,9 +1,11 @@
 // Package imports
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Colors, Icon } from '@blueprintjs/core';
 
 // Local imports
+import { CitiesContext, ThemeContext, UserContext } from '../../App';
 import './jobListing.scss';
-import { Icon } from '@blueprintjs/core';
 
 function JobListing ({ job }) {
   const {
@@ -17,18 +19,38 @@ function JobListing ({ job }) {
     locationName
   } = job
   const navigate = useNavigate();
+  const [darkMode,] = useContext(ThemeContext);
+  const [userDetails,] = useContext(UserContext);
+  const CITIES = useContext(CitiesContext);
+
+  // Salary math
+  const userIndex = CITIES
+    .find(city => city.name === userDetails.location)
+    .index;
+  const jobIndex = CITIES
+    .find(city => city.name === locationName)
+    .index;
+  const isBetter = (minimumSalary / jobIndex)
+    / (userDetails.salary / userIndex)
+    > 1;
 
   return (
     <div
       className='job-listing'
       onClick={() => navigate(`/jobs/${jobId}`)}
+      style={{ color: `${
+        isBetter
+          && (darkMode ? Colors.ROSE5 : Colors.ROSE1)
+      }` }}
     >
       <div className='job-listing-row'>
         <div className='job-title'>
           {jobTitle}
         </div>
+      </div>
+      <div className='job-listing-row'>
         <div className='job-salary'>
-          £{minimumSalary.toLocaleString('en-US')} - {maximumSalary.toLocaleString('en-US')}
+          £{minimumSalary.toLocaleString('en-US')} - £{maximumSalary.toLocaleString('en-US')}
         </div>
       </div>
       <div className='job-listing-row job-listing-secondary'>
