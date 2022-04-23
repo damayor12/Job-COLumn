@@ -19,7 +19,7 @@ import MultipleCitiesSelector from '../smol/select/multipleCities';
 
 function Sidebar () {
   const navigate = useNavigate();
-  const [userDetails,] = useContext(UserContext);
+  const [user,] = useContext(UserContext);
   const [darkMode,] = useContext(ThemeContext);
   const [filters, setFilters] = useContext(FilterContext);
   const [sort, setSort] = useContext(SortContext);
@@ -42,7 +42,7 @@ function Sidebar () {
           <div style={{
             color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
           }}>
-            {userDetails.location}
+            {user.location}
           </div>
         </div>
         <div className='user-details'>
@@ -52,7 +52,7 @@ function Sidebar () {
           <div style={{
             color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
           }}>
-            {`£${userDetails.salary.toLocaleString('en-US')}`}
+            {`£${user.salary.toLocaleString('en-US')}`}
           </div>
         </div>
       </div>

@@ -20,19 +20,17 @@ function JobListing ({ job }) {
   } = job
   const navigate = useNavigate();
   const [darkMode,] = useContext(ThemeContext);
-  const [userDetails,] = useContext(UserContext);
+  const [user,] = useContext(UserContext);
   const CITIES = useContext(CitiesContext);
 
   // Salary math
   const userIndex = CITIES
-    .find(city => city.name === userDetails.location)
+    .find(city => city.name === user.location)
     .index;
   const jobIndex = CITIES
     .find(city => city.name === locationName)
     .index;
-  const isBetter = (minimumSalary / jobIndex)
-    / (userDetails.salary / userIndex)
-    > 1;
+  const isBetter = (minimumSalary / user.salary) / (jobIndex / userIndex) > 1;
 
   return (
     <div

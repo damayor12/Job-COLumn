@@ -1,9 +1,11 @@
-// Package imports
+// React imports
 import { useContext } from 'react';
+
+// BlueprintJS imports
 import { MenuItem } from '@blueprintjs/core';
 import { Select } from '@blueprintjs/select';
 
-// Local imports
+// Local component imports
 import { SortContext } from '../../../App';
 import Button from '../buttons/secondaryButton';
 
@@ -14,6 +16,7 @@ function SortSelector () {
     'Expiry Date',
     'Title'
   ];
+  // Contexts
   const [sort, setSort] = useContext(SortContext);
 
   // To display each item in the list

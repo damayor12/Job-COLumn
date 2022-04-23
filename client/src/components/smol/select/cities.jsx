@@ -8,7 +8,7 @@ import { CitiesContext, UserContext } from '../../../App';
 import Button from '../buttons/secondaryButton';
 
 function CitiesSelector () {
-  const [userDetails, setUserDetails] = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
   const CITIES = useContext(CitiesContext);
 
   // To display only the queried items
@@ -34,18 +34,18 @@ function CitiesSelector () {
 
   return (
     <Select
-      activeItem={userDetails.location}
+      activeItem={user.location}
       itemPredicate={filterCities}
       itemRenderer={citiesRenderer}
       items={CITIES}
       leftIcon='locate'
-      onItemSelect={city => setUserDetails({
-        ...userDetails,
+      onItemSelect={city => setUser({
+        ...user,
         location: city.name
       })}
     >
       <Button
-        text={userDetails.location}
+        text={user.location}
         icon='locate'
       />
     </Select>

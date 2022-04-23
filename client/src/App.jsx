@@ -1,18 +1,21 @@
-// Package imports
+// React imports
 import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// BlueprintJS imports
 import { FocusStyleManager } from "@blueprintjs/core";
 
-// Local imports
-import './App.scss';
+// Local component imports
 import Welcome from './components/welcome/welcome';
 import Jobs from './components/jobs/jobs';
 import Details from './components/details/details';
 import Error from './components/error/error';
-import CITIES from './data/cities.json';
+
+// Other imports
+import CITIES from './cities.json';
+import './App.scss';
 
 // Styling
-// ? Removing this changes nothing?
 import '../node_modules/normalize.css/normalize.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
@@ -20,6 +23,7 @@ import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 // Accessibility
 FocusStyleManager.onlyShowFocusOnTabs();
 
+// Contexts
 export const ThemeContext = createContext();
 export const UserContext = createContext();
 export const CitiesContext = createContext(CITIES);
@@ -28,8 +32,9 @@ export const FilterContext = createContext();
 export const SortContext = createContext();
 
 function App () {
+  // States
   const [darkMode, toggleDarkMode] = useState(true);
-  const [userDetails, setUserDetails] = useState({
+  const [user, setUser] = useState({
     location: 'London',
     salary: 20_000
   });
@@ -44,15 +49,17 @@ function App () {
     order: 'asc'
   });
 
+  // Because BlueprintJS' dark mode toggle sucks
   document.body.className = `${darkMode ? 'bp4-dark background-dark' : 'bp4-body background-light'}`
 
   function toggleTheme () {
     toggleDarkMode(mode => !mode);
   }
 
+  // TODO refactor contexts to not be so nested. Redux? Reducers?
   return (
     <ThemeContext.Provider value={[darkMode, toggleTheme]}>
-      <UserContext.Provider value={[userDetails, setUserDetails]}>
+      <UserContext.Provider value={[user, setUser]}>
         <CitiesContext.Provider value={CITIES}>
           <JobsContext.Provider value={[jobs, setJobs]}>
             <FilterContext.Provider value={[filters, setFilters]}>

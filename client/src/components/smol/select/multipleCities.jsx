@@ -1,13 +1,16 @@
-// Package imports
+// Contexts
 import { useContext, useState } from 'react';
+
+// BlueprintJS imports
 import { MenuItem, Tag } from '@blueprintjs/core';
 import { MultiSelect } from '@blueprintjs/select';
 
-// Local imports
+// Local component imports
 import { CitiesContext } from '../../../App';
 // import SecondaryButton from '../buttons/secondaryButton';
 
 function MultipleCitiesSelector () {
+  // Contexts and state
   const CITIES = useContext(CitiesContext);
   const [selectedCities, setSelectedCities] = useState([]);
 
@@ -46,6 +49,7 @@ function MultipleCitiesSelector () {
             }))
           }
         }}
+        // resetOnSelect={true}
         // TODO add dark mode style
         // TODO add light mode text color
         // Or refactor this to be a component

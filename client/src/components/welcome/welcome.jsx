@@ -1,24 +1,32 @@
-// Package imports
+// React imports
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+// BlueprintJS imports
 import { Colors, FormGroup, NumericInput } from '@blueprintjs/core';
 
-// Local imports
+// Local component imports
 import { UserContext, ThemeContext } from '../../App';
-import Logo from '../logo/logo';
-import GBP from '../smol/GBP/GBP';
 import Button from '../smol/buttons/primaryButton'
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
 import CitiesSelector from '../smol/select/cities';
+
+// Local icon imports
+import Logo from '../logo/logo';
+import GBP from '../smol/GBP/GBP';
+
+// Styling
 import './welcome.scss';
 
 function Welcome () {
   const navigate = useNavigate();
-  const [userDetails, setUserDetails] = useContext(UserContext);
+  // Contexts
+  const [user, setUser] = useContext(UserContext);
   const [darkMode,] = useContext(ThemeContext);
 
   return (
     <div className='welcome'>
+      {/* Header and logo */}
       <header>
         <Logo />
       </header>
@@ -31,6 +39,7 @@ function Welcome () {
             }}
           >Job COLumn</span>!</p>
         </div>
+        {/* Describing the app */}
         <div className='welcome-text'>
           <p><span
             className='bold'
@@ -58,26 +67,24 @@ function Welcome () {
             <li>job title</li>
           </ul>
         </div>
+        {/* Explain why I need some details from the user */}
         <div className='welcome-text'>
           <p>Now obviously I'll need some information from you to make this app work.</p>
           <p>I'll need your current location to compare the consumer price index - CPI (look it up) with that of the one in each job's location. If you live in the middle of nowhere, pick your closest city.</p>
           <p>I'll also need your current salary for the same reason. Obviously these 2 details alone aren't enough to personally identify you if some hacker gets into this super insecure website, but if you think that specific combination will out you, just use a close enough value.</p>
           <p>Also, I'm a dark mode dude. If you're not, click the flashlight to burn your retinas.</p>
         </div>
-        <FormGroup
-          inline
-        >
+        {/* User details and theme preference */}
+        <FormGroup inline >
           <CitiesSelector />
           <NumericInput
-            defaultValue={userDetails.salary}
+            defaultValue={user.salary}
             leftIcon={<GBP />}
             id='currentSalary'
-            // TODO figure out how to add commas in display
-            // locale='en-US'
             majorStepSize='10000'
             min={0}
-            onValueChange={value => setUserDetails({
-              ...userDetails,
+            onValueChange={value => setUser({
+              ...user,
               salary: value
             })}
             stepSize='1000'
@@ -90,6 +97,7 @@ function Welcome () {
           />
         </FormGroup>
       </main>
+      {/* APIs used */}
       <footer>
         Powered by <a href='https://www.reed.co.uk/'>
           Reed
