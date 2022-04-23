@@ -146,9 +146,11 @@ function Sidebar () {
               let result = true;
               if (filters.keywords) {
                 // TODO fix split/non-split
-                result = result && filters.keywords.split(' ').every(keyword => (
-                  job.jobTitle.includes(keyword)
-                ))
+                result = result && filters.keywords.split(' ')
+                  .every(keyword => (
+                    job.jobTitle.toLowerCase().includes(keyword.toLowerCase())
+                    || job.jobDescription.toLowerCase().includes(keyword.toLowerCase())
+                  ))
               }
               if (filters.cities.length) {
                 result = result && filters.cities.includes(job.locationName);
