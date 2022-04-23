@@ -119,7 +119,7 @@ function Sidebar () {
                 ...filters,
                 salary: value
               })}
-              placeholder='Desired Salary'
+              placeholder='Minimum Salary'
               stepSize='1000'
             />
           </div>

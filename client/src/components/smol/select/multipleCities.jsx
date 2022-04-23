@@ -1,18 +1,20 @@
 // Contexts
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 // BlueprintJS imports
-import { MenuItem, Tag } from '@blueprintjs/core';
+import { MenuItem } from '@blueprintjs/core';
 import { MultiSelect } from '@blueprintjs/select';
 
 // Local component imports
-import { CitiesContext } from '../../../App';
-// import SecondaryButton from '../buttons/secondaryButton';
+import { CitiesContext, FilterContext } from '../../../App';
 
-function MultipleCitiesSelector () {
+// Styles
+import './multipleCities.scss';
+
+function MultipleCitiesSelector ({ defaultValue, onChange }) {
   // Contexts and state
   const CITIES = useContext(CitiesContext);
-  const [selectedCities, setSelectedCities] = useState([]);
+  const [filters, setFilters] = useContext(FilterContext);
 
   // To display only the queried items
   function filterCities (query, city) {
@@ -35,50 +37,31 @@ function MultipleCitiesSelector () {
     )
   }
 
-  // To display selected items
-  function tagRenderer (city) {
-    return (
-      <Tag
-        interactive
-        leftIcon='map-marker'
-        minimal
-        onRemove={() => {
-          if (selectedCities.includes(city)) {
-            setSelectedCities(selectedCities.filter(selectedCity => {
-              return selectedCity !== city
-            }))
-          }
-        }}
-        // resetOnSelect={true}
-        // TODO add dark mode style
-        // TODO add light mode text color
-        // Or refactor this to be a component
-        // TODO removing a city shouldn't pop up the popover
-      >
-        {city}
-      </Tag>
-    );
-  }
-
   return (
     <MultiSelect
-      activeItem={CITIES[0]}
+      activeItem={filters.cities}
+      defaultValue={defaultValue}
       fill
       itemPredicate={filterCities}
       itemRenderer={citiesRenderer}
       items={CITIES}
-      // TODO figure out left icon work-around
-      // leftIcon='map-marker'
+      // minimal
       onItemSelect={city => {
-        if (selectedCities.includes(city.name)) {
-          setSelectedCities(selectedCities.filter(selectedCity => {
-            return selectedCity !== city.name
-          }))
-        } else setSelectedCities([...selectedCities, city.name]);
+        if (filters.cities.includes(city.name)) {
+          setFilters({
+            ...filters,
+            cities: filters.cities.filter(selectedCity => {
+              return selectedCity !== city.name
+            })
+          })
+        } else setFilters({
+          ...filters,
+          cities: filters.cities.concat(city.name)
+        });
       }}
       placeholder='Desired City/Cities'
-      selectedItems={selectedCities}
-      tagRenderer={tagRenderer}
+      selectedItems={filters.cities}
+      tagRenderer={city => <>{city}</>}
     />
   )
 }

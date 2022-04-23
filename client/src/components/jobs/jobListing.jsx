@@ -32,6 +32,9 @@ function JobListing ({ job }) {
     .index;
   const isBetter = (minimumSalary / user.salary) / (jobIndex / userIndex) > 1;
 
+  const minimum = minimumSalary.toLocaleString('en-US');
+  const maximum = maximumSalary.toLocaleString('en-US');
+
   return (
     <div
       className='job-listing'
@@ -48,7 +51,7 @@ function JobListing ({ job }) {
       </div>
       <div className='job-listing-row'>
         <div className='job-salary'>
-          £{minimumSalary.toLocaleString('en-US')} - £{maximumSalary.toLocaleString('en-US')}
+          £{minimum} - £{maximum}
         </div>
       </div>
       <div className='job-listing-row job-listing-secondary'>

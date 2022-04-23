@@ -2,9 +2,12 @@
 
 .welcome {
   padding: 50px;
+  max-width: 800px;
+  margin: auto;
 
   footer {
     font-size: smaller;
+    text-align: center;
   }
 
   .welcome-container {
@@ -12,17 +15,17 @@
     align-content: center;
 
     .welcome-text {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
 
       ul {
         margin-bottom: 15px;
 
         li {
-          padding-left: 10px;
+          padding-left: 15px;
 
           &::before {
             position: absolute;
-            margin-left: -10px;
+            margin-left: -15px;
             content: '\2013';
           }
         }
@@ -33,6 +36,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
       width: 100%;
 
       #currentSalary {
@@ -41,6 +45,10 @@
 
       @media (max-width: $mobile) {
         flex-direction: column;
+
+        .bp4-button {
+          margin-bottom: 1rem;
+        }
       }
     }
   }

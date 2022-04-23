@@ -22,6 +22,16 @@ function DetailsListing ({ job }) {
     maximumSalary
   } = job
 
+  const minimum = minimumSalary.toLocaleString('en-US');
+  const maximum = maximumSalary.toLocaleString('en-US');
+
+  // This gets rid of the '$#number;' in the job description
+  function decodeHtml(html) {
+    const text = document.createElement("textarea");
+    text.innerHTML = html;
+    return text.value;
+  }
+
   return (
     <div
       className='details-listing'
@@ -33,7 +43,7 @@ function DetailsListing ({ job }) {
       </div>
       <div className="details-listing-row">
         <div className='job-salary'>
-          £{minimumSalary.toLocaleString('en-US')} - £{maximumSalary.toLocaleString('en-US')}
+          £{minimum} - £{maximum}
         </div>
         <div>
           <PrimaryButton
@@ -73,11 +83,9 @@ function DetailsListing ({ job }) {
       <div className='details-listing-row map'>
         <p>Map.</p>
       </div>
-      <div
-        className='description'
-        // ! Don't use this if you don't trust the data
-        dangerouslySetInnerHTML={{__html: `${jobDescription}`}}
-      />
+      <div className='description'>
+        {decodeHtml(jobDescription)}
+      </div>
     </div>
   );
 }
