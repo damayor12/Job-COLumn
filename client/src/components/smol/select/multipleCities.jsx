@@ -45,7 +45,6 @@ function MultipleCitiesSelector ({ defaultValue, onChange }) {
       itemPredicate={filterCities}
       itemRenderer={citiesRenderer}
       items={CITIES}
-      // minimal
       onItemSelect={city => {
         if (filters.cities.includes(city.name)) {
           setFilters({
@@ -60,6 +59,7 @@ function MultipleCitiesSelector ({ defaultValue, onChange }) {
         });
       }}
       placeholder='Desired City/Cities'
+      resetOnSelect
       selectedItems={filters.cities}
       tagRenderer={city => <>{city}</>}
     />

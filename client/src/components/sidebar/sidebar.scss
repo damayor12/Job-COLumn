@@ -3,10 +3,12 @@
 nav {
   display: flex;
   flex-direction: column;
+  min-width: 300px;
   width: 300px;
   margin-right: 25px;
   // TODO how do I make it not move?
-  // position: fixed;
+  position: sticky;
+  top: 25px;
 
   .user-details {
     display: flex;
@@ -27,6 +29,7 @@ nav {
 
     .filter-label {
       width: 80px;
+      margin-right: 20px;
     }
 
     .bp4-numeric-input {

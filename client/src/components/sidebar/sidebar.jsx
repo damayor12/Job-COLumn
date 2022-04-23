@@ -91,9 +91,7 @@ function Sidebar () {
           <div className='filter-label'>
             Location(s)
           </div>
-          <div className='filter-value'>
-            <MultipleCitiesSelector />
-          </div>
+          <MultipleCitiesSelector />
         </div>
         <div className='filter-details'>
           <div className='filter-label'>
