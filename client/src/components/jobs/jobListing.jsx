@@ -9,17 +9,8 @@ import Details from './details';
 // Styles
 import './jobListing.scss';
 
-// This gets rid of the '$#number;' in the job description
-function decodeHtml(html) {
-  const text = document.createElement("textarea");
-  text.innerHTML = html;
-  return text.value;
-}
-
 function JobListing ({ job }) {
   const {
-    jobId,
-    jobDescription,
     jobTitle,
     minimumSalary,
     maximumSalary,
@@ -49,12 +40,7 @@ function JobListing ({ job }) {
   return (
     <div
       className='job-listing'
-      onClick={() => {
-        setIsOpen(true)
-        // TODO delete getJob from API service
-        // TODO delete getJob back-end route
-        // Use Apply button to open jobId.url
-      }}
+      onClick={() => setIsOpen(true)}
       style={{ color: `${
         isBetter
           && (darkMode ? Colors.ROSE5 : Colors.ROSE1)

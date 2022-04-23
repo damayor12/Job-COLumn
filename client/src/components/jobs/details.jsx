@@ -17,7 +17,6 @@ function Details ({ job }) {
     employerName,
     expirationDate,
     jobDescription,
-    jobTitle,
     jobUrl,
     locationName,
     minimumSalary,
@@ -78,7 +77,7 @@ function Details ({ job }) {
         </div>
       </div>
       <div className='details-row map'>
-        <p>Map.</p>
+        <div>Map.</div>
       </div>
       <div className='description'>
         {decodeHtml(jobDescription)}

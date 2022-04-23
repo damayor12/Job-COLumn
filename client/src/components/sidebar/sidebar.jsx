@@ -100,7 +100,6 @@ function Sidebar () {
           <div className='filter-value'>
             <NumericInput
               fill
-              // TODO refactor to its own component
               leftIcon={<GBP />}
               majorStepSize='10000'
               min={0}
@@ -133,71 +132,69 @@ function Sidebar () {
             order: `${sort.order === 'asc' ? 'desc' : 'asc'}`
           })}
         />
+        <PrimaryButton
+          icon='filter'
+          onClick={() => {
+            setFilteredJobs(jobs
+              .filter(job => {
+                let result = true;
+                if (filters.keywords) {
+                  result = result && filters.keywords.split(' ')
+                    .every(keyword => (
+                      job.jobTitle.toLowerCase().includes(keyword.toLowerCase())
+                      || job.jobDescription.toLowerCase().includes(keyword.toLowerCase())
+                    ))
+                }
+                if (filters.cities.length) {
+                  result = result && filters.cities.includes(job.locationName);
+                }
+                if (filters.salary) {
+                  result = result && job.minimumSalary >= filters.salary;
+                }
+                return result;
+              })
+              .sort((a, b) => {
+                let sortBy = '';
+
+                switch (sort.category) {
+                  case 'Location':
+                    sortBy = 'locationName';
+                    break;
+                  case 'Salary':
+                    sortBy = 'minimumSalary';
+                    break;
+                  case 'Expiry Date':
+                    sortBy = 'expirationDate';
+                    break;
+                  case 'Posted Date':
+                    sortBy = 'date';
+                    break;
+                  case 'Title':
+                    sortBy = 'jobTitle';
+                    break;
+                  default:
+                    sortBy = 'jobTitle';
+                }
+
+                let direction;
+                if (sortBy === 'expirationDate' || sortBy === 'date') {
+                  direction = new Date(a[sortBy].split('/').reverse().join('/'))
+                    - new Date(b[sortBy].split('/').reverse().join('/'));
+                } else if (typeof a[sortBy] === 'string') {
+                  if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()) direction = 1;
+                  else direction = -1;
+                } else {
+                  direction = a[sortBy] - b[sortBy];
+                }
+                if (sort.order === 'asc') return direction;
+                return -direction;
+              })
+            )
+          }}
+          text='Lesgo'
+        />
       </div>
-      {/* Search and back */}
-      <PrimaryButton
-        icon='filter'
-        // TODO should instead filter jobs state using filters state
-        onClick={() => {
-          setFilteredJobs(jobs
-            .filter(job => {
-              let result = true;
-              if (filters.keywords) {
-                // TODO fix split/non-split
-                result = result && filters.keywords.split(' ')
-                  .every(keyword => (
-                    job.jobTitle.toLowerCase().includes(keyword.toLowerCase())
-                    || job.jobDescription.toLowerCase().includes(keyword.toLowerCase())
-                  ))
-              }
-              if (filters.cities.length) {
-                result = result && filters.cities.includes(job.locationName);
-              }
-              if (filters.salary) {
-                result = result && job.minimumSalary >= filters.salary;
-              }
-              return result;
-            })
-            .sort((a, b) => {
-              let sortBy = '';
-
-              switch (sort.category) {
-                case 'Location':
-                  sortBy = 'locationName';
-                  break;
-                case 'Salary':
-                  sortBy = 'minimumSalary';
-                  break;
-                case 'Expiry Date':
-                  sortBy = 'expirationDate';
-                  break;
-                case 'Posted Date':
-                  sortBy = 'date';
-                  break;
-                case 'Title':
-                  sortBy = 'jobTitle';
-                  break;
-                default:
-                  sortBy = 'jobTitle';
-              }
-
-              let direction;
-              if (sortBy === 'expirationDate' || sortBy === 'date') {
-                direction = new Date(a[sortBy].split('/').reverse().join('/'))
-                  - new Date(b[sortBy].split('/').reverse().join('/'));
-              } else if (typeof a[sortBy] === 'string') {
-                if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()) direction = 1;
-                else direction = -1;
-              } else {
-                direction = a[sortBy] - b[sortBy];
-              }
-              if (sort.order === 'asc') return direction;
-              return -direction;
-            })
-          )
-        }}
-        text='Filter & Sort'
-      />
+      <Divider />
       <BackButton />
       <Divider />
     </nav>

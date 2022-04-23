@@ -13,12 +13,3 @@ export async function getAllJobs () {
     console.error('Error getting all jobs:', error.message);
   }
 }
-
-export async function getJob (id) {
-  try {
-    const job = await axios.get(`${rootUrl}/jobs/${id}`);
-    return job.data;
-  } catch (error) {
-    console.error('Error getting job:', error.message);
-  }
-}

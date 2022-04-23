@@ -7,7 +7,7 @@ nav {
   width: 300px;
   margin-right: 25px;
   // TODO how do I make it not move?
-  position: sticky;
+  position: sticky !important;
   top: 25px;
 
   .user-details {

@@ -14,16 +14,4 @@ async function getAllJobs (_, res) {
   }
 }
 
-async function getJob (req, res) {
-  try {
-    const { id } = req.params;
-    const job = await Jobs.getJob(id);
-    res.status(200);
-    res.send(job);
-  } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
-  }
-}
-
-module.exports = { getAllJobs, getJob };
+module.exports = { getAllJobs };
