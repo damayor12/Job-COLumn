@@ -29,6 +29,7 @@ export const UserContext = createContext();
 export const CitiesContext = createContext(CITIES);
 export const JobsContext = createContext();
 export const FilterContext = createContext();
+export const FilteredJobsContext = createContext();
 export const SortContext = createContext();
 
 function App () {
@@ -44,8 +45,9 @@ function App () {
     cities: [],
     salary: 0
   });
+  const [filteredJobs, setFilteredJobs] = useState([]);
   const [sort, setSort] = useState({
-    category: 'Expiration Date',
+    category: 'Job Title',
     order: 'asc'
   });
 
@@ -63,16 +65,18 @@ function App () {
         <CitiesContext.Provider value={CITIES}>
           <JobsContext.Provider value={[jobs, setJobs]}>
             <FilterContext.Provider value={[filters, setFilters]}>
-              <SortContext.Provider value={[sort, setSort]}>
-                <Router>
-                  <Routes>
-                    <Route path='/' element={<Welcome />} />
-                    <Route path='/jobs' element={<Jobs />} />
-                    <Route path='/jobs/:jobId' element={<Details />} />
-                    <Route path='/*' element={<Error />} />
-                  </Routes>
-                </Router>
-              </SortContext.Provider>
+              <FilteredJobsContext.Provider value={[filteredJobs, setFilteredJobs]}>
+                <SortContext.Provider value={[sort, setSort]}>
+                  <Router>
+                    <Routes>
+                      <Route path='/' element={<Welcome />} />
+                      <Route path='/jobs' element={<Jobs />} />
+                      <Route path='/jobs/:jobId' element={<Details />} />
+                      <Route path='/*' element={<Error />} />
+                    </Routes>
+                  </Router>
+                </SortContext.Provider>
+              </FilteredJobsContext.Provider>
             </FilterContext.Provider>
           </JobsContext.Provider>
         </CitiesContext.Provider>

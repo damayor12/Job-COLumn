@@ -1,31 +1,36 @@
-
-// Package imports
+// React imports
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+
+// BlueprintJS imports
 import { Colors, H5, Icon, InputGroup, NumericInput } from '@blueprintjs/core';
 
-// Local imports
+// Local component imports
 import Logo from '../logo/logo';
-import { FilterContext, UserContext, SortContext, ThemeContext } from '../../App';
+import { FilterContext, UserContext, SortContext, ThemeContext, FilteredJobsContext, JobsContext } from '../../App';
 import PrimaryButton from '../smol/buttons/primaryButton';
 import SecondaryButton from '../smol/buttons/secondaryButton';
 import BackButton from '../smol/buttons/backButton';
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
 import SortSelector from '../smol/select/sorts';
+import MultipleCitiesSelector from '../smol/select/multipleCities';
 import Divider from '../smol/divider';
 import GBP from '../smol/GBP/GBP';
+
+// Styling
 import './sidebar.scss';
-import MultipleCitiesSelector from '../smol/select/multipleCities';
 
 function Sidebar () {
-  const navigate = useNavigate();
+  // Contexts
   const [user,] = useContext(UserContext);
   const [darkMode,] = useContext(ThemeContext);
   const [filters, setFilters] = useContext(FilterContext);
+  const [jobs] = useContext(JobsContext);
+  const [, setFilteredJobs] = useContext(FilteredJobsContext);
   const [sort, setSort] = useContext(SortContext);
 
   return (
     <nav>
+      {/* Header and dark mode */}
       <header>
         <Logo />
       </header>
@@ -33,6 +38,7 @@ function Sidebar () {
       <ToggleDarkMode
         text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`}
       />
+      {/* User details */}
       <Divider />
       <div>
         <div className='user-details'>
@@ -56,6 +62,7 @@ function Sidebar () {
           </div>
         </div>
       </div>
+      {/* Filter options */}
       <Divider />
       <div>
         <H5 className="bp4-heading" style={{
@@ -85,19 +92,7 @@ function Sidebar () {
             Location(s)
           </div>
           <div className='filter-value'>
-            {/* TODO ? What happens to my filter state now?  */}
             <MultipleCitiesSelector />
-            {/* <InputGroup
-              fill
-              defaultValue={filters[1]}
-              leftIcon='map-marker'
-              onChange={e => setFilters([
-                filters.keywords,
-                e.target.value,
-                filters[2]
-              ])}
-              placeholder='Desired City/Cities'
-            /> */}
           </div>
         </div>
         <div className='filter-details'>
@@ -108,11 +103,7 @@ function Sidebar () {
             <NumericInput
               fill
               // TODO refactor to its own component
-              // TODO bring back if the fucking margin BS isn't working
-              // buttonPosition={Position.LEFT}
               leftIcon={<GBP />}
-              // TODO figure out how to add commas in display
-              // locale='en-US'
               majorStepSize='10000'
               min={0}
               onValueChange={value => setFilters({
@@ -125,6 +116,7 @@ function Sidebar () {
           </div>
         </div>
       </div>
+      {/* Sort options */}
       <Divider />
       <div className='filter-details'>
         <H5 className="bp4-heading" style={{
@@ -144,10 +136,54 @@ function Sidebar () {
           })}
         />
       </div>
+      {/* Search and back */}
       <PrimaryButton
-        icon='search'
+        icon='filter'
         // TODO should instead filter jobs state using filters state
-        onClick={() => navigate('/jobs/46589185')}
+        onClick={() => {
+          setFilteredJobs(jobs
+            .filter(job => {
+              let result = true;
+              if (filters.keywords) {
+                result = result && filters.keywords.split(' ').every(keyword => (
+                  job.jobTitle.includes(keyword)
+                ))
+              }
+              if (filters.cities.length) {
+                result = result && filters.cities.includes(job.locationName);
+              }
+              if (filters.salary) {
+                result = result && job.minimumSalary >= filters.salary;
+              }
+              return result;
+            })
+            .sort((a, b) => {
+              let sortBy = '';
+
+              switch (sort.category) {
+                case 'Location':
+                  sortBy = 'locationName';
+                  break;
+                case 'Salary':
+                  sortBy = 'minimumSalary';
+                  break;
+                case 'Expiry Date':
+                  sortBy = 'expirationDate';
+                  break;
+                case 'Title':
+                  sortBy = 'jobTitle';
+                  break;
+                default:
+                  sortBy = 'jobTitle';
+              }
+
+              const direction = a[sortBy] - b[sortBy];
+              if (sort.order === 'asc') return direction;
+              else return -direction;
+            })
+          )
+        }}
+        text='Filter & Sort'
       />
       <BackButton />
       <Divider />
