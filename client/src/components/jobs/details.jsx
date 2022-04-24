@@ -1,17 +1,15 @@
-// Package imports
+// React imports
 import { useContext } from 'react';
-import { Colors, Icon } from '@blueprintjs/core';
 
 // Local component imports
-import { ThemeContext } from '../../App';
+import { UserContext } from '../../App';
 import PrimaryButton from '../smol/buttons/primaryButton';
-import SecondaryButton from '../smol/buttons/secondaryButton';
+import Map from '../smol/map';
 
 // Styles
 import './details.scss';
 
 function Details ({ job }) {
-  const [darkMode,] = useContext(ThemeContext);
   const {
     date,
     employerName,
@@ -22,13 +20,15 @@ function Details ({ job }) {
     minimumSalary,
     maximumSalary
   } = job
+  // Context
+  const [user] = useContext(UserContext);
 
   const minimum = minimumSalary.toLocaleString('en-US');
   const maximum = maximumSalary.toLocaleString('en-US');
 
   // This gets rid of the '$#number;' in the job description
   function decodeHtml(html) {
-    const text = document.createElement("textarea");
+    const text = document.createElement('textarea');
     text.innerHTML = html;
     return text.value;
   }
@@ -37,19 +37,22 @@ function Details ({ job }) {
     <div
       className='details'
     >
-      <div className="details-row">
+      <div className='details-row'>
         <div className='job-salary'>
           £{minimum} - £{maximum}
         </div>
         <div>
-          <PrimaryButton
-            ariaLabel='Apply'
-            icon='open-application'
-            onClick={() => {
-              window.location.href = jobUrl;
-            }}
-            text='Apply'
-          />
+          <a
+            href={jobUrl}
+            target='_blank'
+            rel='noreferrer'
+          >
+            <PrimaryButton
+              ariaLabel='Apply'
+              icon='open-application'
+              text='Apply'
+            />
+          </a>
         </div>
       </div>
       <div className='details-row'>
@@ -64,20 +67,12 @@ function Details ({ job }) {
         <div>
           {employerName}
         </div>
-        <div>
-          <SecondaryButton
-            icon={<Icon
-              color={`${darkMode ? Colors.ROSE5 : Colors.ROSE1}`}
-              icon='map-marker'
-            />}
-            // TODO go to GMaps URL from Thais
-            // onClick={}
-            text={locationName}
-          />
-        </div>
       </div>
       <div className='details-row map'>
-        <div>Map.</div>
+        <Map
+          userLocation={user.location}
+          jobLocation={locationName}
+        />
       </div>
       <div className='description'>
         {decodeHtml(jobDescription)}

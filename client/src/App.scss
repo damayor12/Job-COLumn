@@ -1,5 +1,15 @@
 // Global styling
 @import './index.scss';
+@import '../node_modules/@blueprintjs/core/lib/scss/variables';
+
+// Override BlueprintJS default values
+.bp4-input-light {
+  background: $almost-white !important;
+}
+
+.bp4-input-dark {
+  background: $almost-black !important;
+}
 
 header {
   align-self: flex-start;

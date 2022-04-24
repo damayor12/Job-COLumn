@@ -1,4 +1,4 @@
-// React impcorts
+// React imports
 import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -8,7 +8,6 @@ import { FocusStyleManager } from "@blueprintjs/core";
 // Local component imports
 import Welcome from './components/welcome/welcome';
 import Jobs from './components/jobs/jobs';
-// import Details from './components/details/details';
 import Error from './components/error/error';
 
 // Other imports
