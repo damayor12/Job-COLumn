@@ -2,7 +2,7 @@
 import { useContext, useState } from 'react';
 import { Colors, Dialog, Icon } from '@blueprintjs/core';
 
-// Local component imports
+// Local imports
 import { CitiesContext, ThemeContext, UserContext } from '../../App';
 import Details from './details';
 
@@ -19,10 +19,11 @@ function JobListing ({ job }) {
     employerName,
     locationName
   } = job
-  const [darkMode,] = useContext(ThemeContext);
-  const [user,] = useContext(UserContext);
-  const CITIES = useContext(CitiesContext);
 
+  // Contexts and states
+  const [darkMode] = useContext(ThemeContext);
+  const [user] = useContext(UserContext);
+  const CITIES = useContext(CitiesContext);
   const [isOpen, setIsOpen] = useState(false);
 
   // Salary math
@@ -34,6 +35,7 @@ function JobListing ({ job }) {
     .index;
   const isBetter = (minimumSalary / user.salary) / (jobIndex / userIndex) > 1;
 
+  // Add thousands separator
   const minimum = minimumSalary.toLocaleString('en-US');
   const maximum = maximumSalary.toLocaleString('en-US');
 
@@ -42,28 +44,31 @@ function JobListing ({ job }) {
       className='job-listing'
       onClick={() => setIsOpen(true)}
       style={{ color: `${
-        isBetter
-          && (darkMode ? Colors.ROSE5 : Colors.ROSE1)
+        isBetter && (darkMode ? Colors.ROSE5 : Colors.ROSE1)
       }` }}
     >
       <Dialog
+        isCloseButtonShown={false}
         isOpen={isOpen}
         onClose={() => {setIsOpen(false)}}
         title={jobTitle}
       >
         <Details job={job} />
       </Dialog>
+      {/* Title */}
       <div className='job-listing-row'>
         <div className='job-title'>
           {jobTitle}
         </div>
       </div>
+      {/* Salary */}
       <div className='job-listing-row'>
         <div className='job-salary'>
           £{minimum} - £{maximum}
         </div>
       </div>
-      <div className='job-listing-row job-listing-secondary'>
+      {/* Dates */}
+      <div className='job-listing-row'>
         <div>
           Posted on {date}
         </div>
@@ -71,7 +76,8 @@ function JobListing ({ job }) {
           Expires on {expirationDate}
         </div>
       </div>
-      <div className='job-listing-row job-listing-secondary'>
+      {/* Company and location */}
+      <div className='job-listing-row'>
         <div>
           {employerName}
         </div>

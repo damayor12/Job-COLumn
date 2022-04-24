@@ -1,8 +1,10 @@
 // Package imports
+import { Divider } from '@blueprintjs/core';
 
 // Local imports
-import BackButton from '../smol/buttons/backButton';
-import Divider from '../smol/divider';
+import Back from '../buttons/backButton';
+
+// Styling
 import './error.scss';
 
 function Error () {
@@ -11,7 +13,7 @@ function Error () {
       <div className='error'>
         Error 404: Page not found
         <Divider />
-        <BackButton />
+        <Back />
       </div>
     </main>
   );

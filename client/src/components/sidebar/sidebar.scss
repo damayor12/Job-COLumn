@@ -1,14 +1,19 @@
-@import '../../index.scss';
+@import '../../App.scss';
+
+// TODO add more spacing in non-mobile mode
+// In mobile mode, have it be 100vh
+// And make it collapsible
 
 nav {
   display: flex;
   flex-direction: column;
   min-width: 300px;
   width: 300px;
+  height: 100vh;
   margin-right: 25px;
-  // TODO how do I make it not move?
   position: sticky !important;
   top: 25px;
+  padding-top: 25px;
 
   .user-details {
     display: flex;
@@ -38,16 +43,13 @@ nav {
   }
 
   @media (max-width: $mobile) {
+    top: 0px;
+    height: auto;
     width: 100%;
-    margin-right: 0px;
-    margin-bottom: 25px;
 
     .filter-details {
-      .bp4-numeric-input {
-        width: calc(100% - 32px);
-        margin-left: auto;
-        // align-self: flex-end;
-        // padding-left: 32px;
+      .filter-value {
+        width: 100%;
       }
     }
   }

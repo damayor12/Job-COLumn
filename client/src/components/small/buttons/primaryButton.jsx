@@ -4,11 +4,16 @@ import { Classes, Button, Colors } from '@blueprintjs/core';
 
 // Local imports
 import { ThemeContext } from '../../../App';
-import './buttons.scss';
-import css from '../../../index.scss';
+import css from '../../../App.scss';
 
-function PrimaryButton ({ ariaLabel, icon, onClick, text }) {
-  const [darkMode,] = useContext(ThemeContext);
+function PrimaryButton ({
+  ariaLabel,
+  icon,
+  onClick,
+  text
+}) {
+  // Contexts
+  const [darkMode] = useContext(ThemeContext);
 
   return (
     <Button
@@ -22,7 +27,6 @@ function PrimaryButton ({ ariaLabel, icon, onClick, text }) {
       icon={icon}
       intent='primary'
       onClick={onClick}
-      outlined
     >
       {text}
     </Button>

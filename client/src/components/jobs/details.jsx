@@ -1,10 +1,10 @@
-// React imports
+// Package imports
 import { useContext } from 'react';
 
-// Local component imports
+// Local imports
 import { UserContext } from '../../App';
-import PrimaryButton from '../smol/buttons/primaryButton';
-import Map from '../smol/map';
+import Button from '../small/buttons/primaryButton';
+import Map from './map';
 
 // Styles
 import './details.scss';
@@ -20,9 +20,10 @@ function Details ({ job }) {
     minimumSalary,
     maximumSalary
   } = job
-  // Context
+  // Contexts
   const [user] = useContext(UserContext);
 
+  // Add thousands separator
   const minimum = minimumSalary.toLocaleString('en-US');
   const maximum = maximumSalary.toLocaleString('en-US');
 
@@ -34,9 +35,8 @@ function Details ({ job }) {
   }
 
   return (
-    <div
-      className='details'
-    >
+    <div className='details'>
+      {/* Salary and Apply button */}
       <div className='details-row'>
         <div className='job-salary'>
           £{minimum} - £{maximum}
@@ -47,7 +47,7 @@ function Details ({ job }) {
             target='_blank'
             rel='noreferrer'
           >
-            <PrimaryButton
+            <Button
               ariaLabel='Apply'
               icon='open-application'
               text='Apply'
@@ -55,6 +55,7 @@ function Details ({ job }) {
           </a>
         </div>
       </div>
+      {/* Dates */}
       <div className='details-row'>
         <div>
           Posted on {date}
@@ -63,17 +64,20 @@ function Details ({ job }) {
           Expires on {expirationDate}
         </div>
       </div>
+      {/* Company name */}
       <div className='details-row'>
         <div>
-          {employerName}
+          Employer: {employerName}
         </div>
       </div>
+      {/* Map */}
       <div className='details-row map'>
         <Map
           userLocation={user.location}
           jobLocation={locationName}
         />
       </div>
+      {/* Job description */}
       <div className='description'>
         {decodeHtml(jobDescription)}
       </div>

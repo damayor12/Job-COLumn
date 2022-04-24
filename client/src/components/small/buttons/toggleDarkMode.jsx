@@ -2,10 +2,11 @@
 import { useContext } from 'react';
 
 // Local imports
-import Button from './secondaryButton';
 import { ThemeContext } from '../../../App';
+import Button from './secondaryButton';
 
 function ToggleDarkMode ({ text }) {
+  // Contexts
   const [darkMode, toggleTheme] = useContext(ThemeContext);
 
   return (

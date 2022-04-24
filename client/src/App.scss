@@ -1,8 +1,17 @@
-// Global styling
 @import './index.scss';
-@import '../node_modules/@blueprintjs/core/lib/scss/variables';
 
-// Override BlueprintJS default values
+// Variables
+$mobile: 600px;
+$mobile-small: 372px;
+
+// BlueprintJS color overrides
+// https://stackoverflow.com/questions/46199908/how-to-customize-blueprintjs-appearance-in-create-react-app
+// TODO Add darkened/lightened background to listings to make it more obvious in light mode
+// Add Rose1 and Rose5 as variables
+// Or just make all SCSS files handle all styling
+@import '@blueprintjs/core/lib/scss/variables';
+
+// TODO actually implement input field overrides
 .bp4-input-light {
   background: $almost-white !important;
 }
@@ -10,6 +19,19 @@
 .bp4-input-dark {
   background: $almost-black !important;
 }
+
+// .bp4-divider {
+//   // If darkMode, $almost-white, else $almost-black
+//   // Can check document.body's class name?
+// }
+
+:export {
+  almostBlack: $almost-black;
+  almostWhite: $almost-white;
+}
+
+// Global styling
+@import './index.scss';
 
 header {
   align-self: flex-start;

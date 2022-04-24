@@ -1,14 +1,12 @@
-// React imports
+// Package imports
 import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { FocusStyleManager } from '@blueprintjs/core';
 
-// BlueprintJS imports
-import { FocusStyleManager } from "@blueprintjs/core";
-
-// Local component imports
-import Welcome from './components/welcome/welcome';
+// Local imports
 import Jobs from './components/jobs/jobs';
-import Error from './components/error/error';
+import Error from './components/small/error/error';
+import Welcome from './components/welcome/welcome';
 
 // Other imports
 import CITIES from './cities.json';
@@ -23,7 +21,9 @@ import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 FocusStyleManager.onlyShowFocusOnTabs();
 
 // Contexts
+// TODO check out react-query
 export const ThemeContext = createContext();
+// TODO if time, create persistent session storage for user, filters, and sort
 export const UserContext = createContext();
 export const CitiesContext = createContext(CITIES);
 export const JobsContext = createContext();
@@ -52,12 +52,14 @@ function App () {
 
   // Because BlueprintJS' dark mode toggle sucks
   document.body.className = `${darkMode ? 'bp4-dark background-dark' : 'bp4-body background-light'}`
-
   function toggleTheme () {
     toggleDarkMode(mode => !mode);
   }
 
+  // TODO add README.md in root directory
+
   // TODO refactor contexts to not be so nested. Redux? Reducers?
+  // https://dev.to/ruppysuppy/redux-vs-context-api-when-to-use-them-4k3p
   return (
     <ThemeContext.Provider value={[darkMode, toggleTheme]}>
       <UserContext.Provider value={[user, setUser]}>

@@ -1,8 +1,14 @@
 // Variables
-$mobile: 600px;
-$mobile-small: 372px;
 $almost-black: rgb(30, 30, 30);
 $almost-white: rgb(230, 230, 230);
+
+.background-dark {
+  background-color: $almost-black;
+}
+
+.background-light {
+  background-color: $almost-white;
+}
 
 // Reset CSS
 * {
@@ -28,9 +34,9 @@ ul {
   list-style: none;
 }
 
-input[type="radio"],
+input[type='radio'],
 select,
-input[type="submit"] {
+input[type='submit'] {
   cursor: pointer;
   outline: none;
 }
@@ -51,17 +57,4 @@ a {
   color: inherit !important;
   // Underline is standard in Blueprint. Force disable it.
   text-decoration: none !important;
-}
-
-.background-dark {
-  background-color: $almost-black;
-}
-
-.background-light {
-  background-color: $almost-white;
-}
-
-:export {
-  almostBlack: $almost-black;
-  almostWhite: $almost-white;
 }

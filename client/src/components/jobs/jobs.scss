@@ -1,13 +1,13 @@
-@import '../../index.scss';
+@import '../../App.scss';
 
 .all-jobs {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: auto;
+  margin: 0 auto auto;
   gap: 1rem;
 
   * {
-    flex: 1 1 2ch;
+    flex: 1 1;
   }
 }

@@ -1,30 +1,26 @@
-// React imports
+// Packge imports
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Colors, FormGroup } from '@blueprintjs/core';
 
-// BlueprintJS imports
-import { Colors, FormGroup, NumericInput } from '@blueprintjs/core';
-
-// Local component imports
+// Local imports
 import { UserContext, ThemeContext } from '../../App';
-import Button from '../smol/buttons/primaryButton'
-import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
-import CitiesSelector from '../smol/select/cities';
-
-// Local icon imports
-import Logo from '../logo/logo';
-import GBP from '../smol/GBP/GBP';
+import Logo from '../small/logo/logo';
+import Cities from '../small/select/cities';
+import Numeric from '../small/select/numeric';
+import Button from '../small/buttons/primaryButton'
+import ToggleDarkMode from '../small/buttons/toggleDarkMode';
 
 // Styling
 import './welcome.scss';
-import Numeric from '../smol/select/numeric';
 
 function Welcome () {
   const navigate = useNavigate();
   // Contexts
   const [user, setUser] = useContext(UserContext);
-  const [darkMode,] = useContext(ThemeContext);
+  const [darkMode] = useContext(ThemeContext);
 
+  // TODO refactor for cleanliness
   return (
     <div className='welcome'>
       {/* Header and logo */}
@@ -77,9 +73,10 @@ function Welcome () {
         </div>
         {/* User details and theme preference */}
         <FormGroup inline >
-          <CitiesSelector />
+          <Cities />
           <Numeric
             defaultValue={user.salary}
+            // TODO force it to not be full somehow
             fill={false}
             onValueChange={value => setUser({
               ...user,
@@ -99,13 +96,13 @@ function Welcome () {
         Powered by <a
           href='https://www.reed.co.uk/'
           target='_blank'
-          rel="noreferrer"
+          rel='noreferrer'
         >
           Reed
         </a> and <a
           href='https://www.numbeo.com/'
           target='_blank'
-          rel="noreferrer"
+          rel='noreferrer'
         >
           Numbeo
         </a>.

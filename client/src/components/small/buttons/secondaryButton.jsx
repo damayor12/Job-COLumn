@@ -5,8 +5,14 @@ import { Classes, Button, Colors } from '@blueprintjs/core';
 // Local imports
 import { ThemeContext } from '../../../App';
 
-function SecondaryButton ({ ariaLabel, icon, onClick, text }) {
-  const [darkMode,] = useContext(ThemeContext);
+function SecondaryButton ({
+  ariaLabel,
+  icon,
+  onClick,
+  text
+}) {
+  // Contexts
+  const [darkMode] = useContext(ThemeContext);
 
   return (
     <Button

@@ -1,4 +1,4 @@
-@import '../../index.scss';
+@import '../../App.scss';
 
 .details {
   font-size: large;
@@ -16,10 +16,6 @@
     .job-salary {
       font-size: x-large;
       font-weight: bold;
-    }
-
-    .map {
-      // eventually
     }
   }
 }

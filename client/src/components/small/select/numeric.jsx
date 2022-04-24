@@ -1,10 +1,15 @@
-// BlueprintJS imports
+// Package imports
 import { NumericInput } from '@blueprintjs/core';
 
-// Local component imports
+// Local imports
 import GBP from '../GBP/GBP';
 
-function Numeric ({ defaultValue, fill, onValueChange, placeholder }) {
+function Numeric ({
+  defaultValue,
+  fill,
+  onValueChange,
+  placeholder
+}) {
   return (
     <NumericInput
       defaultValue={defaultValue}
