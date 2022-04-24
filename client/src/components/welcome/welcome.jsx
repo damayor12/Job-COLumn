@@ -17,6 +17,7 @@ import GBP from '../smol/GBP/GBP';
 
 // Styling
 import './welcome.scss';
+import Numeric from '../smol/select/numeric';
 
 function Welcome () {
   const navigate = useNavigate();
@@ -77,17 +78,13 @@ function Welcome () {
         {/* User details and theme preference */}
         <FormGroup inline >
           <CitiesSelector />
-          <NumericInput
+          <Numeric
             defaultValue={user.salary}
-            leftIcon={<GBP />}
-            id='currentSalary'
-            majorStepSize='10000'
-            min={0}
+            fill={false}
             onValueChange={value => setUser({
               ...user,
               salary: value
             })}
-            stepSize='1000'
           />
           <ToggleDarkMode />
           <Button
@@ -99,9 +96,17 @@ function Welcome () {
       </main>
       {/* APIs used */}
       <footer>
-        Powered by <a href='https://www.reed.co.uk/'>
+        Powered by <a
+          href='https://www.reed.co.uk/'
+          target='_blank'
+          rel="noreferrer"
+        >
           Reed
-        </a> and <a href='https://www.numbeo.com/'>
+        </a> and <a
+          href='https://www.numbeo.com/'
+          target='_blank'
+          rel="noreferrer"
+        >
           Numbeo
         </a>.
       </footer>

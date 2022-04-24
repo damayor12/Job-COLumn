@@ -12,11 +12,13 @@ import SecondaryButton from '../smol/buttons/secondaryButton';
 import BackButton from '../smol/buttons/backButton';
 import ToggleDarkMode from '../smol/buttons/toggleDarkMode';
 import SortSelector from '../smol/select/sorts';
+import Numeric from '../smol/select/numeric';
 import MultipleCitiesSelector from '../smol/select/multipleCities';
 import Divider from '../smol/divider';
 import GBP from '../smol/GBP/GBP';
 
 // Styling
+import css from '../../index.scss';
 import './sidebar.scss';
 
 function Sidebar () {
@@ -29,7 +31,11 @@ function Sidebar () {
   const [sort, setSort] = useContext(SortContext);
 
   return (
-    <nav>
+    <nav
+      style={{
+        backgroundColor: `${darkMode ? css.almostBlack : css.almostWhite}`
+      }}
+    >
       {/* Header and dark mode */}
       <header>
         <Logo />
@@ -98,17 +104,13 @@ function Sidebar () {
             Salary
           </div>
           <div className='filter-value'>
-            <NumericInput
-              fill
-              leftIcon={<GBP />}
-              majorStepSize='10000'
-              min={0}
+            <Numeric
+              fill={true}
               onValueChange={value => setFilters({
                 ...filters,
                 salary: value
               })}
               placeholder='Minimum Salary'
-              stepSize='1000'
             />
           </div>
         </div>

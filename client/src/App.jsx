@@ -15,7 +15,7 @@ import CITIES from './cities.json';
 import './App.scss';
 
 // Styling
-import '../node_modules/normalize.css/normalize.css';
+import 'normalize.css/normalize.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 
@@ -70,7 +70,6 @@ function App () {
                     <Routes>
                       <Route path='/' element={<Welcome />} />
                       <Route path='/jobs' element={<Jobs />} />
-                      {/* <Route path='/jobs/:jobId' element={<Details />} /> */}
                       <Route path='/*' element={<Error />} />
                     </Routes>
                   </Router>
