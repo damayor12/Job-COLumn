@@ -1,16 +1,14 @@
 // Package imports
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Divider } from '@blueprintjs/core';
 
 // Local imports
-import {
-  FilterContext,
-  UserContext,
-  SortContext,
-  ThemeContext,
-  FilteredJobsContext,
-  JobsContext
-} from '../../App';
+import { useFilterContext } from '../contexts/filter';
+import { useFilteredJobsContext } from '../contexts/filteredJobs';
+import { useJobsContext } from '../contexts/jobs';
+import { useSortContext } from '../contexts/sort';
+import { useThemeContext } from '../contexts/theme';
+import { useUserContext } from '../contexts/user';
 import {
   background,
   footer,
@@ -33,12 +31,12 @@ import './sidebar.scss';
 
 function Sidebar () {
   // Contexts and states
-  const [darkMode] = useContext(ThemeContext);
-  const [user] = useContext(UserContext);
-  const [filters, setFilters] = useContext(FilterContext);
-  const [sort, setSort] = useContext(SortContext);
-  const [jobs] = useContext(JobsContext);
-  const [, setFilteredJobs] = useContext(FilteredJobsContext);
+  const [darkMode] = useThemeContext();
+  const [user] = useUserContext();
+  const [filters, setFilters] = useFilterContext();
+  const [sort, setSort] = useSortContext();
+  const [jobs] = useJobsContext();
+  const [, setFilteredJobs] = useFilteredJobsContext();
   const [navbarVisible, setNavbarVisible] = useState(true);
 
   // Filter setter functions

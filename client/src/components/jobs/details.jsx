@@ -1,10 +1,8 @@
 // Package imports
-import { useContext } from 'react';
-// This gets rid of the '$#number;' in the job description
 import { decode } from 'he';
 
 // Local imports
-import { UserContext } from '../../App';
+import { useUserContext } from '../contexts/user';
 import { numberFormatter } from '../helpers';
 import Anchor from '../small/buttons/anchor';
 import Button from '../small/buttons/primaryButton';
@@ -25,7 +23,7 @@ function Details ({ job }) {
     maximumSalary
   } = job
   // Contexts
-  const [user] = useContext(UserContext);
+  const [user] = useUserContext();
 
   return (
     <div className='details'>
@@ -68,6 +66,7 @@ function Details ({ job }) {
       </div>
       {/* Job description */}
       <div className='description'>
+        {/* This gets rid of the '$#number;' in the job description */}
         {decode(jobDescription)}
       </div>
     </div>

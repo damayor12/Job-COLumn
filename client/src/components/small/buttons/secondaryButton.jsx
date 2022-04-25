@@ -1,9 +1,8 @@
 // Package imports
-import { useContext } from 'react';
 import { Classes, Button, Colors } from '@blueprintjs/core';
 
 // Local imports
-import { ThemeContext } from '../../../App';
+import { useThemeContext } from '../../contexts/theme';
 
 function SecondaryButton ({
   ariaLabel,
@@ -13,7 +12,7 @@ function SecondaryButton ({
   text
 }) {
   // Contexts
-  const [darkMode] = useContext(ThemeContext);
+  const [darkMode] = useThemeContext();
 
   return (
     <Button

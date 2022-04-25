@@ -1,15 +1,14 @@
-// Package imports
-import { useContext } from 'react';
-
 // Local imports
-import { CitiesContext, UserContext } from '../../../App';
+// import { useCitiesContext } from '../../contexts/cities';
+import { useUserContext } from '../../contexts/user';
 import Button from '../buttons/secondaryButton';
+import CITIES from '../../helpers/cities.json';
 import Select from './select';
 
 function CitiesSelector () {
   // Contexts
-  const [user, setUser] = useContext(UserContext);
-  const CITIES = useContext(CitiesContext);
+  const [user, setUser] = useUserContext();
+  // const CITIES = useCitiesContext();
 
   const { location } = user;
 

@@ -1,9 +1,9 @@
 // Package imports
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Local imports
-import { UserContext, ThemeContext } from '../../App';
+import { useThemeContext } from '../contexts/theme';
+import { useUserContext } from '../contexts/user';
 import {
   footer,
   headerAndLogo,
@@ -22,8 +22,8 @@ import './welcome.scss';
 function Welcome () {
   const navigate = useNavigate();
   // Contexts
-  const [user, setUser] = useContext(UserContext);
-  const [darkMode] = useContext(ThemeContext);
+  const [darkMode] = useThemeContext();
+  const [user, setUser] = useUserContext();
 
   // User salary input's onValueChange
   function onValueChange (value) {

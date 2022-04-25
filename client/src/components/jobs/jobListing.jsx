@@ -1,10 +1,12 @@
 // Package imports
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { Colors, Dialog, Icon } from '@blueprintjs/core';
 
 // Local imports
-import { CitiesContext, ThemeContext, UserContext } from '../../App';
+import { useUserContext } from '../contexts/user';
+import { useThemeContext } from '../contexts/theme';
 import { numberFormatter } from '../helpers';
+import CITIES from '../helpers/cities.json';
 import Details from './details';
 
 // Styles
@@ -22,9 +24,9 @@ function JobListing ({ job }) {
   } = job
 
   // Contexts and states
-  const [darkMode] = useContext(ThemeContext);
-  const [user] = useContext(UserContext);
-  const CITIES = useContext(CitiesContext);
+  const [darkMode] = useThemeContext();
+  const [user] = useUserContext();
+  // const CITIES = useCitiesContext();
   const [isOpen, setIsOpen] = useState(false);
 
   // Salary math
