@@ -1,21 +1,59 @@
 // Package imports
-import { Colors, FormGroup } from '@blueprintjs/core';
+import { Colors, H5, Icon, InputGroup, FormGroup } from '@blueprintjs/core';
 
 // Local imports
 import Logo from './components/small/logo/logo';
 import Cities from './components/small/input/cities';
+import MultiCity from './components/small/input/multipleCities';
 import Numeric from './components/small/input/numeric';
+import Sorts from './components/small/input/sorts';
 import Button from './components/small/buttons/primaryButton';
 import ToggleDarkMode from './components/small/buttons/toggleDarkMode';
+import PrimaryButton from './components/small/buttons/primaryButton';
+import SecondaryButton from './components/small/buttons/secondaryButton';
 
-// JSX elements (in order of use)
+// Styling
+import css from './index.scss';
 
-// Welcome page
+// JSX elements
+
+/*
+  -----------------------------------------------------------------------------
+  Common components
+  -----------------------------------------------------------------------------
+*/
+
+function rose (darkMode) {
+  return `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+}
+
+export function background (darkMode) {
+  return `${darkMode ? css.almostBlack : css.almostWhite}`
+}
 
 // Header and logo
 export const headerAndLogo = <header>
   <Logo />
 </header>
+
+// Footer
+export const footer = <footer>
+  Powered by <a
+    href='https://www.reed.co.uk/'
+    target='_blank'
+    rel='noreferrer'
+  >Reed</a> and <a
+    href='https://www.numbeo.com/'
+    target='_blank'
+    rel='noreferrer'
+  >Numbeo</a>.
+</footer>
+
+/*
+  -----------------------------------------------------------------------------
+  Welcome page
+  -----------------------------------------------------------------------------
+*/
 
 // Site name
 // TODO move styling to scss file
@@ -24,7 +62,7 @@ function siteName (darkMode) {
     <span
       className='bold'
       style={{
-        color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+        color: rose(darkMode)
       }}
     >Job COLumn</span>
   );
@@ -101,15 +139,118 @@ export function userForm ({
   );
 }
 
-// Footer
-export const footer = <footer>
-  Powered by <a
-    href='https://www.reed.co.uk/'
-    target='_blank'
-    rel='noreferrer'
-  >Reed</a> and <a
-    href='https://www.numbeo.com/'
-    target='_blank'
-    rel='noreferrer'
-  >Numbeo</a>.
-</footer>
+/*
+  -----------------------------------------------------------------------------
+  Sidebar
+  -----------------------------------------------------------------------------
+*/
+
+export function userDetails (darkMode, {
+  location,
+  salary
+}) {
+  return (
+    <div>
+      {/* Location */}
+      <div className='user-details'>
+        <div>
+          Current Location
+        </div>
+        <div style={{
+          color: rose(darkMode)
+        }}>
+          {location}
+        </div>
+      </div>
+      {/* Salary */}
+      <div className='user-details'>
+        <div>
+          Current Salary
+        </div>
+        <div style={{
+          color: rose(darkMode)
+        }}>
+          {`£${salary.toLocaleString('en-US')}`}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function filtersDefined (darkMode, {
+  keywords,
+  keywordsOnChange,
+  numericOnChange
+} ) {
+  return (
+    <div>
+      <H5 className='bp4-heading' style={{
+        color: rose(darkMode)
+      }}>
+        <Icon icon='filter'/> Filter
+      </H5>
+      {/* Keywords */}
+      <div className='filter-details'>
+        <div className='filter-label'>
+          Keywords
+        </div>
+        <InputGroup
+          className='filter-value'
+          fill
+          defaultValue={keywords}
+          leftIcon='search'
+          onChange={keywordsOnChange}
+          placeholder='Keywords'
+        />
+      </div>
+      {/* Locations */}
+      <div className='filter-details'>
+        <div className='filter-label'>
+          Locations
+        </div>
+        <MultiCity className='filter-value' />
+      </div>
+      {/* Salary */}
+      <div className='filter-details'>
+        <div className='filter-label'>
+          Salary
+        </div>
+        <Numeric
+          className='filter-value'
+          fill={true}
+          onValueChange={numericOnChange}
+          placeholder='Minimum Salary'
+        />
+      </div>
+    </div>
+  );
+}
+
+export function sortDefined (darkMode, {
+  filterAndSort,
+  sortOrder,
+  sortOnClick
+}) {
+  return (
+    <div className='filter-details'>
+        <H5 className='bp4-heading' style={{
+          color: rose(darkMode)
+        }}>
+          Sort by
+        </H5>
+        <Sorts />
+        <SecondaryButton
+          icon={<Icon
+            color={rose(darkMode)}
+            icon={`sort-${sortOrder}`}
+          />}
+          onClick={sortOnClick}
+        />
+        <PrimaryButton
+          icon='filter'
+          onClick={filterAndSort}
+          text='Lesgo'
+        />
+      </div>
+  );
+}

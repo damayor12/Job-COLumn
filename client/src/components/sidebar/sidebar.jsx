@@ -1,23 +1,28 @@
 // Package imports
 import { useContext } from 'react';
-import { Colors, Divider, H5, Icon, InputGroup } from '@blueprintjs/core';
+import { Divider } from '@blueprintjs/core';
 
 // Local imports
-import { FilterContext, UserContext, SortContext, ThemeContext, FilteredJobsContext, JobsContext } from '../../App';
-import Logo from '../small/logo/logo';
-
-// Small components
-import MultiCity from '../small/input/multipleCities';
-import Numeric from '../small/input/numeric';
-import Sorts from '../small/input/sorts';
+import {
+  FilterContext,
+  UserContext,
+  SortContext,
+  ThemeContext,
+  FilteredJobsContext,
+  JobsContext
+} from '../../App';
+import {
+  background,
+  filtersDefined,
+  footer,
+  headerAndLogo,
+  sortDefined,
+  userDetails
+} from '../../jsxElements';
 import Back from '../small/buttons/backButton';
-import PrimaryButton from '../small/buttons/primaryButton';
-import SecondaryButton from '../small/buttons/secondaryButton';
 import ToggleDarkMode from '../small/buttons/toggleDarkMode';
 
 // Styling
-import css from '../../App.scss';
-import { footer } from '../../jsxElements';
 import './sidebar.scss';
 
 function Sidebar () {
@@ -29,6 +34,22 @@ function Sidebar () {
   const [, setFilteredJobs] = useContext(FilteredJobsContext);
   const [sort, setSort] = useContext(SortContext);
 
+  // Filter functions
+  function keywordsOnChange (e) {
+    setFilters({
+      ...filters,
+      keywords: e.target.value
+    });
+  }
+
+  function numericOnChange (value) {
+    setFilters({
+      ...filters,
+      salary: value
+    });
+  }
+
+  // Sort functions
   // TODO refactor for readability
   function filterAndSort () {
     setFilteredJobs(jobs
@@ -88,121 +109,41 @@ function Sidebar () {
     )
   }
 
-  // TODO refactor for cleanliness
+  function sortOnClick () {
+    setSort({
+      ...sort,
+      order: `${sort.order === 'asc' ? 'desc' : 'asc'}`
+    })
+  }
+
   return (
-    <nav style={{
-      backgroundColor: `${darkMode ? css.almostBlack : css.almostWhite}`
-    }} >
+    <nav style={{ backgroundColor: background(darkMode) }} >
       {/* Header and dark mode */}
-      <header>
-        <Logo />
-      </header>
+      {headerAndLogo}
       <Divider />
       <ToggleDarkMode text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`} />
       {/* User details */}
       <Divider />
-      <div>
-        {/* Location */}
-        <div className='user-details'>
-          <div>
-            Current Location
-          </div>
-          <div style={{
-            color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
-          }}>
-            {user.location}
-          </div>
-        </div>
-        {/* Salary */}
-        <div className='user-details'>
-          <div>
-            Current Salary
-          </div>
-          <div style={{
-            color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
-          }}>
-            {`£${user.salary.toLocaleString('en-US')}`}
-          </div>
-        </div>
-      </div>
+      {userDetails(darkMode, user)}
       {/* Filter options */}
       <Divider />
-      <div>
-        <H5 className='bp4-heading' style={{
-          color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
-        }}>
-          <Icon icon='filter'/> Filter
-        </H5>
-        {/* Keywords */}
-        <div className='filter-details'>
-          <div className='filter-label'>
-            Keywords
-          </div>
-          <InputGroup
-            className='filter-value'
-            fill
-            defaultValue={filters.keywords}
-            leftIcon='search'
-            onChange={e => setFilters({
-              ...filters,
-              keywords: e.target.value
-            })}
-            placeholder='Keywords'
-          />
-        </div>
-        {/* Locations */}
-        <div className='filter-details'>
-          <div className='filter-label'>
-            Locations
-          </div>
-          <MultiCity className='filter-value' />
-        </div>
-        {/* Salary */}
-        <div className='filter-details'>
-          <div className='filter-label'>
-            Salary
-          </div>
-          <Numeric
-            className='filter-value'
-            fill={true}
-            onValueChange={value => setFilters({
-              ...filters,
-              salary: value
-            })}
-            placeholder='Minimum Salary'
-          />
-        </div>
-      </div>
+      {filtersDefined(darkMode, {
+        keywords: filters.keywords,
+        keywordsOnChange,
+        numericOnChange
+      })}
       {/* Sort options */}
       <Divider />
-      <div className='filter-details'>
-        <H5 className='bp4-heading' style={{
-          color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
-        }}>
-          Sort by
-        </H5>
-        <Sorts />
-        <SecondaryButton
-          icon={<Icon
-            color={`${darkMode ? Colors.ROSE5 : Colors.ROSE1}`}
-            icon={`sort-${sort.order}`}
-          />}
-          onClick={() => setSort({
-            ...sort,
-            order: `${sort.order === 'asc' ? 'desc' : 'asc'}`
-          })}
-        />
-        <PrimaryButton
-          icon='filter'
-          onClick={filterAndSort}
-          text='Lesgo'
-        />
-      </div>
+      {sortDefined(darkMode, {
+        filterAndSort,
+        sortOrder: sort.order,
+        sortOnClick
+      })}
       <Divider />
       <Back />
-      {/* For mobile mode */}
       <Divider />
       {footer}
+      {/* For mobile mode */}
       <Divider />
     </nav>
   );

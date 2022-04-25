@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 // Local imports
 import { UserContext, ThemeContext } from '../../App';
 import {
+  footer,
   headerAndLogo,
+  userForm,
   welcomeMessage,
   welcomeText1,
   welcomeText2,
-  welcomeText3,
-  footer,
-  userForm
+  welcomeText3
 } from '../../jsxElements';
 
 // Styling
