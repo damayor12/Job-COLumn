@@ -1,8 +1,12 @@
 // Package imports
 import { useContext } from 'react';
+// This gets rid of the '$#number;' in the job description
+import { decode } from 'he';
 
 // Local imports
 import { UserContext } from '../../App';
+import { numberFormatter } from '../helpers';
+import Anchor from '../small/buttons/anchor';
 import Button from '../small/buttons/primaryButton';
 import Map from './map';
 
@@ -23,36 +27,21 @@ function Details ({ job }) {
   // Contexts
   const [user] = useContext(UserContext);
 
-  // Add thousands separator
-  const minimum = minimumSalary.toLocaleString('en-US');
-  const maximum = maximumSalary.toLocaleString('en-US');
-
-  // This gets rid of the '$#number;' in the job description
-  function decodeHtml(html) {
-    const text = document.createElement('textarea');
-    text.innerHTML = html;
-    return text.value;
-  }
-
   return (
     <div className='details'>
       {/* Salary and Apply button */}
       <div className='details-row'>
         <div className='job-salary'>
-          £{minimum} - £{maximum}
+          £{numberFormatter(minimumSalary)} - £{numberFormatter(maximumSalary)}
         </div>
         <div>
-          <a
-            href={jobUrl}
-            target='_blank'
-            rel='noreferrer'
-          >
+          <Anchor href={jobUrl}>
             <Button
               ariaLabel='Apply'
               icon='open-application'
               text='Apply'
             />
-          </a>
+          </Anchor>
         </div>
       </div>
       {/* Dates */}
@@ -79,7 +68,7 @@ function Details ({ job }) {
       </div>
       {/* Job description */}
       <div className='description'>
-        {decodeHtml(jobDescription)}
+        {decode(jobDescription)}
       </div>
     </div>
   );

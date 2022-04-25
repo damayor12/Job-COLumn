@@ -41,33 +41,3 @@ export function sortJobs (jobs, {
     return -direction;
   })
 }
-
-export function filterJobs (jobs, {
-  keywords,
-  cities,
-  salary
-}) {
-  return jobs.filter(job => {
-    let result = true;
-    if (keywords) {
-      result = result && keywords.split(' ')
-        .every(keyword => (
-          job
-            .jobTitle
-            .toLowerCase()
-            .includes(keyword.toLowerCase())
-          || job
-            .jobDescription
-            .toLowerCase()
-            .includes(keyword.toLowerCase())
-        ))
-    }
-    if (cities.length) {
-      result = result && cities.includes(job.locationName);
-    }
-    if (salary) {
-      result = result && job.minimumSalary >= salary;
-    }
-    return result;
-  })
-}

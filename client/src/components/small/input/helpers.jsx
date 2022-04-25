@@ -15,6 +15,7 @@ export function renderer (item, /* iconCheck,  */{ handleClick, modifiers }) {
   return (
     <MenuItem
       // TODO add tick icons to cities selector
+      // https://github.com/palantir/blueprint/blob/develop/packages/docs-app/src/examples/select-examples/multiSelectExample.tsx
       // icon={iconCheck ? 'tick' : 'blank' }
       key={item?.name ? item.name : item}
       onClick={handleClick}

@@ -13,19 +13,19 @@ import {
 } from '../../App';
 import {
   background,
-  filtersDefined,
   footer,
-  headerAndLogo,
-  sortDefined,
-  userDetails
-} from '../../jsxElements';
+  headerAndLogo
+} from '../helpers';
 import Back from '../small/buttons/backButton';
 import SecondaryButton from '../small/buttons/secondaryButton';
 import ToggleDarkMode from '../small/buttons/toggleDarkMode';
 import {
   filterJobs,
-  sortJobs
-} from './helpers';
+  filtersDefined,
+  sortJobs,
+  sortDefined,
+  userDetails
+} from '../helpers/sidebar';
 
 // Styling
 // TODO bring this back when trying to fix navbar toggle button

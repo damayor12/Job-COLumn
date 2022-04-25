@@ -7,12 +7,14 @@ import { UserContext, ThemeContext } from '../../App';
 import {
   footer,
   headerAndLogo,
+} from '../helpers/index';
+import {
   userForm,
   welcomeMessage,
-  welcomeText1,
-  welcomeText2,
-  welcomeText3
-} from '../../jsxElements';
+  introduction,
+  functionality,
+  privacyDisclosure
+} from '../helpers/welcome';
 
 // Styling
 import './welcome.scss';
@@ -39,10 +41,9 @@ function Welcome () {
         {/* Welcome message */}
         {welcomeMessage(darkMode)}
         {/* Describing the app */}
-        {welcomeText1(darkMode)}
-        {welcomeText2}
-        {/* Explain why I need some details from the user */}
-        {welcomeText3}
+        {introduction(darkMode)}
+        {functionality}
+        {privacyDisclosure}
         {/* User details and theme preference */}
         {userForm({
           defaultValue: user.salary,
