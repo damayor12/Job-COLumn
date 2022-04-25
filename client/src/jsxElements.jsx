@@ -13,7 +13,7 @@ import PrimaryButton from './components/small/buttons/primaryButton';
 import SecondaryButton from './components/small/buttons/secondaryButton';
 
 // Styling
-import css from './index.scss';
+import css from './App.scss';
 
 // JSX elements
 
@@ -24,11 +24,11 @@ import css from './index.scss';
 */
 
 function rose (darkMode) {
-  return `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
+  return darkMode ? Colors.ROSE5 : Colors.ROSE1
 }
 
 export function background (darkMode) {
-  return `${darkMode ? css.almostBlack : css.almostWhite}`
+  return darkMode ? css.almostBlack : css.almostWhite
 }
 
 // Header and logo

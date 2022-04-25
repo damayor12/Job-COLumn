@@ -27,12 +27,12 @@ import './sidebar.scss';
 
 function Sidebar () {
   // Contexts
-  const [user] = useContext(UserContext);
   const [darkMode] = useContext(ThemeContext);
+  const [user] = useContext(UserContext);
   const [filters, setFilters] = useContext(FilterContext);
+  const [sort, setSort] = useContext(SortContext);
   const [jobs] = useContext(JobsContext);
   const [, setFilteredJobs] = useContext(FilteredJobsContext);
-  const [sort, setSort] = useContext(SortContext);
 
   // Filter functions
   function keywordsOnChange (e) {
