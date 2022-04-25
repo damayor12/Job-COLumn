@@ -23,7 +23,7 @@ FocusStyleManager.onlyShowFocusOnTabs();
 // Contexts
 // TODO check out react-query
 export const ThemeContext = createContext();
-// TODO if time, create persistent session storage for user, filters, and sort
+// TODO if time, create persistent session storage for user, filters, sort, dark/light mode
 export const UserContext = createContext();
 export const CitiesContext = createContext(CITIES);
 export const JobsContext = createContext();

@@ -7,9 +7,9 @@ import { FilterContext, UserContext, SortContext, ThemeContext, FilteredJobsCont
 import Logo from '../small/logo/logo';
 
 // Small components
-import MultiCity from '../small/select/multipleCities';
-import Numeric from '../small/select/numeric';
-import Sorts from '../small/select/sorts';
+import MultiCity from '../small/input/multipleCities';
+import Numeric from '../small/input/numeric';
+import Sorts from '../small/input/sorts';
 import Back from '../small/buttons/backButton';
 import PrimaryButton from '../small/buttons/primaryButton';
 import SecondaryButton from '../small/buttons/secondaryButton';
@@ -17,6 +17,7 @@ import ToggleDarkMode from '../small/buttons/toggleDarkMode';
 
 // Styling
 import css from '../../App.scss';
+import { footer } from '../../jsxElements';
 import './sidebar.scss';
 
 function Sidebar () {
@@ -200,6 +201,8 @@ function Sidebar () {
       <Divider />
       <Back />
       {/* For mobile mode */}
+      <Divider />
+      {footer}
       <Divider />
     </nav>
   );
