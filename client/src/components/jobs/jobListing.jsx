@@ -56,13 +56,13 @@ function JobListing ({ job }) {
       </Dialog>
       {/* Title */}
       <div className='job-listing-row'>
-        <div className='job-title'>
+        <div className='job-listing-title'>
           {jobTitle}
         </div>
       </div>
       {/* Salary */}
       <div className='job-listing-row'>
-        <div className='job-salary'>
+        <div className='job-listing-salary'>
           £{numberFormatter(minimumSalary)} - £{numberFormatter(maximumSalary)}
         </div>
       </div>

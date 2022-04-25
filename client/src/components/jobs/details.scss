@@ -5,25 +5,23 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+}
 
-  @media (max-width: $mobile) {
+.details-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.job-salary {
+  font-size: large;
+  font-weight: bold;
+}
+
+@media (max-width: $mobile) {
+  .details {
     font-size: medium;
-  }
-
-  .details-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-
-    .job-salary {
-      font-size: x-large;
-      font-weight: bold;
-
-      @media (max-width: $mobile) {
-        font-size: large;
-      }
-    }
   }
 }

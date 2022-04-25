@@ -14,28 +14,25 @@
   border: 1px solid;
   border-radius: 10px;
   justify-content: space-between;
+}
 
-  .dialog {
-    padding: 10px;
+.job-listing-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+
+  :nth-child(2) {
+    padding-left: 1rem;
   }
+}
 
-  .job-listing-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 5px;
+.job-listing-title {
+  font-size: large;
+}
 
-    :nth-child(2) {
-      padding-left: 1rem;
-    }
-
-    .job-title {
-      font-size: large;
-    }
-
-    .job-salary {
-      font-weight: bold;
-    }
-  }
+.job-listing-salary {
+  font-size: medium;
+  font-weight: bold;
 }
