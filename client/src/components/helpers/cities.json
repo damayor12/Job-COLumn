@@ -1,224 +1,150 @@
 [
   {
     "name": "Aberdeen",
-    "index": 43.22642063546455,
-    "latitude": 57.149717,
-    "longitude": -2.094278
+    "index": 43.22642063546455
   },
   {
     "name": "Belfast",
-    "index": 47.563588627496294,
-    "latitude": 54.5972686,
-    "longitude": -5.9301088
+    "index": 47.563588627496294
   },
   {
     "name": "Birmingham",
-    "index": 50.36911749187147,
-    "latitude": 52.48624299999999,
-    "longitude": -1.890401
+    "index": 50.36911749187147
   },
   {
     "name": "Bolton",
-    "index": 38.48736190955285,
-    "latitude": 53.5784742,
-    "longitude": -2.4299152
+    "index": 38.48736190955285
   },
   {
     "name": "Bournemouth",
-    "index": 48.66414469361157,
-    "latitude": 50.7216814,
-    "longitude": -1.8785266
+    "index": 48.66414469361157
   },
   {
     "name": "Bradford",
-    "index": 38.03344382145551,
-    "latitude": 53.793853,
-    "longitude": -1.7524422
+    "index": 38.03344382145551
   },
   {
     "name": "Brighton",
-    "index": 61.953894575402,
-    "latitude": 50.819522,
-    "longitude": -0.13642
+    "index": 61.953894575402
   },
   {
     "name": "Bristol",
-    "index": 54.7145787499106,
-    "latitude": 51.4553129,
-    "longitude": -2.5919023
+    "index": 54.7145787499106
   },
   {
     "name": "Chester",
-    "index": 54.12221060608471,
-    "latitude": 53.1914576,
-    "longitude": -2.8950072
+    "index": 54.12221060608471
   },
   {
     "name": "Coventry",
-    "index": 43.33904428705498,
-    "latitude": 52.406822,
-    "longitude": -1.519693
+    "index": 43.33904428705498
   },
   {
     "name": "Crawley",
-    "index": 50.702720648640806,
-    "latitude": 51.1133388,
-    "longitude": -0.1829137
+    "index": 50.702720648640806
   },
   {
     "name": "Derby",
-    "index": 44.03599994427556,
-    "latitude": 52.9218993,
-    "longitude": -1.475642
+    "index": 44.03599994427556
   },
   {
     "name": "Doncaster",
-    "index": 38.95026724943803,
-    "latitude": 53.5230412,
-    "longitude": -1.1337622
+    "index": 38.95026724943803
   },
   {
     "name": "Dundee",
-    "index": 42.57999643357026,
-    "latitude": 56.4614282,
-    "longitude": -2.9681109
+    "index": 42.57999643357026
   },
   {
     "name": "Edinburgh",
-    "index": 51.00555221646053,
-    "latitude": 55.953252,
-    "longitude": -3.188267
+    "index": 51.00555221646053
   },
   {
     "name": "Exeter",
-    "index": 48.32707821837201,
-    "latitude": 50.718412,
-    "longitude": -3.533899
+    "index": 48.32707821837201
   },
   {
     "name": "Glasgow",
-    "index": 48.65712102043843,
-    "latitude": 55.861147,
-    "longitude": -4.2499891
+    "index": 48.65712102043843
   },
   {
     "name": "Huddersfield",
-    "index": 38.63824133802803,
-    "latitude": 53.6451559,
-    "longitude": -1.7849275
+    "index": 38.63824133802803
   },
   {
     "name": "Kingston upon Hull",
-    "index": 39.12474740965803,
-    "latitude": 53.7443412,
-    "longitude": -0.3324433
+    "index": 39.12474740965803
   },
   {
     "name": "Leeds",
-    "index": 48.05854085443257,
-    "latitude": 53.8007554,
-    "longitude": -1.5490774
+    "index": 48.05854085443257
   },
   {
     "name": "Leicester",
-    "index": 42.20760891027544,
-    "latitude": 52.6368778,
-    "longitude": -1.1397592
+    "index": 42.20760891027544
   },
   {
     "name": "Liverpool",
-    "index": 46.54439578505073,
-    "latitude": 53.4083714,
-    "longitude": -2.9915726
+    "index": 46.54439578505073
   },
   {
     "name": "London",
-    "index": 74.84901188166639,
-    "latitude": 51.5072759,
-    "longitude": -0.1276597
+    "index": 74.84901188166639
   },
   {
     "name": "Maidstone",
-    "index": 70.74950033244359,
-    "latitude": 51.2703369,
-    "longitude": 0.523841
+    "index": 70.74950033244359
   },
   {
     "name": "Manchester",
-    "index": 52.455242689565694,
-    "latitude": 53.4791466,
-    "longitude": -2.2447445
+    "index": 52.455242689565694
   },
   {
     "name": "Milton Keynes",
-    "index": 54.468319600785264,
-    "latitude": 52.0414376,
-    "longitude": -0.7605567
+    "index": 54.468319600785264
   },
   {
     "name": "Northampton",
-    "index": 46.44381187257399,
-    "latitude": 52.2385239,
-    "longitude": -0.902493
+    "index": 46.44381187257399
   },
   {
     "name": "Norwich",
-    "index": 46.572365738272374,
-    "latitude": 52.6281014,
-    "longitude": 1.2993494
+    "index": 46.572365738272374
   },
   {
     "name": "Nottingham",
-    "index": 48.8137939328866,
-    "latitude": 52.95478319999999,
-    "longitude": -1.1581086
+    "index": 48.8137939328866
   },
   {
     "name": "Oxford",
-    "index": 64.99165330289891,
-    "latitude": 51.7522764,
-    "longitude": -1.2558243
+    "index": 64.99165330289891
   },
   {
     "name": "Plymouth",
-    "index": 48.27854270475924,
-    "latitude": 50.3754565,
-    "longitude": -4.1426565
+    "index": 48.27854270475924
   },
   {
     "name": "Sheffield",
-    "index": 45.26590858815643,
-    "latitude": 53.3830548,
-    "longitude": -1.4647953
+    "index": 45.26590858815643
   },
   {
     "name": "Southampton",
-    "index": 46.51565758978966,
-    "latitude": 50.90970040000001,
-    "longitude": -1.4043509
+    "index": 46.51565758978966
   },
   {
     "name": "Stoke-on-Trent",
-    "index": 41.8858929803891,
-    "latitude": 53.0265053,
-    "longitude": -2.1766359
+    "index": 41.8858929803891
   },
   {
     "name": "Swindon",
-    "index": 46.20901532006415,
-    "latitude": 51.5584209,
-    "longitude": -1.7820356
+    "index": 46.20901532006415
   },
   {
     "name": "Telford",
-    "index": 43.165425152157006,
-    "latitude": 52.6777266,
-    "longitude": -2.449284
+    "index": 43.165425152157006
   },
   {
     "name": "Watford",
-    "index": 61.2938558298966,
-    "latitude": 51.6548556,
-    "longitude": -0.3982031
+    "index": 61.2938558298966
   }
 ]

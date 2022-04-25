@@ -14,9 +14,6 @@ export function renderer (item, /* iconCheck,  */{ handleClick, modifiers }) {
   if (!modifiers.matchesPredicate) return null;
   return (
     <MenuItem
-      // TODO add tick icons to cities selector
-      // https://github.com/palantir/blueprint/blob/develop/packages/docs-app/src/examples/select-examples/multiSelectExample.tsx
-      // icon={iconCheck ? 'tick' : 'blank' }
       key={item?.name ? item.name : item}
       onClick={handleClick}
       selected={modifiers.active}
