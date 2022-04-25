@@ -1,11 +1,10 @@
 // Package imports
 import { useContext } from 'react';
-import { Select } from '@blueprintjs/select';
 
 // Local imports
 import { CitiesContext, UserContext } from '../../../App';
 import Button from '../buttons/secondaryButton';
-import { renderer, filterer } from './helpers';
+import Select from './select';
 
 function CitiesSelector () {
   // Contexts
@@ -22,13 +21,9 @@ function CitiesSelector () {
     });
   }
 
-  // TODO extract this to a GenericSelect component
-  // Cause it's almost the same in sorts.jsx
   return (
     <Select
       activeItem={location}
-      itemPredicate={filterer}
-      itemRenderer={renderer}
       items={CITIES}
       leftIcon='locate'
       onItemSelect={onItemSelect}

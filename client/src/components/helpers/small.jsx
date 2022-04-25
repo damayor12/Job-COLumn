@@ -3,8 +3,8 @@ import { MenuItem } from '@blueprintjs/core';
 
 // To display only the queried items
 export function filterer (query, item) {
+  if (item?.name) item = item.name;
   return item
-    .name
     .toLowerCase()
     .indexOf(query.toLowerCase()) >= 0;
 }

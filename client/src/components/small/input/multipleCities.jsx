@@ -4,7 +4,7 @@ import { MultiSelect } from '@blueprintjs/select';
 
 // Local imports
 import { CitiesContext, FilterContext } from '../../../App';
-import { renderer, filterer } from './helpers';
+import { filterer, renderer } from '../../helpers/small';
 
 function MultipleCitiesSelector ({ defaultValue }) {
   // Contexts

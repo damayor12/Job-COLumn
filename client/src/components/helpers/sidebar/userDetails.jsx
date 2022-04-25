@@ -1,5 +1,5 @@
 // Local imports
-import { rose } from '../index';
+import { numberFormatter, rose } from '../index';
 
 export function userDetails (darkMode, {
   location,
@@ -22,7 +22,7 @@ export function userDetails (darkMode, {
           Current Salary
         </div>
         <div style={{ color: rose(darkMode) }}>
-          {`£${salary.toLocaleString('en-US')}`}
+          {`£${numberFormatter(salary)}`}
         </div>
       </div>
     </div>

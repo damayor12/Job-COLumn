@@ -4,6 +4,7 @@ import { Colors, Dialog, Icon } from '@blueprintjs/core';
 
 // Local imports
 import { CitiesContext, ThemeContext, UserContext } from '../../App';
+import { numberFormatter } from '../helpers';
 import Details from './details';
 
 // Styles
@@ -35,10 +36,6 @@ function JobListing ({ job }) {
     .index;
   const isBetter = (minimumSalary / user.salary) / (jobIndex / userIndex) > 1;
 
-  // Add thousands separator
-  const minimum = minimumSalary.toLocaleString('en-US');
-  const maximum = maximumSalary.toLocaleString('en-US');
-
   return (
     <div
       className='job-listing'
@@ -64,7 +61,7 @@ function JobListing ({ job }) {
       {/* Salary */}
       <div className='job-listing-row'>
         <div className='job-salary'>
-          £{minimum} - £{maximum}
+          £{numberFormatter(minimumSalary)} - £{numberFormatter(maximumSalary)}
         </div>
       </div>
       {/* Dates */}

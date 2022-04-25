@@ -32,7 +32,7 @@ function Jobs () {
       <div className='all-jobs'>
         {filteredJobs.length
           ? filteredJobs.map(job => <JobListing key={job.id} job={job} />)
-          : isLoading ? <Spinner /> : 'No jobs. Relax your filters.' }
+          : isLoading ? <Spinner /> : 'No jobs. Lower your expectations.' }
       </div>
     </main>
   );

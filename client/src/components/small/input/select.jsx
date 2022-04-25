@@ -2,10 +2,10 @@
 import { Select } from '@blueprintjs/select';
 
 // Local imports
-import { renderer, filterer } from './helpers';
+import { filterer, renderer } from '../../helpers/small';
 
 function GenericSelect ({
-  contents,
+  children,
   filterable,
   icon,
   items,
@@ -22,7 +22,7 @@ function GenericSelect ({
       leftIcon={icon}
       onItemSelect={onItemSelect}
     >
-      {contents}
+      {children}
     </Select>
   )
 }

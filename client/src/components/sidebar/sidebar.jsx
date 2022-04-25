@@ -1,5 +1,5 @@
 // Package imports
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Divider } from '@blueprintjs/core';
 
 // Local imports
@@ -28,8 +28,7 @@ import {
 } from '../helpers/sidebar';
 
 // Styling
-// TODO bring this back when trying to fix navbar toggle button
-// import css from '../../App.scss';
+import css from '../../App.scss';
 import './sidebar.scss';
 
 function Sidebar () {
@@ -70,6 +69,18 @@ function Sidebar () {
     setNavbarVisible(!navbarVisible)
   }
 
+  // Fix navbar loses visibility bug
+  function bringBackSidebar () {
+    if (window.innerWidth >= css.mobile.split('p')[0]) setNavbarVisible(true);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', bringBackSidebar);
+    return () => {
+      window.removeEventListener('resize', bringBackSidebar);
+    }
+  }, []);
+
   // Job filter and sort function
   function filterAndSort () {
     setFilteredJobs(sortJobs(filterJobs(jobs, filters), sort));
@@ -91,9 +102,8 @@ function Sidebar () {
       {/*
         If left to just navbarVisible and then you hide it, expanding the window
         renders no sidebar with no button to re-render it.
-        TODO this still doesn't work.
       */}
-      {(navbarVisible /* || window.innerWidth >= css.mobile.split('p')[0] */) && <>
+      {navbarVisible && <>
         <Divider />
         <ToggleDarkMode text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`} />
         <Divider />
