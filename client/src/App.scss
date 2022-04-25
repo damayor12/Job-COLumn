@@ -26,9 +26,12 @@ $mobile-small: 372px;
 // }
 
 :export {
+  mobile: $mobile;
   almostBlack: $almost-black;
   almostWhite: $almost-white;
 }
+
+// TODO refactor all CSS to minimize nesting
 
 // Global styling
 @import './index.scss';

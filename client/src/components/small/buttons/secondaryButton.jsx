@@ -8,6 +8,7 @@ import { ThemeContext } from '../../../App';
 function SecondaryButton ({
   ariaLabel,
   icon,
+  id,
   onClick,
   text
 }) {
@@ -24,6 +25,7 @@ function SecondaryButton ({
       className={Classes.SMALL}
       fill={false}
       icon={icon}
+      id={id}
       intent='secondary'
       onClick={onClick}
       outlined

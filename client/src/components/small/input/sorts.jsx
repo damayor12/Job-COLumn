@@ -17,7 +17,7 @@ function SortSelector () {
     'Salary',
     'Expiry Date',
     'Posted Date',
-    'Title'
+    'Job Title'
   ];
 
   // Select's onItemSelect

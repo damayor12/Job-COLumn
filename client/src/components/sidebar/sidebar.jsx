@@ -1,5 +1,5 @@
 // Package imports
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Divider } from '@blueprintjs/core';
 
 // Local imports
@@ -20,21 +20,29 @@ import {
   userDetails
 } from '../../jsxElements';
 import Back from '../small/buttons/backButton';
+import SecondaryButton from '../small/buttons/secondaryButton';
 import ToggleDarkMode from '../small/buttons/toggleDarkMode';
+import {
+  filterJobs,
+  sortJobs
+} from './helpers';
 
 // Styling
+// TODO bring this back when trying to fix navbar toggle button
+// import css from '../../App.scss';
 import './sidebar.scss';
 
 function Sidebar () {
-  // Contexts
+  // Contexts and states
   const [darkMode] = useContext(ThemeContext);
   const [user] = useContext(UserContext);
   const [filters, setFilters] = useContext(FilterContext);
   const [sort, setSort] = useContext(SortContext);
   const [jobs] = useContext(JobsContext);
   const [, setFilteredJobs] = useContext(FilteredJobsContext);
+  const [navbarVisible, setNavbarVisible] = useState(true);
 
-  // Filter functions
+  // Filter setter functions
   function keywordsOnChange (e) {
     setFilters({
       ...filters,
@@ -49,66 +57,7 @@ function Sidebar () {
     });
   }
 
-  // Sort functions
-  // TODO refactor for readability
-  function filterAndSort () {
-    setFilteredJobs(jobs
-      .filter(job => {
-        let result = true;
-        if (filters.keywords) {
-          result = result && filters.keywords.split(' ')
-            .every(keyword => (
-              job.jobTitle.toLowerCase().includes(keyword.toLowerCase())
-              || job.jobDescription.toLowerCase().includes(keyword.toLowerCase())
-            ))
-        }
-        if (filters.cities.length) {
-          result = result && filters.cities.includes(job.locationName);
-        }
-        if (filters.salary) {
-          result = result && job.minimumSalary >= filters.salary;
-        }
-        return result;
-      })
-      .sort((a, b) => {
-        let sortBy = '';
-
-        switch (sort.category) {
-          case 'Location':
-            sortBy = 'locationName';
-            break;
-          case 'Salary':
-            sortBy = 'minimumSalary';
-            break;
-          case 'Expiry Date':
-            sortBy = 'expirationDate';
-            break;
-          case 'Posted Date':
-            sortBy = 'date';
-            break;
-          case 'Title':
-            sortBy = 'jobTitle';
-            break;
-          default:
-            sortBy = 'jobTitle';
-        }
-
-        let direction;
-        if (sortBy === 'expirationDate' || sortBy === 'date') {
-          direction = new Date(a[sortBy].split('/').reverse().join('/'))
-            - new Date(b[sortBy].split('/').reverse().join('/'));
-        } else if (typeof a[sortBy] === 'string') {
-          if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()) direction = 1;
-          else direction = -1;
-        } else {
-          direction = a[sortBy] - b[sortBy];
-        }
-        if (sort.order === 'asc') return direction;
-        return -direction;
-      })
-    )
-  }
-
+  // Sort setter function
   function sortOnClick () {
     setSort({
       ...sort,
@@ -116,33 +65,59 @@ function Sidebar () {
     })
   }
 
+  // Navbar visibility setter function
+  function toggleNavbar () {
+    setNavbarVisible(!navbarVisible)
+  }
+
+  // Job filter and sort function
+  function filterAndSort () {
+    setFilteredJobs(sortJobs(filterJobs(jobs, filters), sort));
+  }
+
   return (
     <nav style={{ backgroundColor: background(darkMode) }} >
-      {/* Header and dark mode */}
-      {headerAndLogo}
-      <Divider />
-      <ToggleDarkMode text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`} />
-      {/* User details */}
-      <Divider />
-      {userDetails(darkMode, user)}
-      {/* Filter options */}
-      <Divider />
-      {filtersDefined(darkMode, {
-        keywords: filters.keywords,
-        keywordsOnChange,
-        numericOnChange
-      })}
-      {/* Sort options */}
-      <Divider />
-      {sortDefined(darkMode, {
-        filterAndSort,
-        sortOrder: sort.order,
-        sortOnClick
-      })}
-      <Divider />
-      <Back />
-      <Divider />
-      {footer}
+      {/* Header and visibility toggle */}
+      <div>
+        {headerAndLogo}
+        <SecondaryButton
+          ariaLabel='Toggle navbar button'
+          icon='menu'
+          id='toggle-sidebar'
+          onClick={toggleNavbar}
+          text='Settings'
+        />
+      </div>
+      {/*
+        If left to just navbarVisible and then you hide it, expanding the window
+        renders no sidebar with no button to re-render it.
+        TODO this still doesn't work.
+      */}
+      {(navbarVisible /* || window.innerWidth >= css.mobile.split('p')[0] */) && <>
+        <Divider />
+        <ToggleDarkMode text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`} />
+        <Divider />
+        {/* User details */}
+        {userDetails(darkMode, user)}
+        {/* Filter options */}
+        <Divider />
+        {filtersDefined(darkMode, {
+          keywords: filters.keywords,
+          keywordsOnChange,
+          numericOnChange
+        })}
+        <Divider />
+        {/* Sort options */}
+        {sortDefined(darkMode, {
+          filterAndSort,
+          sortOrder: sort.order,
+          sortOnClick
+        })}
+        <Divider />
+        <Back />
+        <Divider />
+        {footer}
+      </>}
       {/* For mobile mode */}
       <Divider />
     </nav>

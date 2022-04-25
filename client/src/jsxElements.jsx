@@ -18,17 +18,17 @@ import css from './App.scss';
 // JSX elements
 
 /*
-  -----------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
   Common components
-  -----------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
 */
 
 function rose (darkMode) {
-  return darkMode ? Colors.ROSE5 : Colors.ROSE1
+  return darkMode ? Colors.ROSE5 : Colors.ROSE1;
 }
 
 export function background (darkMode) {
-  return darkMode ? css.almostBlack : css.almostWhite
+  return darkMode ? css.almostBlack : css.almostWhite;
 }
 
 // Header and logo
@@ -50,9 +50,9 @@ export const footer = <footer>
 </footer>
 
 /*
-  -----------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
   Welcome page
-  -----------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
 */
 
 // Site name
@@ -61,9 +61,7 @@ function siteName (darkMode) {
   return (
     <span
       className='bold'
-      style={{
-        color: rose(darkMode)
-      }}
+      style={{ color: rose(darkMode) }}
     >Job COLumn</span>
   );
 }
@@ -140,9 +138,9 @@ export function userForm ({
 }
 
 /*
-  -----------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
   Sidebar
-  -----------------------------------------------------------------------------
+  ------------------------------------------------------------------------------
 */
 
 export function userDetails (darkMode, {
@@ -156,9 +154,7 @@ export function userDetails (darkMode, {
         <div>
           Current Location
         </div>
-        <div style={{
-          color: rose(darkMode)
-        }}>
+        <div style={{ color: rose(darkMode) }}>
           {location}
         </div>
       </div>
@@ -167,9 +163,7 @@ export function userDetails (darkMode, {
         <div>
           Current Salary
         </div>
-        <div style={{
-          color: rose(darkMode)
-        }}>
+        <div style={{ color: rose(darkMode) }}>
           {`£${salary.toLocaleString('en-US')}`}
         </div>
       </div>
@@ -233,9 +227,9 @@ export function sortDefined (darkMode, {
 }) {
   return (
     <div className='filter-details'>
-        <H5 className='bp4-heading' style={{
-          color: rose(darkMode)
-        }}>
+        <H5
+          className='bp4-heading'
+          style={{ color: rose(darkMode) }}>
           Sort by
         </H5>
         <Sorts />

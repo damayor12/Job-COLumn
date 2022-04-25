@@ -1,9 +1,5 @@
 @import '../../App.scss';
 
-// TODO add more spacing in non-mobile mode
-// In mobile mode, have it be 100vh
-// And make it collapsible
-
 nav {
   display: flex;
   flex-direction: column;
@@ -16,42 +12,65 @@ nav {
   padding-top: 25px;
   z-index: 1;
 
-  .user-details {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
   .bp4-divider {
     margin: 20px 0px;
   }
+}
 
-  .filter-details {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 15px;
+#navbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-    .filter-label {
-      width: 80px;
-      margin-right: 20px;
-    }
+#toggle-sidebar {
+  position: absolute;
+  top: 25px;
+  right: 0px;
+  display: none;
+}
 
-    .bp4-numeric-input {
-      padding-left: 7px;
-    }
-  }
+.user-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  @media (max-width: $mobile) {
+.filter-label {
+  width: 80px;
+  margin-right: 20px;
+}
+
+.filter-details {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.bp4-numeric-input {
+  padding-left: 7px;
+}
+
+@media (max-width: $mobile) {
+  nav {
     top: 0px;
     height: auto;
     width: 100%;
+  }
 
-    .filter-details {
-      .filter-value {
-        width: 100%;
-      }
-    }
+  #toggle-sidebar {
+    display: block;
+  }
+
+  .filter-value {
+    width: 100%;
+  }
+}
+
+@media (max-width: $mobile) {
+  #navbar {
+    display: flex !important;
   }
 }
