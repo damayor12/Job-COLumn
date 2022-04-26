@@ -1,11 +1,7 @@
 .all-jobs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0 auto auto;
+  width: 100%;
+  display: grid;
   gap: 1rem;
-
-  * {
-    flex: 1 1;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(min-content, max-content);
 }

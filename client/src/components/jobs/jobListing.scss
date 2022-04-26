@@ -23,10 +23,10 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5px;
+}
 
-  :nth-child(2) {
-    padding-left: 1rem;
-  }
+.job-listing-info {
+  color: var(--quieter-inverse);
 }
 
 .job-listing-title {

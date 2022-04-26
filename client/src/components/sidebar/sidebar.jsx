@@ -96,7 +96,6 @@ function Sidebar () {
           icon='menu'
           id='toggle-sidebar'
           onClick={toggleNavbar}
-          text='Settings'
         />
       </div>
       {navbarVisible && <>

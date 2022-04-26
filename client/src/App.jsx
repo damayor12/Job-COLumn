@@ -1,5 +1,4 @@
 // TODO add README.md in root directory
-// TODO make new logo and set it as favicon
 // TODO convert to direct API call before deployment
 // TODO environment variables for front-end. Reed and GMaps APIs.
 

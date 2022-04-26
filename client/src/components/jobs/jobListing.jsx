@@ -61,7 +61,7 @@ function JobListing ({ job }) {
         </div>
       </div>
       {/* Dates */}
-      <div className='job-listing-row'>
+      <div className='job-listing-row job-listing-info'>
         <div>
           Posted on {date}
         </div>
@@ -70,7 +70,7 @@ function JobListing ({ job }) {
         </div>
       </div>
       {/* Company and location */}
-      <div className='job-listing-row'>
+      <div className='job-listing-row job-listing-info'>
         <div>
           {employerName}
         </div>
