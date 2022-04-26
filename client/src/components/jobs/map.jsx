@@ -1,6 +1,9 @@
 // Styling
 import './map.scss';
 
+// Environment variables
+const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env;
+
 function Map ({ userLocation, jobLocation }) {
   return (
     <iframe
@@ -11,7 +14,9 @@ function Map ({ userLocation, jobLocation }) {
         userLocation
       }&destination=${
         jobLocation
-      }&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`}
+      }&key=${
+        REACT_APP_GOOGLE_MAPS_API_KEY
+      }`}
       title='map'
     />
   );
