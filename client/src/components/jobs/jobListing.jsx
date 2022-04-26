@@ -1,10 +1,9 @@
 // Package imports
 import { useState } from 'react';
-import { Colors, Dialog, Icon } from '@blueprintjs/core';
+import { Dialog, Icon } from '@blueprintjs/core';
 
 // Local imports
 import { useUserContext } from '../contexts/user';
-import { useThemeContext } from '../contexts/theme';
 import { numberFormatter } from '../helpers';
 import CITIES from '../helpers/cities.json';
 import Details from './details';
@@ -24,7 +23,6 @@ function JobListing ({ job }) {
   } = job
 
   // Contexts and states
-  const [darkMode] = useThemeContext();
   const [user] = useUserContext();
   // const CITIES = useCitiesContext();
   const [isOpen, setIsOpen] = useState(false);
@@ -40,11 +38,8 @@ function JobListing ({ job }) {
 
   return (
     <div
-      className='job-listing'
+      className={`job-listing ${isBetter && 'rose'}`}
       onClick={() => setIsOpen(true)}
-      style={{ color: `${
-        isBetter && (darkMode ? Colors.ROSE5 : Colors.ROSE1)
-      }` }}
     >
       <Dialog
         isCloseButtonShown={false}

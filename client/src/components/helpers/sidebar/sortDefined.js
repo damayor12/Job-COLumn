@@ -2,10 +2,12 @@
 import { H5, Icon } from '@blueprintjs/core';
 
 // Local imports
-import { rose } from '../index';
 import Sorts from '../../small/input/sorts';
 import PrimaryButton from '../../small/buttons/primaryButton';
 import SecondaryButton from '../../small/buttons/secondaryButton';
+
+// Styling
+import css from '../../contexts/themes.scss';
 
 export function sortDefined (darkMode, {
   filterAndSort,
@@ -14,15 +16,11 @@ export function sortDefined (darkMode, {
 }) {
   return (
     <div className='filter-details'>
-        <H5
-          className='bp4-heading'
-          style={{ color: rose(darkMode) }}>
-          Sort by
-        </H5>
+        <H5>Sort by</H5>
         <Sorts />
         <SecondaryButton
           icon={<Icon
-            color={rose(darkMode)}
+            color={css.rose}
             icon={`sort-${sortOrder}`}
           />}
           onClick={sortOnClick}

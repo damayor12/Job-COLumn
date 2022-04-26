@@ -10,7 +10,6 @@ import { useSortContext } from '../contexts/sort';
 import { useThemeContext } from '../contexts/theme';
 import { useUserContext } from '../contexts/user';
 import {
-  background,
   footer,
   headerAndLogo
 } from '../helpers';
@@ -26,7 +25,7 @@ import {
 } from '../helpers/sidebar';
 
 // Styling
-import css from '../../App.scss';
+import css from '../contexts/themes.scss';
 import './sidebar.scss';
 
 function Sidebar () {
@@ -85,7 +84,7 @@ function Sidebar () {
   }
 
   return (
-    <nav style={{ backgroundColor: background(darkMode) }} >
+    <nav className='background-color'>
       {/* Header and visibility toggle */}
       <div>
         {headerAndLogo}
@@ -97,10 +96,6 @@ function Sidebar () {
           text='Settings'
         />
       </div>
-      {/*
-        If left to just navbarVisible and then you hide it, expanding the window
-        renders no sidebar with no button to re-render it.
-      */}
       {navbarVisible && <>
         <Divider />
         <ToggleDarkMode text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`} />

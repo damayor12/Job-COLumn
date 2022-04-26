@@ -2,17 +2,13 @@
 import { siteName } from './siteName';
 
 // Site description
-export function introduction (darkMode) {
-  return (
-    <div className='welcome-text'>
-      <p>{siteName(darkMode)} is a job board that considers the cost of living.</p>
-      <p>It compares the minimum salary in a listed job with your current salary! Magic!</p>
-      <p>It doesn't display jobs that don't list a salary (because they'll probably try and scam you and I ain't about that life) nor any jobs outside of a set list of the larger cities in the UK.</p>
-      <p>You may be asking yourself, "But, why?" Cause I said so. Deal with it or don't use my app. Bite me. JK ILY please stay &lt;3.</p>
-      <p>Nah but for real, of all the jobs that do have salaries, it will show you which jobs will give you a better quality of life. Please note this is just about making more money for your time, if you're unhappy this site won't change that.</p>
-    </div>
-  );
-}
+export const introduction = <div className='welcome-text'>
+  <p>{siteName} is a job board that considers the cost of living.</p>
+  <p>It compares the minimum salary in a listed job with your current salary! Magic!</p>
+  <p>It doesn't display jobs that don't list a salary (because they'll probably try and scam you and I ain't about that life) nor any jobs outside of a set list of the larger cities in the UK.</p>
+  <p>You may be asking yourself, "But, why?" Cause I said so. Deal with it or don't use my app. Bite me. JK ILY please stay &lt;3.</p>
+  <p>Nah but for real, of all the jobs that do have salaries, it will show you which jobs will give you a better quality of life. Please note this is just about making more money for your time, if you're unhappy this site won't change that.</p>
+</div>;
 
 export const functionality = <div className='welcome-text'>
   <p>You'll be able to filter by:</p>

@@ -1,0 +1,27 @@
+@import '@blueprintjs/core/lib/scss/variables';
+@import '../../App.scss';
+
+$themes: ("light": ("primary": $rose1,
+    "background": $almost-white,
+    "inverse": $almost-black,
+  ),
+  "dark": ("primary": $rose5,
+    "background": $almost-black,
+    "inverse": $almost-white,
+  ));
+
+:export {
+  rose: var(--primary);
+}
+
+@each $theme-name,
+$properties in $themes {
+  .background.#{$theme-name} {
+
+    // Define CSS variables for each property
+    @each $name,
+    $property in $properties {
+      --#{$name}: #{$property};
+    }
+  }
+}

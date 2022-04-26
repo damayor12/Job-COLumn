@@ -2,7 +2,6 @@
 import { H5, Icon, InputGroup } from '@blueprintjs/core';
 
 // Local imports
-import { rose } from '../../helpers';
 import MultiCity from '../../small/input/multipleCities';
 import Numeric from '../../small/input/numeric';
 
@@ -13,9 +12,7 @@ export function filtersDefined (darkMode, {
 } ) {
   return (
     <div>
-      <H5 className='bp4-heading' style={{
-        color: rose(darkMode)
-      }}>
+      <H5>
         <Icon icon='filter'/> Filter
       </H5>
       {/* Keywords */}

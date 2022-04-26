@@ -8,7 +8,9 @@ export function ThemeProvider ({ children }) {
   const [darkMode, toggleDarkMode] = useState(true);
 
   // Because BlueprintJS' dark mode toggle sucks
-  document.body.className = `${darkMode ? 'bp4-dark background-dark' : 'bp4-body background-light'}`
+  const body = document.body;
+  body.className = `background ${darkMode ? 'bp4-dark dark' : 'bp4-body light'}`
+
   function toggleTheme () {
     toggleDarkMode(mode => !mode);
   }

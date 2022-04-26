@@ -2,20 +2,7 @@
 import Logo from '../small/logo/logo';
 import Anchor from '../small/buttons/anchor';
 
-// Styling
-import css from '../../App.scss';
-
-// Common functions
-// TODO these are both just CSS.
-// See if you can apply CSS conditions in SCSS files instead.
-export function rose (darkMode) {
-  return darkMode ? css.roseDark : css.roseLight;
-}
-
-export function background (darkMode) {
-  return darkMode ? css.almostBlack : css.almostWhite;
-}
-
+// Add thousands divider
 export function numberFormatter(number) {
   return number.toLocaleString('en-US');
 }

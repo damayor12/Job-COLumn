@@ -2,7 +2,6 @@
 import { useNavigate } from 'react-router-dom';
 
 // Local imports
-import { useThemeContext } from '../contexts/theme';
 import { useUserContext } from '../contexts/user';
 import {
   footer,
@@ -22,7 +21,6 @@ import './welcome.scss';
 function Welcome () {
   const navigate = useNavigate();
   // Contexts
-  const [darkMode] = useThemeContext();
   const [user, setUser] = useUserContext();
 
   // User salary input's onValueChange
@@ -39,9 +37,9 @@ function Welcome () {
       {headerAndLogo}
       <main className='welcome-container'>
         {/* Welcome message */}
-        {welcomeMessage(darkMode)}
+        {welcomeMessage}
         {/* Describing the app */}
-        {introduction(darkMode)}
+        {introduction}
         {functionality}
         {privacyDisclosure}
         {/* User details and theme preference */}

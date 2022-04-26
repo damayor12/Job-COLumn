@@ -1,8 +1,5 @@
 // Package imports
-import { Classes, Button, Colors } from '@blueprintjs/core';
-
-// Local imports
-import { useThemeContext } from '../../contexts/theme';
+import { Classes, Button } from '@blueprintjs/core';
 
 function SecondaryButton ({
   ariaLabel,
@@ -11,15 +8,8 @@ function SecondaryButton ({
   onClick,
   text
 }) {
-  // Contexts
-  const [darkMode] = useThemeContext();
-
   return (
     <Button
-      style={{
-        borderColor: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`,
-        color: `${darkMode ? Colors.ROSE5 : Colors.ROSE1}`
-      }}
       aria-label={ariaLabel}
       className={Classes.SMALL}
       fill={false}
