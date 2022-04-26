@@ -9,6 +9,16 @@
 .welcome-container {
   flex-direction: column;
   align-content: center;
+
+  li {
+    padding-left: 15px;
+
+    &::before {
+      position: absolute;
+      margin-left: -15px;
+      content: '\2013';
+    }
+  }
 }
 
 .welcome-text {
@@ -17,16 +27,6 @@
 
 ul {
   margin-bottom: 15px;
-}
-
-li {
-  padding-left: 15px;
-
-  &::before {
-    position: absolute;
-    margin-left: -15px;
-    content: '\2013';
-  }
 }
 
 #user-salary {

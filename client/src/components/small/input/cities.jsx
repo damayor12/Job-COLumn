@@ -1,15 +1,12 @@
 // Local imports
-// import { useCitiesContext } from '../../contexts/cities';
 import { useUserContext } from '../../contexts/user';
-import Button from '../buttons/secondaryButton';
 import CITIES from '../../helpers/cities.json';
+import Button from '../buttons/secondaryButton';
 import Select from './select';
 
 function CitiesSelector () {
   // Contexts
   const [user, setUser] = useUserContext();
-  // const CITIES = useCitiesContext();
-
   const { location } = user;
 
   // Select's onItemSelect

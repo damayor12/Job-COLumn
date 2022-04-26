@@ -24,7 +24,6 @@ function JobListing ({ job }) {
 
   // Contexts and states
   const [user] = useUserContext();
-  // const CITIES = useCitiesContext();
   const [isOpen, setIsOpen] = useState(false);
 
   // Salary math
@@ -38,7 +37,7 @@ function JobListing ({ job }) {
 
   return (
     <div
-      className={`job-listing ${isBetter && 'rose'}`}
+      className={`job-listing lighten-darken ${isBetter && 'rose'}`}
       onClick={() => setIsOpen(true)}
     >
       <Dialog

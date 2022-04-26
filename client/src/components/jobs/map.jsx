@@ -2,7 +2,6 @@
 import './map.scss';
 
 function Map ({ userLocation, jobLocation }) {
-
   return (
     <iframe
       id='map'

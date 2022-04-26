@@ -6,8 +6,8 @@ import Select from './select';
 function SortSelector () {
   // Contexts
   const [sort, setSort] = useSortContext();
-
   const { category } = sort;
+
   const options = [
     'Location',
     'Salary',

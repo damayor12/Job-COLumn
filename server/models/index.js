@@ -4,7 +4,6 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-require('dotenv').config();
 
 const config = {
   host: process.env.HOST_NAME,

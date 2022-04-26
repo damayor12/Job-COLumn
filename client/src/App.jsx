@@ -59,8 +59,11 @@ function App () {
   // }
 
   // TODO add README.md in root directory
-
   // TODO refactor contexts to not be so nested. Redux? Reducers?
+  // TODO Add darkened/lightened background to listings to make it more obvious in light mode
+  // TODO make new logo and set it as favicon
+  // TODO convert to direct API call before deployment
+
   // https://dev.to/ruppysuppy/redux-vs-context-api-when-to-use-them-4k3p
   return (
     <ThemeProvider>
