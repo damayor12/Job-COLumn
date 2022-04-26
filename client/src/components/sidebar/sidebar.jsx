@@ -101,17 +101,17 @@ function Sidebar () {
         <ToggleDarkMode text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`} />
         <Divider />
         {/* User details */}
-        {userDetails(darkMode, user)}
+        {userDetails(user)}
         {/* Filter options */}
         <Divider />
-        {filtersDefined(darkMode, {
+        {filtersDefined({
           keywords: filters.keywords,
           keywordsOnChange,
           numericOnChange
         })}
         <Divider />
         {/* Sort options */}
-        {sortDefined(darkMode, {
+        {sortDefined({
           filterAndSort,
           sortOrder: sort.order,
           sortOnClick
@@ -121,8 +121,6 @@ function Sidebar () {
         <Divider />
         {footer}
       </>}
-      {/* For mobile mode */}
-      <Divider />
     </nav>
   );
 }

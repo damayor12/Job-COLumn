@@ -9,7 +9,7 @@ import SecondaryButton from '../../small/buttons/secondaryButton';
 // Styling
 import css from '../../contexts/themes.scss';
 
-export function sortDefined (darkMode, {
+export function sortDefined ({
   filterAndSort,
   sortOrder,
   sortOnClick

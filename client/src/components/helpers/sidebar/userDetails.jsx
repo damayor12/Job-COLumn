@@ -1,7 +1,7 @@
 // Local imports
 import { numberFormatter } from '../index';
 
-export function userDetails (darkMode, {
+export function userDetails ({
   location,
   salary
 }) {

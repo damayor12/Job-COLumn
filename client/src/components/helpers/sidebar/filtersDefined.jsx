@@ -5,11 +5,11 @@ import { H5, Icon, InputGroup } from '@blueprintjs/core';
 import MultiCity from '../../small/input/multipleCities';
 import Numeric from '../../small/input/numeric';
 
-export function filtersDefined (darkMode, {
+export function filtersDefined ({
   keywords,
   keywordsOnChange,
   numericOnChange
-} ) {
+}) {
   return (
     <div>
       <H5>
