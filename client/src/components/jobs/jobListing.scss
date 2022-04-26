@@ -8,6 +8,7 @@
 
 .job-listing {
   display: flex;
+  background-color: var(--muted-inverse);
   flex-direction: column;
   margin-bottom: 10px;
   padding: 1rem clamp(1rem, 5%, 1rem);

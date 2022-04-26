@@ -3,16 +3,12 @@ $almost-black: rgb(30, 30, 30);
 $almost-white: rgb(230, 230, 230);
 $mobile: 600px;
 
-:export {
-  mobile: $mobile;
-}
-
 .dark {
-  background-color: $almost-black;
+  background-color: var(--background);
 }
 
 .light {
-  background-color: $almost-white;
+  background-color: var(--background);
 }
 
 .logo {
@@ -45,8 +41,17 @@ $mobile: 600px;
   background-color: var(--background) !important;
 }
 
+.bp4-active,
+.bp4-input:focus {
+  box-shadow: 0 0 0 1px var(--primary), inset 0 0 0 1px var(--primary), 0 0 0 2px var(--supplement) !important;
+}
+
+.bp4-button {
+  background-color: var(--background) !important;
+}
+
 .bp4-divider {
-  border-color: var(--inverse) !important;
+  border-color: var(--muted-inverse) !important;
 }
 
 .bp4-heading {
@@ -61,6 +66,18 @@ $mobile: 600px;
 .bp4-outlined {
   border-color: var(--primary) !important;
   color: var(--primary) !important;
+}
+
+.bp4-dialog {
+  background-color: var(--background) !important;
+}
+
+.bp4-dialog-header {
+  background-color: var(--muted-inverse) !important;
+}
+
+.bp4-overlay-backdrop {
+  background-color: var(--overlay);
 }
 
 // Global styling
@@ -88,4 +105,9 @@ main {
     padding-top: 0px;
     flex-direction: column;
   }
+}
+
+// Needed for dynamically resizing the sidebar
+:export {
+  mobile: $mobile;
 }

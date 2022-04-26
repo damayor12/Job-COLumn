@@ -1,18 +1,21 @@
+@use 'sass:color';
 @import '@blueprintjs/core/lib/scss/variables';
 @import '../../App.scss';
 
-$themes: ("light": ("primary": $rose1,
-    "background": $almost-white,
-    "inverse": $almost-black,
+$themes: ('light': ('primary': $rose1,
+    'background': $almost-white,
+    'inverse': $almost-black,
+    'muted-inverse': darken($almost-white, 5%),
+    'overlay': rgba($almost-white, 0.75),
+    'supplement': rgba($rose1, 0.5),
   ),
-  "dark": ("primary": $rose5,
-    "background": $almost-black,
-    "inverse": $almost-white,
+  'dark': ('primary': $rose5,
+    'background': $almost-black,
+    'inverse': $almost-white,
+    'muted-inverse': lighten($almost-black, 5%),
+    'overlay': rgba($almost-black, 0.75),
+    'supplement': rgba($rose5, 0.5),
   ));
-
-:export {
-  rose: var(--primary);
-}
 
 @each $theme-name,
 $properties in $themes {

@@ -28,6 +28,8 @@ import {
 import css from '../contexts/themes.scss';
 import './sidebar.scss';
 
+const largeScreen = window.innerWidth >= css.mobile.split('p')[0];
+
 function Sidebar () {
   // Contexts and states
   const [darkMode] = useThemeContext();
@@ -68,7 +70,7 @@ function Sidebar () {
 
   // Fix navbar loses visibility bug
   function bringBackSidebar () {
-    if (window.innerWidth >= css.mobile.split('p')[0]) setNavbarVisible(true);
+    if (largeScreen) setNavbarVisible(true);
   }
 
   useEffect(() => {
@@ -88,6 +90,7 @@ function Sidebar () {
       {/* Header and visibility toggle */}
       <div>
         {headerAndLogo}
+        <Divider />
         <SecondaryButton
           ariaLabel='Toggle navbar button'
           icon='menu'
@@ -97,7 +100,6 @@ function Sidebar () {
         />
       </div>
       {navbarVisible && <>
-        <Divider />
         <ToggleDarkMode text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`} />
         <Divider />
         {/* User details */}
