@@ -72,6 +72,24 @@ $mobile: 600px;
   background-color: var(--background) !important;
 }
 
+.bp4-menu {
+  background-color: var(--background) !important;
+  border-color: var(--quieter-inverse) !important;
+}
+
+.bp4-popover-arrow-fill {
+  fill: var(--quieter-inverse) !important;
+}
+
+.bp4-selected {
+  background-color: var(--muted-inverse) !important;
+}
+
+.bp4-popover {
+  border-color: var(--quieter-inverse) !important;
+  box-shadow: 0 0 0 1px var(--muted-inverse), 0 2px 4px var(--muted-inverse), 0 8px 24px var(--muted-inverse) !important;
+}
+
 .bp4-dialog-header {
   background-color: var(--muted-inverse) !important;
 }
