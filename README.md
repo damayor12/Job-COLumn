@@ -11,22 +11,18 @@ Watch the demo [here](https://youtu.be/C0Esqn_uidY).
 <img
   src='./screenshots/desktop-dark/01%20-%20Welcome.png'
   alt='Desktop, Dark Mode, Welcome Page'
-  width='384'
 />
 <img
   src='./screenshots/desktop-dark/02%20-%20Jobs.png'
   alt='Desktop, Dark Mode, Jobs Page'
-  width='384'
 />
 <img
   src='./screenshots/desktop-dark/03%20-%20Filtered%20Jobs.png'
   alt='Desktop, Dark Mode, Jobs Page Filtered'
-  width='384'
 />
 <img
   src='./screenshots/desktop-dark/04%20-%20Job%20Details.png'
   alt='Desktop, Dark Mode, Job Details Dialog'
-  width='384'
 />
 
 ### Mobile, Light Mode
