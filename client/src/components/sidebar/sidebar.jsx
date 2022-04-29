@@ -32,7 +32,7 @@ const largeScreen = window.innerWidth >= css.mobile.split('p')[0];
 
 function Sidebar () {
   // Contexts and states
-  const {darkMode} = useThemeContext();
+  const [darkMode] = useThemeContext();
   const [user] = useUserContext();
   const [filters, setFilters] = useFilterContext();
   const [sort, setSort] = useSortContext();

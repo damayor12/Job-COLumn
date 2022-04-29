@@ -4,7 +4,7 @@ interface Props {
   children: React.ReactNode
 } 
 
-const Context = createContext<[boolean, Object]>([true, ():void => {}]);
+const Context = createContext<[boolean, Object]>([true, ()=> {}]);
 
 export const ThemeProvider: React.FC<Props>= ({ children }) => {
   // States
