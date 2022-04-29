@@ -2,22 +2,9 @@ import React, { createContext, useContext, useState } from 'react';
 
 interface Props {
   children: React.ReactNode
-}
+} 
 
-// interface ThemeContext {
-//   darkMode: boolean;
-//   toggleTheme?: () => void;
-// }
-
-
-// interface ThemeContext {
-//   array: [boolean, Object]
-// }
-
-
-// const defaultState = [true, (): void=> {}]
-
-const Context = createContext<[boolean, Object]>([true, (): void=> {}]);
+const Context = createContext<[boolean, Object]>([true, ():void => {}]);
 
 export const ThemeProvider: React.FC<Props>= ({ children }) => {
   // States
