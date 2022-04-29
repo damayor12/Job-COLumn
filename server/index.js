@@ -28,7 +28,7 @@ async function bootstrap () {
       console.log(`http://${HOST_NAME}:${PORT}/`);
     });
     } catch (error) {
-      console.error('Failed to connect to DB');
+      console.error('Failed to connect to DB ' , error);
     }
 }
 bootstrap();

@@ -8,7 +8,8 @@ const Sequelize = require('sequelize');
 const config = {
   host: process.env.HOST_NAME,
   dialect: 'postgres',
-  logging: false
+  logging: false,
+  port: process.env.DB_PORT,
 };
 
 const connection = new Sequelize(
