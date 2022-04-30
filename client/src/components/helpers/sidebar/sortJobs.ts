@@ -1,13 +1,36 @@
-function parseDate (date) {
+function parseDate (date: string) {
   return new Date(date.split('/').reverse().join('/'));
 }
 
-export function sortJobs (jobs, {
+interface Job {
+  jobId: number;
+  employerId: number;
+  employerName: string;
+  employerProfileId: number;
+  employerProfileName: string;
+  jobTitle: string;
+  locationName: string;
+  minimumSalary: number;
+  maximumSalary: number;
+  currency: string;
+  expirationDate: string;
+  date: string;
+  jobDescription: string;
+  applications: number;
+  jobUrl: string;
+}
+
+interface Sort {
+  category: string;
+  order: string;
+}
+
+export function sortJobs (jobs: Job[] | Object[], {
   category,
-  order
-}) {
-  return jobs.sort((a, b) => {
-    let sortBy = '';
+  order,
+}: Sort) {
+  return jobs.sort((a: Job, b:Job) => {
+    let sortBy : string = '';
     switch (category) {
       case 'Location':
         sortBy = 'locationName';
@@ -28,9 +51,9 @@ export function sortJobs (jobs, {
         sortBy = 'jobTitle';
     }
 
-    let direction;
+    let direction : number;
     if (sortBy === 'expirationDate' || sortBy === 'date') {
-      direction = parseDate(a[sortBy]) - parseDate(b[sortBy]);
+      direction = (parseDate(a[sortBy]) as unknown as number) - (parseDate(b[sortBy]) as unknown as number);
     } else if (typeof a[sortBy] === 'string') {
       if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()) direction = 1;
       else direction = -1;

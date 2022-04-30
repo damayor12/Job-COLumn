@@ -7,7 +7,7 @@ interface Props {
   icon: MaybeElement;
   id?: string;
   onClick?: (() => void);
-  text: string;
+  text?: string;
 }
 
 

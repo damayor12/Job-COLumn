@@ -1,6 +1,6 @@
 // Package imports
 import { useEffect, useState } from 'react';
-import { Divider } from '@blueprintjs/core';
+import { Divider, MaybeElement } from '@blueprintjs/core';
 
 // Local imports
 import { useFilterContext } from '../contexts/filter';
@@ -10,8 +10,8 @@ import { useSortContext } from '../contexts/sort';
 import { useThemeContext } from '../contexts/theme';
 import { useUserContext } from '../contexts/user';
 import {
-  footer,
-  headerAndLogo
+  Footer,
+  HeaderAndLogo
 } from '../helpers';
 import Back from '../small/buttons/backButton';
 import SecondaryButton from '../small/buttons/secondaryButton';
@@ -30,7 +30,7 @@ import './sidebar.scss';
 
 const largeScreen = window.innerWidth >= css.mobile.split('p')[0];
 
-function Sidebar () {
+const Sidebar: React.FC = () => {
   // Contexts and states
   const [darkMode] = useThemeContext();
   const [user] = useUserContext();
@@ -38,17 +38,17 @@ function Sidebar () {
   const [sort, setSort] = useSortContext();
   const [jobs] = useJobsContext();
   const [, setFilteredJobs] = useFilteredJobsContext();
-  const [navbarVisible, setNavbarVisible] = useState(true);
+  const [navbarVisible, setNavbarVisible] = useState<boolean>(true);
 
   // Filter setter functions
-  function keywordsOnChange (e) {
+  function keywordsOnChange (e : React.ChangeEvent<HTMLInputElement>) {
     setFilters({
       ...filters,
       keywords: e.target.value
     });
   }
 
-  function numericOnChange (value) {
+  function numericOnChange (value: number) {
     setFilters({
       ...filters,
       salary: value
@@ -89,11 +89,11 @@ function Sidebar () {
     <nav className='background-color'>
       {/* Header and visibility toggle */}
       <div>
-        {headerAndLogo}
+        <HeaderAndLogo />
         <Divider />
         <SecondaryButton
           ariaLabel='Toggle navbar button'
-          icon='menu'
+          icon={'menu' as unknown as MaybeElement}
           id='toggle-sidebar'
           onClick={toggleNavbar}
         />
@@ -120,7 +120,7 @@ function Sidebar () {
         <Divider />
         <Back />
         <Divider />
-        {footer}
+        <Footer />
       </>}
     </nav>
   );

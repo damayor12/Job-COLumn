@@ -15,7 +15,7 @@ const defaultValues = {
   order: 'asc',
 };
 
-const Context = createContext<[Sort, Object]>([defaultValues, (): void => {}]);
+const Context = createContext<[Sort, Function]>([defaultValues, (): void => {}]);
 
 export const SortProvider: React.FC<Props> = ({ children }) => {
   // States

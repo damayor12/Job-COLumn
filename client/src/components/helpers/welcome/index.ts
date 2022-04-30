@@ -1,5 +1,5 @@
 import { userForm } from './userForm';
 import { WelcomeMessage } from './welcomeMessage';
-import { introduction, functionality, privacyDisclosure } from './welcomeText';
+import { Introduction, Functionality, PrivacyDisclosure } from './welcomeText';
 
-export { userForm, WelcomeMessage, introduction, functionality, privacyDisclosure };
+export { userForm, WelcomeMessage, Introduction, Functionality, PrivacyDisclosure };

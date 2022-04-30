@@ -16,7 +16,7 @@ const defaultUser: Filter = {
   salary: 0,
 };
 
-const Context = createContext<[Filter, Object]>([defaultUser, (): void => {}]);
+const Context = createContext<[Filter, Function]>([defaultUser, (): void => {}]);
 
 export const FilterProvider: React.FC<Props> = ({ children }) => {
   // States

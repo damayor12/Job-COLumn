@@ -11,12 +11,52 @@ interface Item {
 }
 
 // To display only the queried items
-export function filterer(query: string, item: Item): boolean {
-  // if (item?.name) item = item.name;
-  return item.name.toLowerCase().indexOf(query.toLowerCase()) >= 0;
-}
+// export function filtererString(query: string, item: string): boolean {
+//   // if (item?.name) item = item.name;
+//   return item.toLowerCase().indexOf(query.toLowerCase()) >= 0;
+// }
+
+// To display only the queried items
+// export const filtererItem: ItemPredicate<Item> = (query: string, item: Item) => {
+//   // if (item?.name) item = item.name;
+//   return item.name.toLowerCase().indexOf(query.toLowerCase()) >= 0;
+// };
+
+// export const filtererString: ItemPredicate<string> = (query, item) => {
+//   // if (item?.name) item = item.name;
+//   return item.toLowerCase().indexOf(query.toLowerCase()) >= 0;
+// };
 
 // To display each item in the list
+// export const rendererItem = (item: Item, /* iconCheck,  */ { handleClick, modifiers }: any) => {
+//   if (!modifiers.matchesPredicate) return null;
+//   return (
+//     <MenuItem
+//       key={(item?.name ? item.name : item) as React.Key}
+//       onClick={handleClick}
+//       selected={modifiers.active}
+//       text={(item?.name ? item.name : item) as React.ReactNode}
+//     />
+//   );
+// };
+
+// export const rendererString = (item: string, /* iconCheck,  */ { handleClick, modifiers }: any) => {
+//   if (!modifiers.matchesPredicate) return null;
+//   return (
+//     <MenuItem
+//       key={item as React.Key}
+//       onClick={handleClick}
+//       selected={modifiers.active}
+//       text={item as React.ReactNode}
+//     />
+//   );
+// };
+
+export function filterer(query: string, item: any) {
+  if (item?.name) item = item.name;
+  return item.toLowerCase().indexOf(query.toLowerCase()) >= 0;
+}
+
 export const renderer: ItemRenderer<Item> = (
   item,
   /* iconCheck,  */ { handleClick, modifiers },
@@ -31,6 +71,16 @@ export const renderer: ItemRenderer<Item> = (
     />
   );
 };
+
+//  const renderString = (item: string, { handleClick }: any) => (
+//     <MenuItem
+//       key={item}
+//       text={item}
+//       icon={isItemSelected(selectedItems, item) ? 'tick' : 'blank'}
+//       onClick={handleClick}
+//       shouldDismissPopover={false}
+//     />
+//   );
 
 // interface DateItem {
 //   key: number;

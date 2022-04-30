@@ -7,9 +7,9 @@ import { Footer, HeaderAndLogo } from '../helpers/index';
 import {
   userForm,
   WelcomeMessage,
-  introduction,
-  functionality,
-  privacyDisclosure,
+  Introduction,
+  Functionality,
+  PrivacyDisclosure,
 } from '../helpers/welcome';
 
 // Styling
@@ -36,17 +36,15 @@ const Welcome: React.FC = () => {
         <main className="welcome-container">
           <>
             <WelcomeMessage />
-            {/* Describing the app */}
-            {introduction}
-            {functionality}
-            {privacyDisclosure}
-            {/* User details and theme preference */}
+            <Introduction />
+            <Functionality />
+            <PrivacyDisclosure />
             {userForm({
               defaultValue: user.salary,
               onValueChange: onValueChange,
               buttonOnClick: () => navigate('/jobs'),
             })}
-          </>
+         </> 
         </main>
 
         <Footer />

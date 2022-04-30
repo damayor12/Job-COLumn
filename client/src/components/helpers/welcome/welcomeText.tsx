@@ -2,7 +2,7 @@
 // import { siteName } from './siteName';
 import React from 'react';
 // Site description
-export const introduction: React.FC = () => (
+export const Introduction: React.FC = () => (
   <div className="welcome-text">
     <p>
       {<span className="bold rose">Job COLumn</span>} is a job board that considers the cost of
@@ -26,7 +26,7 @@ export const introduction: React.FC = () => (
   </div>
 );
 
-export const functionality: React.FC = () => (
+export const Functionality: React.FC = () => (
   <div className="welcome-text">
     <p>You'll be able to filter by:</p>
     <ul>
@@ -44,7 +44,7 @@ export const functionality: React.FC = () => (
   </div>
 );
 
-export const privacyDisclosure: React.FC = () => (
+export const PrivacyDisclosure: React.FC = () => (
   <div className="welcome-text">
     <p>Now obviously I'll need some information from you to make this app work.</p>
     <p>

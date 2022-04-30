@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from 'react';
 interface Props {
   children: React.ReactNode;
 }
-const Context = createContext<[any[], Object]>([[], (): void => {}]);
+const Context = createContext<[any[], Function]>([[], (): void => {}]);
 
 export const FilteredJobsProvider: React.FC<Props> = ({ children }) => {
   // States

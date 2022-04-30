@@ -5,10 +5,11 @@ import { NumericInput } from '@blueprintjs/core';
 import GBP from '../GBP/GBP';
 
 interface Props {
-  defaultValue: number;
+  defaultValue?: number;
   fill: boolean;
   onValueChange: (value: number)=> void;
   placeholder?: string;
+  className?: string;
 }
 
 const Numeric: React.FC<Props> = ({ defaultValue, fill, onValueChange, placeholder }) => (

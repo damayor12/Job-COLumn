@@ -1,10 +1,10 @@
 // Package imports
-import { Select } from '@blueprintjs/select';
+import { Select, SelectProps } from '@blueprintjs/select';
 import React from 'react';
+import Button from '../buttons/secondaryButton';
 
 // Local imports
 import { filterer, renderer } from '../../helpers/small';
-
 
 interface City {
   name: string;
@@ -14,7 +14,7 @@ interface City {
 }
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   filterable?: boolean;
   icon?: string;
   items: City[];
@@ -30,6 +30,7 @@ const GenericSelect: React.FC<Props> = ({
   onItemSelect,
   text,
 }) => {
+  const CustomSelect = Select.ofType<any>();
   return (
     <Select
       activeItem={text}
@@ -38,11 +39,10 @@ const GenericSelect: React.FC<Props> = ({
       itemRenderer={renderer}
       items={items}
       onItemSelect={onItemSelect}
-    >
-      {children}
-    </Select>
+    />
   );
 };
 
+// children was not passed in - come back to this later
 //leftIcon={icon} was removed from <Select > as it doesn't belong as a property in blueprint js Select
 export default GenericSelect;

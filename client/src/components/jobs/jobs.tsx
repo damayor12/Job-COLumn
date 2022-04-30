@@ -12,7 +12,25 @@ import JobListing from './jobListing';
 // Styling
 import './jobs.scss';
 
-function Jobs () {
+interface Job {
+    jobId: number,
+    employerId: number,
+    employerName: string,
+    employerProfileId: number,
+    employerProfileName: string,
+    jobTitle: string,
+    locationName: string,
+    minimumSalary: number,
+    maximumSalary: number,
+    currency: string,
+    expirationDate: string,
+    date: string,
+    jobDescription: string,
+    applications: number,
+    jobUrl: string,
+}
+
+const Jobs: React.FC = () => {
   // Contexts
   const [, setJobs] = useJobsContext();
   const [filteredJobs, setFilteredJobs] = useFilteredJobsContext();
@@ -25,7 +43,7 @@ function Jobs () {
         setJobs(result.slice(0, 200));
         setFilteredJobs(result.slice(0, 200));
       });
-      // eslint-disable-next-line
+      // eslint-disable-ne xt-line
   }, []);
 
   return (
