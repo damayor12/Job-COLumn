@@ -24,7 +24,7 @@ interface Job {
 
 
 // React.Dispatch<User>
-const Context = createContext<[Job[]|Object[], Function]>([ [{}], ():void =>{} ]);
+const Context = createContext<[Job[]|any, Function]>([ [{}], ():void =>{} ]);
 
 export const JobsProvider: React.FC<Props> = ({ children }) => {
   // States

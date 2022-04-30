@@ -6,12 +6,34 @@ import { Dialog, Icon } from '@blueprintjs/core';
 import { useUserContext } from '../contexts/user';
 import { numberFormatter } from '../helpers';
 import CITIES from '../helpers/cities.json';
+
 import Details from './details';
 
 // Styles
 import './jobListing.scss';
 
-function JobListing ({ job }) {
+interface Job {
+  jobId: number,
+  employerId: number,
+  employerName: string,
+  employerProfileId: number,
+  employerProfileName: string,
+  jobTitle: string,
+  locationName: string,
+  minimumSalary: number,
+  maximumSalary: number,
+  currency: string,
+  expirationDate: string,
+  date: string,
+  jobDescription: string,
+  applications: number,
+  jobUrl: string,
+}
+interface Props {
+  job: Job;
+}
+
+const JobListing : React.FC<Props> = ({ job }) => {
   const {
     jobTitle,
     minimumSalary,
@@ -26,14 +48,10 @@ function JobListing ({ job }) {
   const [user] = useUserContext();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Salary math
-  const userIndex = CITIES
-    .find(city => city.name === user.location)
-    .index;
-  const jobIndex = CITIES
-    .find(city => city.name === locationName)
-    .index;
-  const isBetter = (minimumSalary / user.salary) / (jobIndex / userIndex) > 1;
+  // Salary math?
+  const userIndex : number | undefined = CITIES.find(city => city.name === user.location)?.index;
+  const jobIndex : number | undefined = CITIES.find(city => city.name === locationName)?.index;
+  const isBetter = (minimumSalary / user.salary) / ( jobIndex! / userIndex!  ) > 1;
 
   return (
     <div

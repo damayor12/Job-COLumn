@@ -5,7 +5,7 @@ interface Props {
   ariaLabel?: string;
   icon: MaybeElement;
   id?: string;
-  onClick: () => void;
+  onClick?: () => void;
   text: string;
 }
 

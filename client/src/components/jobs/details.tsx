@@ -1,5 +1,8 @@
 // Package imports
 import { decode } from 'he';
+import React from 'react';
+import { MaybeElement } from '@blueprintjs/core';
+
 
 // Local imports
 import { useUserContext } from '../contexts/user';
@@ -11,7 +14,29 @@ import Map from './map';
 // Styles
 import './details.scss';
 
-function Details ({ job }) {
+interface Job {
+    jobId: number,
+    employerId: number,
+    employerName: string,
+    employerProfileId: number,
+    employerProfileName: string,
+    jobTitle: string,
+    locationName: string,
+    minimumSalary: number,
+    maximumSalary: number,
+    currency: string,
+    expirationDate: string,
+    date: string,
+    jobDescription: string,
+    applications: number,
+    jobUrl: string,
+}
+
+interface Props {
+  job: Job;
+}
+
+const Details: React.FC<Props> = ({ job }) => {
   const {
     date,
     employerName,
@@ -21,6 +46,8 @@ function Details ({ job }) {
     locationName,
     minimumSalary,
     maximumSalary
+
+
   } = job
   // Contexts
   const [user] = useUserContext();
@@ -36,7 +63,7 @@ function Details ({ job }) {
           <Anchor href={jobUrl}>
             <Button
               ariaLabel='Apply'
-              icon='open-application'
+              icon={'open-application' as unknown as MaybeElement}
               text='Apply'
             />
           </Anchor>

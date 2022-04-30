@@ -25,7 +25,7 @@ import {
 } from '../helpers/sidebar';
 
 // Styling
-import css from '../contexts/themes.scss';
+import * as css from '../contexts/themes.scss';
 import './sidebar.scss';
 
 const largeScreen = window.innerWidth >= css.mobile.split('p')[0];

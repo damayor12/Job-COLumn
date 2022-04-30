@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "resolveJsonModule": true,
-
+    "esModuleInterop": true,
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Projects */
@@ -102,4 +102,3 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   }
 }
- 

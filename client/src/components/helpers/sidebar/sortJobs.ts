@@ -1,4 +1,4 @@
-function parseDate (date: string) {
+function parseDate(date: string) {
   return new Date(date.split('/').reverse().join('/'));
 }
 
@@ -25,12 +25,9 @@ interface Sort {
   order: string;
 }
 
-export function sortJobs (jobs: Job[] | Object[], {
-  category,
-  order,
-}: Sort) {
-  return jobs.sort((a: Job, b:Job) => {
-    let sortBy : string = '';
+export function sortJobs(jobs: Job[], { category, order }: Sort) {
+  return jobs.sort((a: any, b: any) => {
+    let sortBy = '';
     switch (category) {
       case 'Location':
         sortBy = 'locationName';
@@ -51,9 +48,10 @@ export function sortJobs (jobs: Job[] | Object[], {
         sortBy = 'jobTitle';
     }
 
-    let direction : number;
+    let direction: number;
     if (sortBy === 'expirationDate' || sortBy === 'date') {
-      direction = (parseDate(a[sortBy]) as unknown as number) - (parseDate(b[sortBy]) as unknown as number);
+      direction =
+        (parseDate(a[sortBy]) as unknown as number) - (parseDate(b[sortBy]) as unknown as number);
     } else if (typeof a[sortBy] === 'string') {
       if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()) direction = 1;
       else direction = -1;
@@ -62,5 +60,5 @@ export function sortJobs (jobs: Job[] | Object[], {
     }
     if (order === 'asc') return direction;
     return -direction;
-  })
+  });
 }
