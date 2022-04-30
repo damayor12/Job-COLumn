@@ -3,7 +3,7 @@ import { MaybeElement } from '@blueprintjs/core';
 import { useUserContext } from '../../contexts/user';
 import CITIES from '../../helpers/cities.json';
 import Button from '../buttons/secondaryButton';
-import Select from './select';
+import GenericSelect from './select';
 
 interface City {
   name: string;
@@ -28,9 +28,8 @@ const CitiesSelector: React.FC = () => {
   // activeItem={location}
     //leftIcon="locate"
   return (
-    <Select items={CITIES as unknown as City[]} onItemSelect={onItemSelect}>
-      <Button text={location} icon={'locate' as unknown as MaybeElement} />
-    </Select>
+    <GenericSelect activeItem={location} items={CITIES as unknown as City[]} onItemSelect={onItemSelect}/>
+ 
   );
 };
 

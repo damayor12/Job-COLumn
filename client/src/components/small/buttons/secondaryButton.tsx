@@ -6,7 +6,7 @@ interface Props {
   ariaLabel?: string;
   icon: MaybeElement;
   id?: string;
-  onClick?: (() => void);
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   text?: string;
 }
 

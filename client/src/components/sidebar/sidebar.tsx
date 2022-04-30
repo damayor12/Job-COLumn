@@ -25,7 +25,7 @@ import {
 } from '../helpers/sidebar';
 
 // Styling
-import * as css from '../contexts/themes.scss';
+import css from '../contexts/themes.scss';
 import './sidebar.scss';
 
 const largeScreen = window.innerWidth >= css.mobile.split('p')[0];
@@ -81,7 +81,7 @@ const Sidebar: React.FC = () => {
   }, []);
 
   // Job filter and sort function
-  function filterAndSort () {
+  function filterAndSort ():void {
     setFilteredJobs(sortJobs(filterJobs(jobs, filters), sort));
   }
 

@@ -45,7 +45,7 @@ const Welcome: React.FC = () => {
               buttonOnClick: () => navigate('/jobs'),
             })}
          </> 
-        </main>
+        </main> 
 
         <Footer />
       </>
