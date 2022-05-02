@@ -57,7 +57,7 @@ export function filterer(query: string, item: any) {
   return item.toLowerCase().indexOf(query.toLowerCase()) >= 0;
 }
 
-export const renderer: ItemRenderer<Item> = (
+export const renderer: ItemRenderer<Item| any> = (
   item,
   /* iconCheck,  */ { handleClick, modifiers },
 ) => {

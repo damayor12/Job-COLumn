@@ -27,11 +27,19 @@ const CitiesSelector: React.FC = () => {
 
   // activeItem={location}
     //leftIcon="locate"
+
   return (
-    <GenericSelect activeItem={location} items={CITIES as unknown as City[]} onItemSelect={onItemSelect}/>
+    <GenericSelect activeItem={location} items={CITIES as City[]} onItemSelect={onItemSelect}>
+        <Button text={location} icon={'locate' as unknown as MaybeElement} />
+    </GenericSelect>
  
   );
 };
 
+// return (
+//     <Select items={CITIES as unknown as City[]} onItemSelect={onItemSelect}>
+//       <Button text={location} icon={'locate' as unknown as MaybeElement} />
+//     </Select>
+//   );
 //Removed activeItem={location} as the Select doesn't seem to be using it
 export default CitiesSelector;

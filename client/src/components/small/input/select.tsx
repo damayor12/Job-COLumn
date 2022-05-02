@@ -13,42 +13,62 @@ interface City {
 }
 
 interface Props {
-  // children: React.ReactNode;
+  children?: any;
   filterable?: boolean;
   icon?: string;
   items: any[];
   onItemSelect: (option: any) => void;
   text?: City;
+  activeItem?: string;
 
-  activeItem: string;
   leftIcon?: string;
 }
 
 const GenericSelect: React.FC<Props> = ({
-  // children,
+  children,
   filterable,
+  text,
+  activeItem,
   icon,
   items,
   onItemSelect,
-  text, //cant find reference anywhere
+  //cant find reference anywhere
 }) => {
   const CustomSelect = Select.ofType<any>();
+
+  // console.log('text', text, 'filterable', filterable, 'filterer',filterer, 'renderer', renderer, 'onItemSelect', onItemSelect)
+
+  console.log('renderer', renderer);
+
   return (
-    <Select
-      // fill={true}
-      activeItem={text}
+    <CustomSelect
+      fill
+      activeItem={activeItem}
       filterable={filterable}
       itemPredicate={filterer}
       itemRenderer={renderer}
       items={items}
       onItemSelect={onItemSelect}
     />
-    
+    //   {children || <button>click</button>}
+    // </CustomSelect>
   );
 };
 
-{/*   {children}
-    </CustomSelect> */}
+/**
+     * 
+     * <Select
+      activeItem={text}
+      filterable={filterable}
+      itemPredicate={filterer}
+      itemRenderer={renderer}
+      items={items}
+      leftIcon={icon}
+      onItemSelect={onItemSelect}
+    >
+      {children}
+    </Select>
+     */
 
 // children was not passed in - come back to this later
 //leftIcon={icon} was removed from <Select > as it doesn't belong as a property in blueprint js Select

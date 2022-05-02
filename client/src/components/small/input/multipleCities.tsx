@@ -55,6 +55,7 @@ const MultipleCitiesSelector: React.FC<Props> = () => {
   }
 
   //In BlueprintJS docs there is no 'defaultValue' prop so this has been removed
+    console.log( 'Multi renderer', renderer)
   return (
     <MultiSelectNew
       activeItem={cities}
