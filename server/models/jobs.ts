@@ -6,7 +6,7 @@
 import db from './index';
 
 async function getAllJobs () {
-  console.log('DATABASE: ',db);
+  console.log('DATABASE: ',db.Jobs);
   return await db.Jobs.findAll();
 }
 

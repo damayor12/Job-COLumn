@@ -31,7 +31,7 @@ const db : any = {};
 const files = fs.readdirSync(__dirname);
 
 for (const file of files) {
-  if (file !== 'index.js' && file.includes('.schema.js')) {
+  if (file !== 'index.ts' && file.includes('.schema.ts')) {
     const modelCreator = require(path.join(__dirname, file));
     const model = modelCreator(connection);
     db[model.name] = model;
