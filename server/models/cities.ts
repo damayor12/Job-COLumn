@@ -1,14 +1,15 @@
 'use strict';
 
 // Imports
-const db = require('./index');
+// const db = require('./index');
+import db from './index';
 
 async function getAllCities () {
   return await db.Cities.findAll();
 }
 
-async function getCity (name) {
+async function getCity (name: string) {
   return await db.Cities.findOne({where: { name }});
 }
 
-module.exports = { getAllCities, getCity };
+export default { getAllCities, getCity };

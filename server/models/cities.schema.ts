@@ -1,6 +1,8 @@
 'use strict';
+import { Sequelize , DataTypes } from 'sequelize';
 
-function createCitiesTable (connection, DataTypes) {
+
+function createCitiesTable (connection : Sequelize) {
   const Cities = connection.define('Cities', {
     name: {
       type: DataTypes.STRING,
@@ -13,4 +15,5 @@ function createCitiesTable (connection, DataTypes) {
   return Cities;
 }
 
-module.exports = createCitiesTable;
+// module.exports = createCitiesTable;
+export default createCitiesTable;

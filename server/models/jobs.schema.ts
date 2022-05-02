@@ -1,6 +1,7 @@
 'use strict';
+import { Sequelize , DataTypes } from 'sequelize';
 
-function createJobsTable (connection, DataTypes) {
+function createJobsTable (connection : Sequelize ) {
   const Jobs = connection.define('Jobs', {
     jobId: DataTypes.INTEGER,
     employerId: DataTypes.INTEGER,
@@ -21,4 +22,5 @@ function createJobsTable (connection, DataTypes) {
   return Jobs;
 }
 
-module.exports = createJobsTable;
+// module.exports = createJobsTable;
+export default createJobsTable;
