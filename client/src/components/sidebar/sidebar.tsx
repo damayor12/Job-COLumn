@@ -28,7 +28,7 @@ import {
 import css from '../contexts/themes.scss';
 import './sidebar.scss';
 
-const largeScreen = window.innerWidth >= css.mobile.split('p')[0];
+const largeScreen = window.innerWidth >= css.mobile?.split('p')[0];
 
 const Sidebar: React.FC = () => {
   // Contexts and states

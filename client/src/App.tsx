@@ -28,6 +28,8 @@ FocusStyleManager.onlyShowFocusOnTabs();
 
 function App () {
   return (
+    <>
+    <div>Learn react</div>
     <ThemeProvider>
       <UserProvider>
         <JobsProvider>
@@ -47,6 +49,8 @@ function App () {
         </JobsProvider>
       </UserProvider>
     </ThemeProvider>
+    </>
+    
   );
 }
 

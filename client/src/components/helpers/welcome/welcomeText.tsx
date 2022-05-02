@@ -46,6 +46,7 @@ export const Functionality: React.FC = () => (
 
 export const PrivacyDisclosure: React.FC = () => (
   <div className="welcome-text">
+    <div role='privacy'>Testing a div</div>
     <p>Now obviously I'll need some information from you to make this app work.</p>
     <p>
       I'll need your current location to compare the consumer price index - CPI (look it up) with
