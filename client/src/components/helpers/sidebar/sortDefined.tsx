@@ -22,7 +22,7 @@ export const sortDefined : React.FC<Props> = ({
 }) => {
   return (
     <div className='filter-details'>
-        <H5>Sort by</H5>
+        <H5 data-testid={'h5-label'}>Sort by</H5>
         <Sorts />
         <SecondaryButton
           icon={<Icon

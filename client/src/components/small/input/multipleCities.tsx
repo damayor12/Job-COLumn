@@ -59,7 +59,7 @@ const MultipleCitiesSelector: React.FC<Props> = () => {
   return (
     <MultiSelectNew
       activeItem={cities}
-      
+      data-testid='multiple-cities' 
       fill
       itemPredicate={filterer}
       itemRenderer={renderer}

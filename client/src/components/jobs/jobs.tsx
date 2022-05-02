@@ -12,23 +12,6 @@ import JobListing from './jobListing';
 // Styling
 import './jobs.scss';
 
-interface Job {
-    jobId: number,
-    employerId: number,
-    employerName: string,
-    employerProfileId: number,
-    employerProfileName: string,
-    jobTitle: string,
-    locationName: string,
-    minimumSalary: number,
-    maximumSalary: number,
-    currency: string,
-    expirationDate: string,
-    date: string,
-    jobDescription: string,
-    applications: number,
-    jobUrl: string,
-}
 
 const Jobs: React.FC = () => {
   // Contexts

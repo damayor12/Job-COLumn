@@ -10,27 +10,10 @@ import { numberFormatter } from '../helpers';
 import Anchor from '../small/buttons/anchor';
 import Button from '../small/buttons/primaryButton';
 import Map from './map';
+import { Job } from '../helpers/interfaces';
 
 // Styles
 import './details.scss';
-
-interface Job {
-    jobId: number,
-    employerId: number,
-    employerName: string,
-    employerProfileId: number,
-    employerProfileName: string,
-    jobTitle: string,
-    locationName: string,
-    minimumSalary: number,
-    maximumSalary: number,
-    currency: string,
-    expirationDate: string,
-    date: string,
-    jobDescription: string,
-    applications: number,
-    jobUrl: string,
-}
 
 interface Props {
   job: Job;

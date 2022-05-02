@@ -8,27 +8,11 @@ import { numberFormatter } from '../helpers';
 import CITIES from '../helpers/cities.json';
 
 import Details from './details';
+import { Job } from '../helpers/interfaces';
 
 // Styles
 import './jobListing.scss';
 
-interface Job {
-  jobId: number,
-  employerId: number,
-  employerName: string,
-  employerProfileId: number,
-  employerProfileName: string,
-  jobTitle: string,
-  locationName: string,
-  minimumSalary: number,
-  maximumSalary: number,
-  currency: string,
-  expirationDate: string,
-  date: string,
-  jobDescription: string,
-  applications: number,
-  jobUrl: string,
-}
 interface Props {
   job: Job;
 }
@@ -74,25 +58,25 @@ const JobListing : React.FC<Props> = ({ job }) => {
       </div>
       {/* Salary */}
       <div className='job-listing-row'>
-        <div className='job-listing-salary'>
+        <div data-testid='job-listing-salary' className='job-listing-salary'>
           £{numberFormatter(minimumSalary)} - £{numberFormatter(maximumSalary)}
         </div>
       </div>
       {/* Dates */}
       <div className='job-listing-row job-listing-info'>
-        <div>
+        <div data-testid='job-listing-date-posted'>
           Posted on {date}
         </div>
-        <div>
+        <div data-testid='job-listing-expires'>
           Expires on {expirationDate}
         </div>
       </div>
       {/* Company and location */}
       <div className='job-listing-row job-listing-info'>
-        <div>
+        <div data-testid='job-listing-employerName'>
           {employerName}
         </div>
-        <div>
+        <div data-testid='job-listing-locationName'>
           <Icon icon='map-marker' /> {locationName}
         </div>
       </div>

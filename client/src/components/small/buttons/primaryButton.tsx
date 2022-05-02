@@ -12,6 +12,7 @@ interface Props {
 const PrimaryButton: React.FC<Props> = ({ ariaLabel, icon, onClick, text }) => {
   return (
     <Button
+      data-testid='primary-btn'
       aria-label={ariaLabel}
       className={Classes.SMALL}
       fill={false}
