@@ -17,6 +17,7 @@ interface Props extends FormGroupProps {
 export const userForm: React.FC<Props> = ({ defaultValue, onValueChange, buttonOnClick }) => {
   return (
     <>
+    
       <Cities />
        <div id="user-salary">
         <Numeric defaultValue={defaultValue} fill={false} onValueChange={onValueChange} />

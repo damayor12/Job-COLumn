@@ -30,11 +30,12 @@ const GenericSelect: React.FC<Props> = ({
   icon,
   items,
   onItemSelect,
-  text,  //cant find reference anywhere
+  text, //cant find reference anywhere
 }) => {
   const CustomSelect = Select.ofType<any>();
   return (
-    <CustomSelect
+    <Select
+      // fill={true}
       activeItem={text}
       filterable={filterable}
       itemPredicate={filterer}
@@ -42,9 +43,12 @@ const GenericSelect: React.FC<Props> = ({
       items={items}
       onItemSelect={onItemSelect}
     />
-     
+    
   );
 };
+
+{/*   {children}
+    </CustomSelect> */}
 
 // children was not passed in - come back to this later
 //leftIcon={icon} was removed from <Select > as it doesn't belong as a property in blueprint js Select
