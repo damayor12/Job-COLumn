@@ -14,6 +14,7 @@ interface Props {
 
 const Numeric: React.FC<Props> = ({ defaultValue, fill, onValueChange, placeholder }) => (
   <NumericInput
+    data-testid='numeric'
     defaultValue={defaultValue}
     fill={fill}
     leftIcon={<GBP />}

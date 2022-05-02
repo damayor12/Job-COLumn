@@ -27,5 +27,3 @@ export const userForm: React.FC<Props> = ({ defaultValue, onValueChange, buttonO
     </>
   );
 };
-
-// FormGroup taken out but will implement later - it is just inline style

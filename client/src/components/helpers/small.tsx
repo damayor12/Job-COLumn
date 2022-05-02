@@ -64,6 +64,7 @@ export const renderer: ItemRenderer<Item| any> = (
   if (!modifiers.matchesPredicate) return null;
   return (
     <MenuItem
+      data-testid={'small-test'}
       key={(item?.name ? item.name : item) as React.Key}
       onClick={handleClick}
       selected={modifiers.active}
