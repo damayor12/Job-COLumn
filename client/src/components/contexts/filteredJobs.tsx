@@ -1,15 +1,13 @@
-// Package imports
 import React, { createContext, useContext, useState } from 'react';
+import { Job } from '../helpers/interfaces';
 
 interface Props {
   children: React.ReactNode;
 }
-const Context = createContext<[any[], Function]>([[], (): void => {}]);
+const Context = createContext<[Job[] , Function]>([[], (): void => {}]);
 
 export const FilteredJobsProvider: React.FC<Props> = ({ children }) => {
-  // States
   const [filteredJobs, setFilteredJobs] = useState([]);
-
   return <Context.Provider value={[filteredJobs, setFilteredJobs]}>{children}</Context.Provider>;
 };
 

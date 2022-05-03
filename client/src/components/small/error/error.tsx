@@ -11,7 +11,7 @@ import './error.scss';
 const Error: React.FC = () => {
   return (
     <main>
-      <div className="error">
+      <div data-testid="error-div" className="error">
         Error 404: Page not found
         <Divider />
         <Back />

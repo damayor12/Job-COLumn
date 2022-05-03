@@ -1,22 +1,7 @@
-interface Job {
-  jobId: number;
-  employerId: number;
-  employerName: string;
-  employerProfileId: number;
-  employerProfileName: string;
-  jobTitle: string;
-  locationName: string;
-  minimumSalary: number;
-  maximumSalary: number;
-  currency: string;
-  expirationDate: string;
-  date: string;
-  jobDescription: string;
-  applications: number;
-  jobUrl: string;
-}
+import { Job } from '../interfaces';
 
 export const arrOfJobs : Job[] = [{
+  'id': 1,
   'jobId' : 123,
   'employerId': 123,
   'employerName': 'test',
@@ -34,6 +19,7 @@ export const arrOfJobs : Job[] = [{
   'jobUrl': 'testUrl.com'
 },
 {
+  'id' : 2,
   'jobId' : 456,
   'employerId': 452,
   'employerName': 'test',

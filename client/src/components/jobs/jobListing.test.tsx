@@ -1,26 +1,10 @@
 import '@testing-library/jest-dom';
 import { render, screen} from '@testing-library/react';
 import  JobListing  from './jobListing';
-
-interface Job {
-  jobId: number,
-  employerId: number,
-  employerName: string,
-  employerProfileId: number,
-  employerProfileName: string,
-  jobTitle: string,
-  locationName: string,
-  minimumSalary: number,
-  maximumSalary: number,
-  currency: string,
-  expirationDate: string,
-  date: string,
-  jobDescription: string,
-  applications: number,
-  jobUrl: string,
-}
+import { Job } from '../helpers/interfaces'
 
 const testJob : Job = {
+  id: 3,
   jobId: 123,
   employerId: 123,
   employerName: 'WorldPay',

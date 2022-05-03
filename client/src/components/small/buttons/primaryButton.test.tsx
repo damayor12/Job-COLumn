@@ -11,12 +11,8 @@ describe('PrimaryButton', () => {
     const id : string = '1';
     const onClick : (event: React.MouseEvent<HTMLElement>) => void = jest.fn();
     const text : string = 'text';
-
     render(<PrimaryButton ariaLabel={ariaLabel} icon={icon} id={id} onClick={onClick} text={text}/>);
-
     userEvent.click(screen.getByTestId('primary-btn'));
-
     expect(onClick).toHaveBeenCalled();
-
   })
 })
