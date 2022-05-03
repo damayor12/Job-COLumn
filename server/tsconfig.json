@@ -2,7 +2,9 @@
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "types": [
-      "node"
+      "node",
+      "jest",
+      "supertest"
     ],
     "outDir": "build",
     /* Projects */

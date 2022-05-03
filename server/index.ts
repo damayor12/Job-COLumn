@@ -1,21 +1,10 @@
 'use strict';
 
-// Package imports
-// const Express = require('express');
-// const cors = require('cors');
-// const morgan = require('morgan');
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-
-// require('dotenv').config();
 import * as dotenv from 'dotenv';
 dotenv.config();
-
-//Test busayo
-// Local imports
-// const router = require('./router');
-// const db = require('./models/index');
 
 import router from './router';
 import db from './models/index';
@@ -42,3 +31,5 @@ async function bootstrap () {
     }
 }
 bootstrap();
+
+export default bootstrap;
