@@ -44,5 +44,4 @@ for (const model in db) {
 db.connection = connection;
 db.Sequelize = Sequelize;
 
-// module.exports = db;
 export default db;

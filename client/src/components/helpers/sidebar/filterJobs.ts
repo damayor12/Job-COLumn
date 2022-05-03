@@ -1,32 +1,10 @@
-interface Job {
-  jobId: number;
-  employerId: number;
-  employerName: string;
-  employerProfileId: number;
-  employerProfileName: string;
-  jobTitle: string;
-  locationName: string;
-  minimumSalary: number;
-  maximumSalary: number;
-  currency: string;
-  expirationDate: string;
-  date: string;
-  jobDescription: string;
-  applications: number;
-  jobUrl: string;
-}
-
-interface Filter {
-  keywords: string;
-  cities: string[];
-  salary: number;
-}
+import { Job, Filter } from '../interfaces';
 
 export const filterJobs = (jobs: Job[], { keywords, cities, salary }: Filter) => {
   return jobs.filter((job) => {
     let result = true;
     if (keywords) {
-      result &&= keywords
+      result = keywords
         .split(' ')
         .every(
           (keyword) =>

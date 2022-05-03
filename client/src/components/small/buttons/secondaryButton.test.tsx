@@ -24,4 +24,24 @@ describe('SecondaryButton', () => {
 
     expect(onClick).toHaveBeenCalled();
   })
+
+
+  test('should fire an onclick function', () => {
+    const ariaLabel : string = 'test';
+    const icon : MaybeElement = null;
+    const id : string = '1';
+    const onClick : (event: React.MouseEvent<HTMLElement>) => void = jest.fn();
+    const text : string = 'text';
+
+    render(<SecondaryButton 
+              ariaLabel={ariaLabel} 
+              icon={icon} id={id} 
+              onClick={onClick} 
+              text={text}
+            />);
+    
+    userEvent.click(screen.getByTestId('dark-mode-secondary'));
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+  })
 })

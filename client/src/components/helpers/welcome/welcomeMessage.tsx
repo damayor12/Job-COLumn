@@ -1,6 +1,4 @@
-// Local imports
 import React from 'react';
-// import { siteName } from './siteName';
 
 export const WelcomeMessage: React.FC = () => (
   <div className="welcome-text">

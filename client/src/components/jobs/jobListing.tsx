@@ -1,16 +1,10 @@
-// Package imports
 import { useState } from 'react';
 import { Dialog, Icon } from '@blueprintjs/core';
-
-// Local imports
 import { useUserContext } from '../contexts/user';
 import { numberFormatter } from '../helpers';
 import CITIES from '../helpers/cities.json';
-
 import Details from './details';
 import { Job } from '../helpers/interfaces';
-
-// Styles
 import './jobListing.scss';
 
 interface Props {
@@ -28,11 +22,9 @@ const JobListing : React.FC<Props> = ({ job }) => {
     locationName
   } = job
 
-  // Contexts and states
   const [user] = useUserContext();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Salary math?
   const userIndex : number | undefined = CITIES.find(city => city.name === user.location)?.index;
   const jobIndex : number | undefined = CITIES.find(city => city.name === locationName)?.index;
   const isBetter = (minimumSalary / user.salary) / ( jobIndex! / userIndex!  ) > 1;
@@ -50,19 +42,16 @@ const JobListing : React.FC<Props> = ({ job }) => {
       >
         <Details job={job} />
       </Dialog>
-      {/* Title */}
       <div className='job-listing-row'>
         <div className='job-listing-title'>
           {jobTitle}
         </div>
       </div>
-      {/* Salary */}
       <div className='job-listing-row'>
         <div data-testid='job-listing-salary' className='job-listing-salary'>
           £{numberFormatter(minimumSalary)} - £{numberFormatter(maximumSalary)}
         </div>
       </div>
-      {/* Dates */}
       <div className='job-listing-row job-listing-info'>
         <div data-testid='job-listing-date-posted'>
           Posted on {date}
@@ -71,7 +60,6 @@ const JobListing : React.FC<Props> = ({ job }) => {
           Expires on {expirationDate}
         </div>
       </div>
-      {/* Company and location */}
       <div className='job-listing-row job-listing-info'>
         <div data-testid='job-listing-employerName'>
           {employerName}

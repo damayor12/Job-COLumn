@@ -8,7 +8,6 @@ dotenv.config();
 
 import router from './router';
 
-//Conditional if test or prod load diff db
 import db from './models/index';
 
 const app = express();
@@ -21,7 +20,6 @@ app
   .use(express.json())
   .use('/', router);
 
-  //Create another index file to mock the db with mock data
 async function bootstrap () {
   try {
     await db.connection.authenticate();

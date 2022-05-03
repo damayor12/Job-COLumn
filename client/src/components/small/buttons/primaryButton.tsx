@@ -1,4 +1,3 @@
-// Package imports
 import { Classes, Button, MaybeElement } from '@blueprintjs/core';
 
 interface Props {

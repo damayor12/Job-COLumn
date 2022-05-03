@@ -1,15 +1,11 @@
 import '@testing-library/jest-dom'
-
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Introduction, Functionality, PrivacyDisclosure } from './welcomeText';
 
 test('Shows the title when rendering', () => {
   const title : string = 'Job COLumn';
-
   render(<Introduction/>);
   expect(screen.getByText(title)).toBeInTheDocument();
-
 })
 
 test('Shows the functionality text', () => {
@@ -25,7 +21,6 @@ test('Shows the privacy disclosure', () => {
 })
 
 test('Should have this content in p tag', () => {
- 
   render(<PrivacyDisclosure/>)
   const Ptag = screen.getByRole("privacy")
   expect(Ptag).toHaveTextContent('Testing a div')

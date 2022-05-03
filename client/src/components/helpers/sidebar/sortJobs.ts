@@ -1,53 +1,21 @@
+import { Job, Sort } from '../interfaces';
+
 function parseDate(date: string) {
   return new Date(date.split('/').reverse().join('/'));
 }
 
-interface Job {
-  jobId: number;
-  employerId: number;
-  employerName: string;
-  employerProfileId: number;
-  employerProfileName: string;
-  jobTitle: string;
-  locationName: string;
-  minimumSalary: number;
-  maximumSalary: number;
-  currency: string;
-  expirationDate: string;
-  date: string;
-  jobDescription: string;
-  applications: number;
-  jobUrl: string;
-}
-
-interface Sort {
-  category: string;
-  order: string;
+function sortByFromCategory(category: string): string {
+  if (category === 'Location') return 'locationName';
+  if (category === 'Salary') return 'minimumSalary';
+  if (category === 'Expiry Date') return 'expirationDate';
+  if (category === 'Posted Date') return 'date';
+  if (category === 'Job Title') return 'jobTitle';
+  return 'jobTitle';
 }
 
 export function sortJobs(jobs: Job[], { category, order }: Sort) {
   return jobs.sort((a: any, b: any) => {
-    let sortBy = '';
-    switch (category) {
-      case 'Location':
-        sortBy = 'locationName';
-        break;
-      case 'Salary':
-        sortBy = 'minimumSalary';
-        break;
-      case 'Expiry Date':
-        sortBy = 'expirationDate';
-        break;
-      case 'Posted Date':
-        sortBy = 'date';
-        break;
-      case 'Job Title':
-        sortBy = 'jobTitle';
-        break;
-      default:
-        sortBy = 'jobTitle';
-    }
-
+    let sortBy = sortByFromCategory(category);
     let direction: number;
     if (sortBy === 'expirationDate' || sortBy === 'date') {
       direction =

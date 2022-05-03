@@ -1,19 +1,8 @@
-// Package imports
 import { MultiSelect } from '@blueprintjs/select';
-
-// Local imports
 import { useFilterContext } from '../../contexts/filter';
 import { filterer, renderer } from '../../helpers/small';
-import CITIES from '../../helpers/cities.json'
-
-//Initially this had a { defaultValue } prop but it is not used
-
-interface City {
-  name: string;
-  index: number;
-  latitude: number;
-  longitude: number;
-}
+import CITIES from '../../helpers/cities.json';
+import { City } from '../../helpers/interfaces';
 
 interface Props {
   className?: string;
@@ -23,11 +12,9 @@ const MultipleCitiesSelector: React.FC<Props> = () => {
 
  const MultiSelectNew = MultiSelect.ofType<any>();
 
-  // Contexts
   const [filters, setFilters] = useFilterContext();
   const { cities } = filters;
 
-  // Multi-select's onItemSelect
   function onItemSelect (city: City) {
     let newCities = [];
 
@@ -41,12 +28,10 @@ const MultipleCitiesSelector: React.FC<Props> = () => {
     })
   }
 
-  // Multi-select's tagRenderer
   function tagRenderer (city: string) {
     return <>{city}</>;
   }
 
-  // Multi-select's onRemove
   function onRemove (city: string) { 
     setFilters({
       ...filters,
@@ -54,8 +39,7 @@ const MultipleCitiesSelector: React.FC<Props> = () => {
     })
   }
 
-  //In BlueprintJS docs there is no 'defaultValue' prop so this has been removed
-    console.log( 'Multi renderer', renderer)
+  
   return (
     <MultiSelectNew
       activeItem={cities}

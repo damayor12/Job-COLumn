@@ -1,4 +1,3 @@
-// Local imports
 import { useThemeContext } from '../../contexts/theme';
 import Button from './secondaryButton';
 import { MaybeElement } from '@blueprintjs/core';
@@ -8,11 +7,9 @@ interface Props {
 }
 
 export const ToggleDarkMode: React.FC<Props> = ({ text }) => {
-  // Contexts
+  
   const [darkMode, toggleTheme] = useThemeContext();
 
-
- 
   return (
     <Button
       data-testid='dark-mode' 

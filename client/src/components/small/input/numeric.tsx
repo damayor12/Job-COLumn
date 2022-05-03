@@ -1,7 +1,4 @@
-// Package imports
 import { NumericInput } from '@blueprintjs/core';
-
-// Local imports
 import GBP from '../GBP/GBP';
 
 interface Props {

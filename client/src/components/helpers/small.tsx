@@ -1,13 +1,8 @@
 import { MenuItem } from '@blueprintjs/core';
 import { ItemRenderer } from '@blueprintjs/select/lib/esm/common/itemRenderer';
 import React from 'react';
+import {Item} from './interfaces'
 
-interface Item {
-  name: string;
-  index: number;
-  latitude: number;
-  longitude: number;
-}
 
 export function filterer(query: string, item: any) {
   if (item?.name) item = item.name;

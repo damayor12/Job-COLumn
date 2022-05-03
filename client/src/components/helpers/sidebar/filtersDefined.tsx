@@ -1,17 +1,9 @@
-// Package imports
 import { H5, Icon, InputGroup } from '@blueprintjs/core';
-
-// Local imports
 import MultiCity from '../../small/input/multipleCities';
 import Numeric from '../../small/input/numeric';
+import { FilterProps } from '../interfaces';
 
-interface Props {
-  keywords: string;
-  keywordsOnChange: React.ChangeEventHandler<HTMLInputElement>;
-  numericOnChange: (value: number) => void;
-}
-
-export const filtersDefined: React.FC<Props> = ({
+export const filtersDefined: React.FC<FilterProps> = ({
   keywords,
   keywordsOnChange,
   numericOnChange,
@@ -21,7 +13,6 @@ export const filtersDefined: React.FC<Props> = ({
       <H5>
         <Icon icon="filter" /> Filter
       </H5>
-      {/* Keywords */}
       <div className="filter-details">
         <div className="filter-label">Keywords</div>
         <InputGroup
@@ -33,12 +24,10 @@ export const filtersDefined: React.FC<Props> = ({
           placeholder="Keywords"
         />
       </div>
-      {/* Locations */}
       <div className="filter-details">
         <div className="filter-label">Locations</div>
         <MultiCity className="filter-value" />
       </div>
-      {/* Salary */}
       <div className="filter-details">
         <div className="filter-label">Salary</div>
         <Numeric

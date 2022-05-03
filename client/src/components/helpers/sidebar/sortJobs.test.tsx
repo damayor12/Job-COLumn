@@ -1,12 +1,8 @@
 import '@testing-library/jest-dom';
 import { sortJobs } from './sortJobs';
 import { arrOfJobs } from './mockDataFilterJobs';
+import { Sort } from '../interfaces';
 
-
-interface Sort {
-  category: string;
-  order: string;
-}
 
 const sort : Sort = {
   category: 'Location',
