@@ -21,7 +21,7 @@ interface JobsInterface {
 
 interface JobsInstance extends Model<JobsInterface>, JobsInterface {}
 
-function createJobsTable(connection: Sequelize) {
+ function createJobsTable(connection: Sequelize) {
   const Jobs = connection.define<JobsInstance>(
     'Jobs',
     {
@@ -46,5 +46,4 @@ function createJobsTable(connection: Sequelize) {
   return Jobs;
 }
 
- module.exports = createJobsTable; /// require dsfdf 
-// export default createJobsTable; import fdfsdf from 'fd..'
+module.exports = createJobsTable

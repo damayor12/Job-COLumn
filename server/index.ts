@@ -7,6 +7,8 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import router from './router';
+
+//Conditional if test or prod load diff db
 import db from './models/index';
 
 const app = express();
@@ -15,10 +17,11 @@ const PORT = process.env.PORT_NUMBER;
 
 app
   .use(cors())
-  .use(morgan('short'))
+  .use(morgan('tiny'))
   .use(express.json())
-  .use(router);
+  .use('/', router);
 
+  //Create another index file to mock the db with mock data
 async function bootstrap () {
   try {
     await db.connection.authenticate();
@@ -32,4 +35,4 @@ async function bootstrap () {
 }
 bootstrap();
 
-export default bootstrap;
+export { bootstrap, app };

@@ -42,7 +42,7 @@ const GenericSelect: React.FC<Props> = ({
 
   return (
     <CustomSelect
-      data-testid="numeric"
+      data-testid="select"
       fill
       activeItem={activeItem}
       filterable={filterable}
