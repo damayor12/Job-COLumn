@@ -1,45 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
-import { Job, Filter, Sort, User } from '../helpers/interfaces';
+import {  User } from '../helpers/interfaces';
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const defaultFilter = {
-  keywords: '',
-  cities: [],
-  salary: 0,
-};
-
-const defaultSortValues = {
-  category: 'Job Title',
-  order: 'asc',
-};
-
-const defaultUser: User = {
-  location: 'London',
-  salary: 20_000,
-};
-
-//create General Context - Interfaces
-interface allContexts {
-  filter: any[];
-  filteredjobs: any[];
-  jobs: any[];
-  sort: any[];
-  theme: any[];
-  user: any[];
-}
-
-//create General Context - Init object
-const allContextProps = {
-  filter: [defaultFilter, (): void => {}],
-  filteredjobs: [[], (): void => {}],
-  jobs: [[], (): void => {}],
-  sort: [defaultSortValues, (): void => {}],
-  theme: [true, () => {}],
-  user: [defaultUser, (): void => {}],
-};
+import { Props, allContexts, allContextProps } from './defaults-types';
 
 const Context = createContext<allContexts>(allContextProps);
 
@@ -52,6 +14,7 @@ export const GeneralProvider: React.FC<Props> = ({ children }) => {
   });
   const [filteredJobs, setFilteredJobs] = useState([]);
 
+  //General state
   const [jobs, setJobs] = useState([]);
   const [sort, setSort] = useState({
     category: 'Job Title',
