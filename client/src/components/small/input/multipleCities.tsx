@@ -1,5 +1,5 @@
 import { MultiSelect } from '@blueprintjs/select';
-import { useFilterContext } from '../../contexts/filter';
+import { useGeneralContext } from '../../contexts/contexts';
 import { filterer, renderer } from '../../helpers/small';
 import CITIES from '../../helpers/cities.json';
 import { City } from '../../helpers/interfaces';
@@ -9,57 +9,56 @@ interface Props {
 }
 
 const MultipleCitiesSelector: React.FC<Props> = () => {
+  const MultiSelectNew = MultiSelect.ofType<any>();
 
- const MultiSelectNew = MultiSelect.ofType<any>();
-
-  const [filters, setFilters] = useFilterContext();
+  const {
+    filter: [filters, setFilters],
+  } = useGeneralContext();
   const { cities } = filters;
 
-  function onItemSelect (city: City) {
+  function onItemSelect(city: City) {
     let newCities = [];
 
-    if (cities.includes(city.name)) newCities = cities
-      .filter(selectedCity => selectedCity !== city.name);
+    if (cities.includes(city.name))
+      newCities = cities.filter((selectedCity: any) => selectedCity !== city.name);
     else newCities = cities.concat(city.name).sort();
 
     setFilters({
       ...filters,
-      cities: newCities
-    })
+      cities: newCities,
+    });
   }
 
-  function tagRenderer (city: string) {
+  function tagRenderer(city: string) {
     return <>{city}</>;
   }
 
-  function onRemove (city: string) { 
+  function onRemove(city: string) {
     setFilters({
       ...filters,
-      cities: cities.filter(selectedCity => selectedCity !== city)
-    })
+      cities: cities.filter((selectedCity: any) => selectedCity !== city),
+    });
   }
 
-  
   return (
     <MultiSelectNew
       activeItem={cities}
-      data-testid='multiple-cities' 
+      data-testid="multiple-cities"
       fill
       itemPredicate={filterer}
       itemRenderer={renderer}
       items={CITIES}
       onItemSelect={onItemSelect}
       onRemove={onRemove}
-      placeholder='Desired City/Cities'
+      placeholder="Desired City/Cities"
       resetOnSelect
       selectedItems={cities}
       tagRenderer={tagRenderer}
     />
-  )
-}
+  );
+};
 
 export default MultipleCitiesSelector;
-
 
 // const filterItems: ItemPredicate<string> = (query, source) => {
 //     return source.toLowerCase().indexOf(query.toLowerCase()) >= 0;

@@ -1,7 +1,7 @@
 import { decode } from 'he';
 import React from 'react';
 import { MaybeElement } from '@blueprintjs/core';
-import { useUserContext } from '../contexts/user';
+import { useGeneralContext } from '../contexts/contexts';
 import { numberFormatter } from '../helpers';
 import Anchor from '../small/buttons/anchor';
 import Button from '../small/buttons/primaryButton';
@@ -26,7 +26,7 @@ const Details: React.FC<Props> = ({ job }) => {
     maximumSalary
   } = job;
 
-  const [user] = useUserContext();
+  const {user: [user]} = useGeneralContext();
 
   return (
     <div className='details'>

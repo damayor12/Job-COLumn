@@ -1,5 +1,5 @@
 import { MaybeElement } from '@blueprintjs/core';
-import { useUserContext } from '../../contexts/user';
+import { useGeneralContext } from '../../contexts/contexts';
 import CITIES from '../../helpers/cities.json';
 import Button from '../buttons/secondaryButton';
 import GenericSelect from './select';
@@ -12,7 +12,10 @@ interface City {
 }
 
 const CitiesSelector: React.FC = () => {
-  const [user, setUser] = useUserContext();
+
+  // Contexts
+  const {user: [user, setUser]} = useGeneralContext();
+  
   const { location } = user;
 
   function onItemSelect(city: City) {
