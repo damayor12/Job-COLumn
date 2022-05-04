@@ -1,14 +1,14 @@
 'use strict';
 import { Request, Response } from 'express';
 import axios, { AxiosResponse } from 'axios';
+import db from '../models/index';
+// import {getAllJobs, destroyJobs}  from '../models/jobs';
 
-import Jobs from '../models/jobs';
-
-async function getAllJobs(_: Request, res: Response) {
+const getAllJobs = async (_: Request, res: Response) => {
   const rootUrl = 'http://127.0.0.1:3001';
 
   try {
-    console.log('backend fired')
+    console.log('backend fired');
     // const config = {
     //   headers: {
     //     auth: {
@@ -28,16 +28,36 @@ async function getAllJobs(_: Request, res: Response) {
       },
     };
 
-    axios(config)
-      .then(function (response) {
-        res.status(200).send(JSON.stringify(response.data))
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // axios(config)
+    //   .then(function (response) {
 
-    
-      
+    //     const data = db.Jobs.bulkCreate(response.data.results)
+    //     console.log('dataaaa', data);
+    //     if (data.length) {
+    //       console.log('yes')
+    //       res.status(200).send(JSON.stringify(data));
+    //       return
+    //     }
+    //     throw new Error('Failed to fetch')
+
+    //     // const res = db.Jobs.bulkCreate(JSON.stringify(response.data).res);
+
+    //     // res.status(200).send(JSON.stringify(response.data))
+    //   })
+    //   .catch(function (error) {
+    //     console.log('errorrrrrrr',error);
+    //   });
+
+    await axios(config).then((response) => {
+      // const jobs = await db.Jobs.bulkCreate(JSON.stringify(response.data));
+      res.status(200).send(JSON.stringify(response.data));
+
+    });
+    // console.log('data', data)
+
+    // await getAllJobs();
+
+    console.log('res', res);
 
     // const jobs: AxiosResponse = await axios.get(`${rootUrl}/jobs`);
     // const jobs: AxiosResponse = await axios.get(
@@ -51,6 +71,6 @@ async function getAllJobs(_: Request, res: Response) {
     console.error(error);
     res.sendStatus(500);
   }
-}
+};
 
 export default getAllJobs;
