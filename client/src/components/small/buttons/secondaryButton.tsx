@@ -1,6 +1,4 @@
-// Package imports
 import { Classes, Button, MaybeElement, Intent } from '@blueprintjs/core';
-
 
 interface Props {
   ariaLabel?: string;
@@ -18,6 +16,8 @@ const SecondaryButton: React.FC<Props> = ({ ariaLabel, icon, id, onClick, text }
       className={Classes.SMALL}
       fill={false}
       icon={icon}
+      data-testid='dark-mode-secondary' 
+      role='darkmode'
       id={id}
       intent={'secondary' as Intent}
       onClick={onClick}

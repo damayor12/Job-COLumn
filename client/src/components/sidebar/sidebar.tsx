@@ -1,8 +1,5 @@
-// Package imports
 import { useEffect, useState } from 'react';
 import { Divider, MaybeElement } from '@blueprintjs/core';
-
-// Local imports
 import { useFilterContext } from '../contexts/filter';
 import { useFilteredJobsContext } from '../contexts/filteredJobs';
 import { useJobsContext } from '../contexts/jobs';
@@ -23,15 +20,13 @@ import {
   sortDefined,
   userDetails
 } from '../helpers/sidebar';
-
-// Styling
 import css from '../contexts/themes.scss';
 import './sidebar.scss';
 
-const largeScreen = window.innerWidth >= css.mobile.split('p')[0];
+const largeScreen = window.innerWidth >= css.mobile?.split('p')[0];
 
 const Sidebar: React.FC = () => {
-  // Contexts and states
+
   const [darkMode] = useThemeContext();
   const [user] = useUserContext();
   const [filters, setFilters] = useFilterContext();
@@ -40,7 +35,6 @@ const Sidebar: React.FC = () => {
   const [, setFilteredJobs] = useFilteredJobsContext();
   const [navbarVisible, setNavbarVisible] = useState<boolean>(true);
 
-  // Filter setter functions
   function keywordsOnChange (e : React.ChangeEvent<HTMLInputElement>) {
     setFilters({
       ...filters,
@@ -55,7 +49,6 @@ const Sidebar: React.FC = () => {
     });
   }
 
-  // Sort setter function
   function sortOnClick () {
     setSort({
       ...sort,
@@ -63,12 +56,10 @@ const Sidebar: React.FC = () => {
     })
   }
 
-  // Navbar visibility setter function
   function toggleNavbar () {
     setNavbarVisible(!navbarVisible)
   }
 
-  // Fix navbar loses visibility bug
   function bringBackSidebar () {
     if (largeScreen) setNavbarVisible(true);
   }
@@ -80,14 +71,12 @@ const Sidebar: React.FC = () => {
     }
   }, []);
 
-  // Job filter and sort function
   function filterAndSort ():void {
     setFilteredJobs(sortJobs(filterJobs(jobs, filters), sort));
   }
 
   return (
     <nav className='background-color'>
-      {/* Header and visibility toggle */}
       <div>
         <HeaderAndLogo />
         <Divider />
@@ -101,9 +90,7 @@ const Sidebar: React.FC = () => {
       {navbarVisible && <>
         <ToggleDarkMode text={`${darkMode ? 'Light Mode' : 'Dark Mode'}`} />
         <Divider />
-        {/* User details */}
         {userDetails(user)}
-        {/* Filter options */}
         <Divider />
         {filtersDefined({
           keywords: filters.keywords,
@@ -111,7 +98,6 @@ const Sidebar: React.FC = () => {
           numericOnChange
         })}
         <Divider />
-        {/* Sort options */}
         {sortDefined({
           filterAndSort,
           sortOrder: sort.order,

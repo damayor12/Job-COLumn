@@ -1,8 +1,5 @@
-// Package imports
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { MaybeElement } from '@blueprintjs/core';
-
-// Local imports
 import Button from './secondaryButton';
 
 const BackButton: React.FC = () => {

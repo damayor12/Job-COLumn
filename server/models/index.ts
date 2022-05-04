@@ -1,9 +1,6 @@
 'use strict';
-
-// Package imports
-// const fs = require('fs');
-// const path = require('path');
-// const Sequelize = require('sequelize');
+import env from 'dotenv';
+env.config(); 
 import fs from 'fs';
 import path from 'path';
 import { Sequelize, Options } from 'sequelize';
@@ -19,6 +16,8 @@ const config : Options = {
   logging: false,
   port: dbPort,
 };
+
+console.log('DB PORT: ', dbPort);
 
 const connection = new Sequelize(
   dbName,
@@ -45,5 +44,4 @@ for (const model in db) {
 db.connection = connection;
 db.Sequelize = Sequelize;
 
-// module.exports = db;
 export default db;

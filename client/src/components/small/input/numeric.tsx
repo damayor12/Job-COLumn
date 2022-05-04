@@ -1,7 +1,4 @@
-// Package imports
 import { NumericInput } from '@blueprintjs/core';
-
-// Local imports
 import GBP from '../GBP/GBP';
 
 interface Props {
@@ -14,6 +11,7 @@ interface Props {
 
 const Numeric: React.FC<Props> = ({ defaultValue, fill, onValueChange, placeholder }) => (
   <NumericInput
+    data-testid='numeric' 
     defaultValue={defaultValue}
     fill={fill}
     leftIcon={<GBP />}

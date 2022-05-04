@@ -32,7 +32,7 @@ const Welcome: React.FC = () => {
     <div className="welcome">
       <>
         <HeaderAndLogo />
-
+        
         <main className="welcome-container">
           <>
             <WelcomeMessage />

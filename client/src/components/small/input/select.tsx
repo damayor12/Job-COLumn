@@ -1,16 +1,8 @@
-// Package imports
 import { Select } from '@blueprintjs/select';
 import React from 'react';
-
-// Local imports
 import { filterer, renderer } from '../../helpers/small';
+import { City } from '../../helpers/interfaces';
 
-interface City {
-  name: string;
-  index: number;
-  latitude: number;
-  longitude: number;
-}
 
 interface Props {
   children?: any;
@@ -36,12 +28,10 @@ const GenericSelect: React.FC<Props> = ({
 }) => {
   const CustomSelect = Select.ofType<any>();
 
-  // console.log('text', text, 'filterable', filterable, 'filterer',filterer, 'renderer', renderer, 'onItemSelect', onItemSelect)
-
-  console.log('renderer', renderer);
-
   return (
+    <div data-testid="select">
     <CustomSelect
+      data-testid="select"
       fill
       activeItem={activeItem}
       filterable={filterable}
@@ -50,6 +40,7 @@ const GenericSelect: React.FC<Props> = ({
       items={items}
       onItemSelect={onItemSelect}
     />
+    </div>
     //   {children || <button>click</button>}
     // </CustomSelect>
   );

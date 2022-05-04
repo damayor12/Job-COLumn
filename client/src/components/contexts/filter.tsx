@@ -16,6 +16,12 @@ const defaultUser: Filter = {
   salary: 0,
 };
 
+// {
+//   filter: [filters, setFilters],
+//   jobs:[filters, setFilters],
+//   theme:[filters, setFilters],
+// }
+
 const Context = createContext<[Filter, Function]>([defaultUser, (): void => {}]);
 
 export const FilterProvider: React.FC<Props> = ({ children }) => {

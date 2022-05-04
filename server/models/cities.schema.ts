@@ -42,4 +42,4 @@ function createCitiesTable(connection: Sequelize) {
 }
 
 module.exports = createCitiesTable;
-// export default createCitiesTable;
+
