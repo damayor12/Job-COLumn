@@ -16,8 +16,7 @@ export const ToggleDarkMode: React.FC<Props> = ({ text }) => {
   } = useGeneralContext();
 
 
-  // console.log('TESTING', theme)
-   console.log('darkM', darkMode);
+  
 
   return (
     <Button

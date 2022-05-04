@@ -16,9 +16,10 @@ const Jobs: React.FC = () => {
 
   useEffect(() => {
     getAllJobs().then((result) => {
+      console.log('the result',result.results)
       setIsLoading(false);
-      setJobs(result.slice(0, 200));
-      setFilteredJobs(result.slice(0, 200));
+      setJobs(result.results.slice(0, 200));
+      setFilteredJobs(result.results.slice(0, 200));
     });
     // eslint-disable-ne xt-line
   }, []);

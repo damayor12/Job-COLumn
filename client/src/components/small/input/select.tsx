@@ -34,7 +34,8 @@ const GenericSelect: React.FC<Props> = ({
       itemPredicate={filterer}
       itemRenderer={renderer}
       items={items}
-      leftIcon={icon}
+     
+      // leftIcon={icon}
       onItemSelect={onItemSelect}
     >
         {children}

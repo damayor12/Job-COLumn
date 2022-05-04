@@ -1,4 +1,5 @@
 // Package imports
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 // Local imports
@@ -11,6 +12,7 @@ import {
   Functionality,
   PrivacyDisclosure,
 } from '../helpers/welcome';
+
 
 // Styling
 import './welcome.scss';
@@ -29,6 +31,8 @@ const Welcome: React.FC = () => {
       salary: value,
     });
   }
+
+  
 
   return (
     <div className="welcome">
