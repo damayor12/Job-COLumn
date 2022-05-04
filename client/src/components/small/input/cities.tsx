@@ -1,6 +1,6 @@
 // Local imports
 import { MaybeElement } from '@blueprintjs/core';
-import { useUserContext } from '../../contexts/user';
+import { useGeneralContext } from '../../contexts/contexts';
 import CITIES from '../../helpers/cities.json';
 import Button from '../buttons/secondaryButton';
 import GenericSelect from './select';
@@ -14,7 +14,7 @@ interface City {
 
 const CitiesSelector: React.FC = () => {
   // Contexts
-  const [user, setUser] = useUserContext();
+  const {user: [user, setUser]} = useGeneralContext();
   const { location } = user;
 
   // Select's onItemSelect

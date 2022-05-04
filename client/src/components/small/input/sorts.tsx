@@ -1,9 +1,11 @@
-import { useSortContext } from '../../contexts/sort';
+import { useGeneralContext } from '../../contexts/contexts';
 import GenericSelect from './select';
 
 const SortSelector: React.FC = () => {
 
-  const [sort, setSort] = useSortContext();
+  const {
+    sort: [sort, setSort],
+  } = useGeneralContext();
   const { category } = sort;
 
   const options = ['Location', 'Salary', 'Expiry Date', 'Posted Date', 'Job Title'];

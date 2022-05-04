@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Dialog, Icon } from '@blueprintjs/core';
-import { useUserContext } from '../contexts/user';
+import { useGeneralContext } from '../contexts/contexts';
 import { numberFormatter } from '../helpers';
 import CITIES from '../helpers/cities.json';
 import Details from './details';
@@ -11,7 +11,7 @@ interface Props {
   job: Job;
 }
 
-const JobListing : React.FC<Props> = ({ job }) => {
+const JobListing: React.FC<Props> = ({ job }) => {
   const {
     jobTitle,
     minimumSalary,
@@ -19,15 +19,17 @@ const JobListing : React.FC<Props> = ({ job }) => {
     date,
     expirationDate,
     employerName,
-    locationName
-  } = job
+    locationName,
+  } = job;
 
-  const [user] = useUserContext();
+  const {
+    user: [user],
+  } = useGeneralContext();
   const [isOpen, setIsOpen] = useState(false);
 
-  const userIndex : number | undefined = CITIES.find(city => city.name === user.location)?.index;
-  const jobIndex : number | undefined = CITIES.find(city => city.name === locationName)?.index;
-  const isBetter = (minimumSalary / user.salary) / ( jobIndex! / userIndex!  ) > 1;
+  const userIndex: number | undefined = CITIES.find((city) => city.name === user.location)?.index;
+  const jobIndex: number | undefined = CITIES.find((city) => city.name === locationName)?.index;
+  const isBetter = minimumSalary / user.salary / (jobIndex! / userIndex!) > 1;
 
   return (
     <div
@@ -37,39 +39,33 @@ const JobListing : React.FC<Props> = ({ job }) => {
       <Dialog
         isCloseButtonShown={false}
         isOpen={isOpen}
-        onClose={() => {setIsOpen(false)}}
+        onClose={() => {
+          setIsOpen(false);
+        }}
         title={jobTitle}
       >
         <Details job={job} />
       </Dialog>
-      <div className='job-listing-row'>
-        <div className='job-listing-title'>
-          {jobTitle}
-        </div>
+      <div className="job-listing-row">
+        <div className="job-listing-title">{jobTitle}</div>
       </div>
-      <div className='job-listing-row'>
-        <div data-testid='job-listing-salary' className='job-listing-salary'>
+      <div className="job-listing-row">
+        <div data-testid="job-listing-salary" className="job-listing-salary">
           £{numberFormatter(minimumSalary)} - £{numberFormatter(maximumSalary)}
         </div>
       </div>
-      <div className='job-listing-row job-listing-info'>
-        <div data-testid='job-listing-date-posted'>
-          Posted on {date}
-        </div>
-        <div data-testid='job-listing-expires'>
-          Expires on {expirationDate}
-        </div>
+      <div className="job-listing-row job-listing-info">
+        <div data-testid="job-listing-date-posted">Posted on {date}</div>
+        <div data-testid="job-listing-expires">Expires on {expirationDate}</div>
       </div>
-      <div className='job-listing-row job-listing-info'>
-        <div data-testid='job-listing-employerName'>
-          {employerName}
-        </div>
-        <div data-testid='job-listing-locationName'>
-          <Icon icon='map-marker' /> {locationName}
+      <div className="job-listing-row job-listing-info">
+        <div data-testid="job-listing-employerName">{employerName}</div>
+        <div data-testid="job-listing-locationName">
+          <Icon icon="map-marker" /> {locationName}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default JobListing;

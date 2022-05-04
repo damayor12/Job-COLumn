@@ -2,7 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 
 // Local imports
-import { useUserContext } from '../contexts/user';
+import { useGeneralContext } from '../contexts/contexts';
 import { Footer, HeaderAndLogo } from '../helpers/index';
 import {
   userForm,
@@ -18,7 +18,9 @@ import './welcome.scss';
 const Welcome: React.FC = () => {
   const navigate = useNavigate();
   // Contexts
-  const [user, setUser] = useUserContext();
+  const {
+    user: [user, setUser],
+  } = useGeneralContext();
 
   // User salary input's onValueChange
   function onValueChange(value: number) {
@@ -32,7 +34,7 @@ const Welcome: React.FC = () => {
     <div className="welcome">
       <>
         <HeaderAndLogo />
-        
+
         <main className="welcome-container">
           <>
             <WelcomeMessage />
@@ -44,8 +46,8 @@ const Welcome: React.FC = () => {
               onValueChange: onValueChange,
               buttonOnClick: () => navigate('/jobs'),
             })}
-         </> 
-        </main> 
+          </>
+        </main>
 
         <Footer />
       </>
