@@ -1,17 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
-import { Job } from '../helpers/interfaces';
+import { Job, Filter, Sort, User } from '../helpers/interfaces';
 
-//Component prop  interface
 interface Props {
   children: React.ReactNode;
-}
-
-// Filters interfaces and defaultvalues
-
-interface Filter {
-  keywords: string;
-  cities: string[];
-  salary: number;
 }
 
 const defaultFilter = {
@@ -20,22 +11,10 @@ const defaultFilter = {
   salary: 0,
 };
 
-//Sort interface and defaultvalues
-interface Sort {
-  category: string;
-  order: string;
-}
-
 const defaultSortValues = {
   category: 'Job Title',
   order: 'asc',
 };
-
-//User interface and defaultvalues
-interface User {
-  location: string;
-  salary: number;
-}
 
 const defaultUser: User = {
   location: 'London',
@@ -62,17 +41,9 @@ const allContextProps = {
   user: [defaultUser, (): void => {}],
 };
 
-
-
-// {
-//   filter: [filters, setFilters],
-//   jobs:[filters, setFilters],
-//   theme:[filters, setFilters],
-// }
-
 const Context = createContext<allContexts>(allContextProps);
 
-export const FilterProvider: React.FC<Props> = ({ children }) => {
+export const GeneralProvider: React.FC<Props> = ({ children }) => {
   // States
   const [filters, setFilters] = useState({
     keywords: '',
@@ -113,6 +84,6 @@ export const FilterProvider: React.FC<Props> = ({ children }) => {
   return <Context.Provider value={valuesObj}>{children}</Context.Provider>;
 };
 
-export function useFilterContext() {
+export function useGeneralContext() {
   return useContext(Context);
 }

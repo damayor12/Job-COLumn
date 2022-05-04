@@ -67,3 +67,8 @@ export interface Item {
   latitude: number;
   longitude: number;
 }
+
+export interface User {
+  location: string;
+  salary: number;
+}

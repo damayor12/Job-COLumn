@@ -1,4 +1,6 @@
-import { useThemeContext } from '../../contexts/theme';
+
+import { useGeneralContext } from '../../contexts/contexts';
+
 import Button from './secondaryButton';
 import { MaybeElement } from '@blueprintjs/core';
 
@@ -8,7 +10,14 @@ interface Props {
 
 export const ToggleDarkMode: React.FC<Props> = ({ text }) => {
   
-  const [darkMode, toggleTheme] = useThemeContext();
+  // const [darkMode, toggleTheme] = useThemeContext();
+  const {
+    theme: [darkMode, toggleTheme],
+  } = useGeneralContext();
+
+
+  // console.log('TESTING', theme)
+   console.log('darkM', darkMode);
 
   return (
     <Button
