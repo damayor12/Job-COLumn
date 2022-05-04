@@ -16,7 +16,6 @@ FocusStyleManager.onlyShowFocusOnTabs();
 function App() {
   return (
     <>
-      <div>Learn react</div>
       <GeneralProvider>
         <Router>
           <Routes>

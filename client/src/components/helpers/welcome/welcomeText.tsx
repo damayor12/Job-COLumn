@@ -17,13 +17,13 @@ export const Functionality: React.FC = () => (
     <p>You'll be able to filter by:</p>
     <ul>
       {['keywords', 'location', 'minimum salary'].map((element, index) => (
-        <li>{element}</li>
+        <li key={index}>{element}</li>
       ))}
     </ul>
     <p>You can also sort by any of:</p>
     <ul>
       {['location name', 'salary', 'expiration date', 'job title'].map((element, index) => (
-        <li>{element}</li>
+        <li key={index}>{element}</li>
       ))}
     </ul>
   </div>
