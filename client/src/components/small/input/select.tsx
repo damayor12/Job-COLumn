@@ -28,8 +28,6 @@ const GenericSelect: React.FC<Props> = ({
 }) => {
   const CustomSelect = Select.ofType<any>();
 
-  console.log('renderer', renderer);
-
   return (
     <div data-testid="select">
     <CustomSelect

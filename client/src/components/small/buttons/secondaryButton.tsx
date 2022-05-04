@@ -1,6 +1,4 @@
-// Package imports
 import { Classes, Button, MaybeElement, Intent } from '@blueprintjs/core';
-
 
 interface Props {
   ariaLabel?: string;
