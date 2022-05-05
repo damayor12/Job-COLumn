@@ -2,7 +2,7 @@ import React from 'react';
 import { useGeneralContext, GeneralProvider } from './contexts';
 import { render, screen } from '@testing-library/react';
 
-describe.only('GeneralProvider', () => {
+describe('GeneralProvider', () => {
 
     const TestComponent : React.FC = () => {
       const  {
