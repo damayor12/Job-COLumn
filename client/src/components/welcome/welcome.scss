@@ -7,7 +7,7 @@
 }
 
 .welcome-container {
-  flex-direction: column;
+  flex-direction: row;
   align-content: center;
 
   li {
@@ -21,16 +21,45 @@
   }
 }
 
+
+
+.front-page-nav-container {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  top: 2em;
+  right: 2em;
+}
+
+
+.text-container, .form-container {
+  border: 1px solid var(--primary);
+  padding: 2em;
+  border-radius: 10px;
+  margin: 2em;
+}
+
+.form-container {
+  height: 50%;
+}
+
 .welcome-text {
   margin-bottom: 20px;
+  a {
+    color: var(--primary);
+  }
 }
 
 ul {
   margin-bottom: 15px;
 }
 
-#user-salary {
-  width: 130px;
+.userForm-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+
 }
 
 .bp4-form-content {
@@ -52,5 +81,10 @@ ul {
 
   .bp4-button {
     margin-bottom: 1rem;
+  }
+
+  .welcome-container {
+    flex-direction: column;
+    justify-content: center;
   }
 }

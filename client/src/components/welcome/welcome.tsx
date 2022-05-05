@@ -12,6 +12,7 @@ import {
   Functionality,
   PrivacyDisclosure,
 } from '../helpers/welcome';
+import ToggleDarkMode from '../../components/small/buttons/toggleDarkMode';
 
 
 // Styling
@@ -35,27 +36,30 @@ const Welcome: React.FC = () => {
   
 
   return (
+    <>
+    <div className="front-page-nav-container"><ToggleDarkMode/></div>
     <div className="welcome">
-      <>
         <HeaderAndLogo />
-
         <main className="welcome-container">
           <>
+            <section className="text-container">
             <WelcomeMessage />
             <Introduction />
             <Functionality />
             <PrivacyDisclosure />
+            </section>
+            <aside className="form-container">
             {userForm({
               defaultValue: user.salary,
               onValueChange: onValueChange,
               buttonOnClick: () => navigate('/jobs'),
             })}
+            </aside>
           </>
         </main>
-
         <Footer />
-      </>
     </div>
+    </>
   );
 };
 

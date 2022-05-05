@@ -5,7 +5,7 @@ import { City } from '../../helpers/interfaces';
 
 
 interface Props {
-  children?: any;
+  children?: React.ReactNode;
   filterable?: boolean;
   icon?: string;
   items: any[];
@@ -35,7 +35,8 @@ const GenericSelect: React.FC<Props> = ({
       itemRenderer={renderer}
       items={items}
       fill={true}
-      // leftIcon={icon}
+      leftIcon={icon}
+      initialContent={null}
       onItemSelect={onItemSelect}
     >
         {children}

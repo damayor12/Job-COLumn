@@ -15,13 +15,7 @@ test('Shows the functionality text', () => {
 })
 
 test('Shows the privacy disclosure', () => {
-  const disc : string = "Now obviously I'll need some information from you to make this app work.";
+  const disc : string = "Select your";
   render(<PrivacyDisclosure/>)
-  expect(screen.getByText(disc)).toBeInTheDocument();
-})
-
-test('Should have this content in p tag', () => {
-  render(<PrivacyDisclosure/>)
-  const Ptag = screen.getByRole("privacy")
-  expect(Ptag).toHaveTextContent('Testing a div')
+  expect(screen.getByText(disc, {exact: false})).toBeInTheDocument();
 })

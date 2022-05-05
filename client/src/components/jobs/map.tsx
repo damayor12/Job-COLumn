@@ -8,6 +8,8 @@ const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env;
 }
 
 const Map: React.FC<Props> = ({ userLocation, jobLocation }) => {
+  console.log('USER LOCATION: ', userLocation);
+  console.log('JOB LOCATION: ', jobLocation);
   return (
     <iframe
       id="map"

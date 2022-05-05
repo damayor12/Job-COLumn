@@ -21,6 +21,7 @@ const Numeric: React.FC<Props> = ({ defaultValue, fill, onValueChange, placehold
     onValueChange={onValueChange}
     placeholder={placeholder}
     stepSize={1000}
+    style={{width: '100px'}}
   />
 );
 
