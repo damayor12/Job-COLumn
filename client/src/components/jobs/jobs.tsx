@@ -11,14 +11,16 @@ const Jobs: React.FC = () => {
   const {
     filteredjobs: [filteredJobs, setFilteredJobs],
     jobs: [, setJobs],
+    user: [user, setUser],
   } = useGeneralContext();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getAllJobs().then((result) => {
+    getAllJobs(user.location).then((result) => {
+      console.log('the result',result.results)
       setIsLoading(false);
-      setJobs(result.slice(0, 200));
-      setFilteredJobs(result.slice(0, 200));
+      setJobs(result.results.slice(0, 200));
+      setFilteredJobs(result.results.slice(0, 200));
     });
     // eslint-disable-ne xt-line
   }, []);

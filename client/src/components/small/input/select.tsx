@@ -26,7 +26,7 @@ const GenericSelect: React.FC<Props> = ({
 }) => {
 
   return (
-    <div data-testid="select">
+    <div data-testid="select" style={{position: 'relative'}}>
       {/*@ts-ignore*/}
     <Select
       activeItem={text}
@@ -34,6 +34,7 @@ const GenericSelect: React.FC<Props> = ({
       itemPredicate={filterer}
       itemRenderer={renderer}
       items={items}
+      fill={true}
       leftIcon={icon}
       initialContent={null}
       onItemSelect={onItemSelect}

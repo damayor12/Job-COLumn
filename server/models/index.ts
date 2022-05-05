@@ -10,19 +10,19 @@ const dbName = process.env.DB_NAME as string;
 const dbUsername = process.env.DB_USERNAME as string;
 const dbPort = process.env.DB_PORT as unknown as number;
 
-const config : Options = {
-  host: process.env.HOST_NAME,
+const config: Options = {
+  host: process.env.HOST_NAME || '127.0.0.1',
   dialect: 'postgres',
   logging: false,
-  port: dbPort,
+  port: dbPort || 5432,
 };
 
 console.log('DB PORT: ', dbPort);
 
 const connection = new Sequelize(
-  dbName,
-  dbUsername,
-  process.env.DB_PASSWORD,
+  dbName || 'jobscolumn',
+  dbUsername || 'postgres',
+  process.env.DB_PASSWORD || '',
   config
 );
 const db : any = {};

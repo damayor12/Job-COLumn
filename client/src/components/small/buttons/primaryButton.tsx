@@ -16,6 +16,7 @@ const PrimaryButton: React.FC<Props> = ({ ariaLabel, icon, onClick, text }) => {
       className={Classes.SMALL}
       fill={false}
       icon={icon}
+      role='primary'
       intent="primary"
       onClick={onClick}
     >

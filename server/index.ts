@@ -11,8 +11,8 @@ import router from './router';
 import db from './models/index';
 
 const app = express();
-const HOST_NAME = process.env.HOST_NAME;
-const PORT = process.env.PORT_NUMBER;
+const HOST_NAME = process.env.HOST_NAME || '127.0.0.1';
+const PORT = process.env.PORT_NUMBER || 3200;
 
 app
   .use(cors())

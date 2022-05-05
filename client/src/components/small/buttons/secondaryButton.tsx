@@ -16,6 +16,7 @@ const SecondaryButton: React.FC<Props> = ({ ariaLabel, icon, id, onClick, text }
       className={Classes.SMALL}
       fill={false}
       icon={icon}
+      
       data-testid='dark-mode-secondary' 
       role='darkmode'
       id={id}

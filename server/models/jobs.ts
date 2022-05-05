@@ -1,8 +1,19 @@
 'use strict';
 import db from './index';
 
-async function getAllJobs () {
+export const getAllJobsHelper = async() =>  {
   return await db.Jobs.findAll();
 }
 
-export default { getAllJobs };
+export const destroyJobs = async () => {
+  return await db.Jobs.destroy({});
+};
+
+
+
+// export default { getAllJobs };
+
+
+// async function destroyJobs() {
+//   return await db.Jobs.destroy({} );
+// }

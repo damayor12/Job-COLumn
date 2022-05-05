@@ -37,3 +37,5 @@ export const allContextProps = {
   theme: [true, () => {}],
   user: [defaultUser, (): void => {}],
 };
+
+

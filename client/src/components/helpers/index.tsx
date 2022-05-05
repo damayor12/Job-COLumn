@@ -3,7 +3,11 @@ import React from 'react';
 import Anchor from '../small/buttons/anchor';
 
 export function numberFormatter(number: number): string {
-  return number.toLocaleString('en-US');
+  if (number) {
+    return number.toLocaleString('en-US');
+  } else {
+    return '';
+  }
 }
 
 export const HeaderAndLogo: React.FC = () => (

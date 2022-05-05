@@ -1,4 +1,5 @@
 // Package imports
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 // Local imports
@@ -12,6 +13,7 @@ import {
   PrivacyDisclosure,
 } from '../helpers/welcome';
 import ToggleDarkMode from '../../components/small/buttons/toggleDarkMode';
+
 
 // Styling
 import './welcome.scss';
@@ -30,6 +32,8 @@ const Welcome: React.FC = () => {
       salary: value,
     });
   }
+
+  
 
   return (
     <>
