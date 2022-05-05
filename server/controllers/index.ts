@@ -4,7 +4,10 @@ import axios, { AxiosResponse } from 'axios';
 import db from '../models/index';
 // import {getAllJobs, destroyJobs}  from '../models/jobs';
 
-const getAllJobs = async (_: Request, res: Response) => {
+const getAllJobs = async (req: Request, res: Response) => {
+  const location = req.params.location
+
+  
   const rootUrl = 'http://127.0.0.1:3001';
 
   try {
@@ -20,7 +23,7 @@ const getAllJobs = async (_: Request, res: Response) => {
 
     var config = {
       method: 'get',
-      url: 'https://www.reed.co.uk/api/1.0/search?keywords=accountant&location=london',
+      url: `https://www.reed.co.uk/api/1.0/search?location=${location.toLowerCase()}`,
       headers: {
         Authorization: 'Basic OGQ0NjE5ZDAtYmFmOC00NjU0LWFlOGYtZjBlZGNmODFjYTgzOg==',
         Cookie:
@@ -28,41 +31,15 @@ const getAllJobs = async (_: Request, res: Response) => {
       },
     };
 
-    // axios(config)
-    //   .then(function (response) {
-
-    //     const data = db.Jobs.bulkCreate(response.data.results)
-    //     console.log('dataaaa', data);
-    //     if (data.length) {
-    //       console.log('yes')
-    //       res.status(200).send(JSON.stringify(data));
-    //       return
-    //     }
-    //     throw new Error('Failed to fetch')
-
-    //     // const res = db.Jobs.bulkCreate(JSON.stringify(response.data).res);
-
-    //     // res.status(200).send(JSON.stringify(response.data))
-    //   })
-    //   .catch(function (error) {
-    //     console.log('errorrrrrrr',error);
-    //   });
+    
 
     await axios(config).then((response) => {
-      // const jobs = await db.Jobs.bulkCreate(JSON.stringify(response.data));
+      console.log('params', JSON.stringify(response.data));
       res.status(200).send(JSON.stringify(response.data));
-
     });
-    // console.log('data', data)
 
-    // await getAllJobs();
+    // console.log('res', res);
 
-    console.log('res', res);
-
-    // const jobs: AxiosResponse = await axios.get(`${rootUrl}/jobs`);
-    // const jobs: AxiosResponse = await axios.get(
-    //   `https://www.reed.co.uk/api/1.0/search?keywords=accountant&location=london`,
-    // );
     // console.log('dataaaa',jobs)
     // const allJobs = await Jobs.getAllJobs();
     // res.status(200);
